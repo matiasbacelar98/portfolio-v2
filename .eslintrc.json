@@ -4,9 +4,8 @@
     "es2021": true
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:react/jsx-runtime",
     "plugin:import/recommended",
@@ -26,7 +25,9 @@
       },
       "alias": {
         "map": [
-          ["@/components", "./components"],
+          ["@components", "./components"],
+          ["@/hooks", "./hooks"],
+          ["@/contexts", "./contexts"],
           ["@/public", "./public"]
         ],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
@@ -36,7 +37,8 @@
   "rules": {
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
-    "no-unused-vars": "warn",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx", ".js"] }],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "import/no-unresolved": "off",
@@ -53,6 +55,8 @@
           "some": ["nesting", "id"]
         }
       }
-    ]
+    ],
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": "off"
   }
 }

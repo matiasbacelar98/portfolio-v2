@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const Heading = styled.h1`
-  color: red;
+const H1 = styled.h1`
+  color: ${({ theme }) => theme.accent};
 `;
 
 const Test = () => (
   <div>
-    <Heading>Test</Heading>
+    <H1>Test</H1>
   </div>
 );
 
