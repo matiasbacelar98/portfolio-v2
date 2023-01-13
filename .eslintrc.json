@@ -25,10 +25,13 @@
       },
       "alias": {
         "map": [
-          ["@components", "./components"],
+          ["@/components", "./components"],
           ["@/hooks", "./hooks"],
           ["@/contexts", "./contexts"],
-          ["@/public", "./public"]
+          ["@/public", "./public"],
+          ["@/styles", "./styles"],
+          ["@/constants", "constants"],
+          ["@/utils", "utils"]
         ],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }

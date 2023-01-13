@@ -7,3 +7,18 @@ export const breakpoints = {
   xxl: '75em', // 1200px
   xxxl: '87.5em', // 1400px
 };
+
+export const themeValues = {
+  headingXl: 'headingXl',
+  headingLg: 'headingLg',
+  headingSm: 'headingSm',
+
+  textBase: 'textBase',
+  textSm: 'textSm',
+  textXs: 'textXs',
+
+  lightWeight: 'lightWeight',
+  regularWeight: 'regularWeight',
+  mediumWeight: 'mediumWeight',
+  semiBoldWeight: 'semiBoldWeight',
+};

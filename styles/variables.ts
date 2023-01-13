@@ -4,11 +4,11 @@ type ValuesType = {
   [key: string]: string;
 };
 
-const generateSpacingValues = (levels: number, base = 8) => {
+export const generateSpacingValues = (levels: number, base = 8) => {
   const values: ValuesType = {};
 
   for (let i = 0; i <= levels; i++) {
-    values[`--sp-${i + 1}`] = `${(base * (i + 1)) / 16}rem`;
+    values[`--size-${i + 1}`] = `${(base * (i + 1)) / 16}rem`;
   }
 
   return values;

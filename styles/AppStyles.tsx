@@ -7,7 +7,7 @@ import hkGroteskFont from './fonts';
 import variables from './variables';
 import { lightTheme, darkTheme } from './theme';
 
-import { useTheme } from '@/hooks/useTheme';
+import { useTheme } from '@/hooks';
 
 const GlobalStyles = createGlobalStyle`
   ${reset}
@@ -15,17 +15,14 @@ const GlobalStyles = createGlobalStyle`
   ${hkGroteskFont}; 
 `;
 
-const AppStyles = ({ children }: PropsWithChildren) => {
-  const { theme, toggleTheme } = useTheme();
+export const AppStyles = ({ children }: PropsWithChildren) => {
+  const { theme } = useTheme();
   const themeMode = theme === 'dark' ? darkTheme : lightTheme;
 
   return (
     <ThemeProvider theme={themeMode}>
-      <button onClick={toggleTheme}>Toggle theme</button>
       <GlobalStyles />
       {children}
     </ThemeProvider>
   );
 };
-
-export default AppStyles;

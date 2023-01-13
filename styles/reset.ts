@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import { breakpoints } from '@/constants';
 
 const reset = css`
   /* Box sizing rules */
@@ -23,7 +24,14 @@ const reset = css`
     font-family: var(--font);
     color: ${({ theme }) => theme.text};
     background-color: ${({ theme }) => theme.bg};
-    padding: var(--sp-6) var(--sp-10) var(--sp-3);
+    padding: var(--size-6) var(--size-5) var(--size-3);
+    min-height: 100vh;
+  }
+
+  @media (min-width: ${breakpoints.md}) {
+    body {
+      padding: var(--size-6) var(--size-10) var(--size-3);
+    }
   }
 
   /* Remove default margin */
@@ -45,17 +53,16 @@ const reset = css`
     margin: 0;
   }
 
-  // Define line-height for headings
-  h1,
+  // Define line-height
+  h1 {
+    line-height: 1.6;
+  }
+
   h2,
   h3,
   h4,
   h5,
-  h6 {
-    line-height: 1.2;
-  }
-
-  // Define line-height for text
+  h6,
   p,
   span,
   caption {
