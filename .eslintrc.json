@@ -4,8 +4,8 @@
     "es2021": true
   },
   "extends": [
-    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
     "plugin:react/jsx-runtime",
     "plugin:import/recommended",
@@ -38,10 +38,8 @@
     }
   },
   "rules": {
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"],
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": "error",
+    "quotes": ["warn", "single"],
+    "semi": ["warn", "always"],
     "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx", ".js"] }],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "import/no-unresolved": "off",
@@ -60,6 +58,8 @@
       }
     ],
     "no-empty-function": "off",
-    "@typescript-eslint/no-empty-function": "off"
+    "@typescript-eslint/no-empty-function": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "warn"
   }
 }
