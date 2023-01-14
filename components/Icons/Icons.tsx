@@ -53,14 +53,18 @@ const StyledOpenIcon = styled(HiOutlineExternalLink)`
   ${socialIconStyles}
 `;
 
-const SocialIconWrapper = styled.div`
+type SocialIconType = {
+  isCard?: boolean;
+};
+
+const SocialIconWrapper = styled.div<SocialIconType>`
   display: grid;
   place-items: center;
 
   width: var(--size-6);
   height: var(--size-6);
 
-  border: 1px solid transparent;
+  border: 1px solid ${props => (props.isCard ? 'transparent' : props.theme.accent)};
   border-radius: 50%;
 
   transition: border 150ms ease-in;
@@ -77,33 +81,34 @@ const SocialIconWrapper = styled.div`
 
 type Social = {
   type: 'github' | 'linkedin' | 'mail' | 'open';
+  isCard?: boolean;
 };
 
-export const SocialIcon = ({ type }: Social) => {
+export const SocialIcon = ({ type, isCard = false }: Social) => {
   if (type === 'github')
     return (
-      <SocialIconWrapper>
+      <SocialIconWrapper isCard={isCard}>
         <StyledGithubIcon />
       </SocialIconWrapper>
     );
 
   if (type === 'linkedin')
     return (
-      <SocialIconWrapper>
+      <SocialIconWrapper isCard={isCard}>
         <StyledLinkedinIcon />
       </SocialIconWrapper>
     );
 
   if (type === 'mail')
     return (
-      <SocialIconWrapper>
+      <SocialIconWrapper isCard={isCard}>
         <StyledMailIcon />
       </SocialIconWrapper>
     );
 
   if (type === 'open')
     return (
-      <SocialIconWrapper>
+      <SocialIconWrapper isCard={isCard}>
         <StyledOpenIcon />
       </SocialIconWrapper>
     );
