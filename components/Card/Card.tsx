@@ -8,7 +8,7 @@ const StyledCard = styled.article`
   display: grid;
   place-items: center;
 
-  border: 1px solid ${props => props.theme.text};
+  border: 2px solid ${props => props.theme.text};
   border-radius: var(--border-radius);
 `;
 

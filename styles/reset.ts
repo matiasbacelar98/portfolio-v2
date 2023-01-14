@@ -24,13 +24,13 @@ const reset = css`
     font-family: var(--font);
     color: ${({ theme }) => theme.text};
     background-color: ${({ theme }) => theme.bg};
-    padding: var(--size-6) var(--size-5) var(--size-3);
+    padding: var(--size-5) var(--size-5) var(--size-3);
     min-height: 100vh;
   }
 
   @media (min-width: ${breakpoints.md}) {
     body {
-      padding: var(--size-6) var(--size-10) var(--size-3);
+      padding: var(--size-5) var(--size-10) var(--size-3);
     }
   }
 

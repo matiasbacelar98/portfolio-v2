@@ -1,17 +1,11 @@
-import { SocialIcon } from '@/components/Icons';
+import Logo from '@/components/Logo';
 
 const Home = () => {
   return (
     <div>
-      Test...
+      <Logo />
       <br />
-      <SocialIcon type="github" />
-      <br />
-      <SocialIcon type="linkedin" />
-      <br />
-      <SocialIcon type="mail" />
-      <br />
-      <SocialIcon type="open" />
+      test...
     </div>
   );
 };

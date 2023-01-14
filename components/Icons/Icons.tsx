@@ -64,13 +64,13 @@ const SocialIconWrapper = styled.div<SocialIconType>`
   width: var(--size-6);
   height: var(--size-6);
 
-  border: 1px solid ${props => (props.isCard ? 'transparent' : props.theme.accent)};
+  border: 2px solid ${props => (props.isCard ? 'transparent' : props.theme.accent)};
   border-radius: 50%;
 
   transition: border 150ms ease-in;
 
   &:hover {
-    border: 1px solid ${props => props.theme.text};
+    border: 2px solid ${props => props.theme.text};
 
     // Change icon
     & svg {
