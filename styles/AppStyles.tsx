@@ -16,11 +16,12 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 export const AppStyles = ({ children }: PropsWithChildren) => {
-  const { theme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const themeMode = theme === 'dark' ? darkTheme : lightTheme;
 
   return (
     <ThemeProvider theme={themeMode}>
+      <button onClick={toggleTheme}>toggle theme</button>
       <GlobalStyles />
       {children}
     </ThemeProvider>

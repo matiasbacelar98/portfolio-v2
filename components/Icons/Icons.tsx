@@ -1,4 +1,7 @@
-import { FaReact, FaNodeJs } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaLinkedinIn } from 'react-icons/fa';
+import { FiGithub } from 'react-icons/fi';
+import { HiOutlineExternalLink } from 'react-icons/hi';
+import { AiOutlineMail } from 'react-icons/ai';
 import styled, { css } from 'styled-components';
 
 //------------- HandIcon -------------//
@@ -31,29 +34,95 @@ export const HandIcon = ({ type, size }: Hand) => {
 };
 
 //------------- SocialIcon -------------//
+const socialIconStyles = css`
+  font-size: var(--size-3);
+  color: ${props => props.theme.accent};
+  transition: color 150ms ease-in-out;
+`;
+
+const StyledGithubIcon = styled(FiGithub)`
+  ${socialIconStyles}
+`;
+const StyledLinkedinIcon = styled(FaLinkedinIn)`
+  ${socialIconStyles}
+`;
+const StyledMailIcon = styled(AiOutlineMail)`
+  ${socialIconStyles}
+`;
+const StyledOpenIcon = styled(HiOutlineExternalLink)`
+  ${socialIconStyles}
+`;
+
+const SocialIconWrapper = styled.div`
+  display: grid;
+  place-items: center;
+
+  width: var(--size-6);
+  height: var(--size-6);
+
+  border: 1px solid transparent;
+  border-radius: 50%;
+
+  transition: border 150ms ease-in;
+
+  &:hover {
+    border: 1px solid ${props => props.theme.text};
+
+    // Change icon
+    & svg {
+      color: ${props => props.theme.text};
+    }
+  }
+`;
+
 type Social = {
-  type: 'github' | 'linkedin' | 'mail';
+  type: 'github' | 'linkedin' | 'mail' | 'open';
 };
 
 export const SocialIcon = ({ type }: Social) => {
-  if (type === 'github') return <div>Github icon</div>;
-  if (type === 'linkedin') return <div>Linkedin icon</div>;
-  if (type === 'mail') return <div>EmailIcon</div>;
+  if (type === 'github')
+    return (
+      <SocialIconWrapper>
+        <StyledGithubIcon />
+      </SocialIconWrapper>
+    );
+
+  if (type === 'linkedin')
+    return (
+      <SocialIconWrapper>
+        <StyledLinkedinIcon />
+      </SocialIconWrapper>
+    );
+
+  if (type === 'mail')
+    return (
+      <SocialIconWrapper>
+        <StyledMailIcon />
+      </SocialIconWrapper>
+    );
+
+  if (type === 'open')
+    return (
+      <SocialIconWrapper>
+        <StyledOpenIcon />
+      </SocialIconWrapper>
+    );
+
   return null;
 };
 
 //------------- Technologies Icons -------------//
-const baseIconStyles = css`
+const techIconStyles = css`
   font-size: var(--size-6);
   color: ${props => props.theme.text};
 `;
 
 const StyledReactIcon = styled(FaReact)`
-  ${baseIconStyles}
+  ${techIconStyles}
 `;
 
 const StyledNodeIcon = styled(FaNodeJs)`
-  ${baseIconStyles}
+  ${techIconStyles}
 `;
 
 const StyledTypescriptIcon = styled.span`
