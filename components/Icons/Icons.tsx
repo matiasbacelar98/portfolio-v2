@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import { FaReact, FaNodeJs } from 'react-icons/fa';
+import styled, { css } from 'styled-components';
 
-//------------- Styles -------------//
+//------------- HandIcon -------------//
 type SizesType = {
   [key: string]: string;
 };
-
 const sizes: SizesType = {
   lg: 'var(--size-6)',
   md: 'var(--size-4)',
@@ -14,12 +14,10 @@ const sizes: SizesType = {
 type HandImageType = {
   size: string;
 };
-
 const HandImage = styled.img<HandImageType>`
   max-width: ${props => `${sizes[props.size]}`};
 `;
 
-//------------- HandIcon -------------//
 type Hand = {
   type: 'salute' | 'point' | 'cool';
   size: 'lg' | 'md' | 'sm';
@@ -44,14 +42,26 @@ export const SocialIcon = ({ type }: Social) => {
   return null;
 };
 
-//------------- TechnologyIcon -------------//
-type Technology = {
-  type: 'react' | 'node' | 'typescript';
-};
+//------------- Technologies Icons -------------//
+const baseIconStyles = css`
+  font-size: var(--size-6);
+  color: ${props => props.theme.text};
+`;
 
-export const TechnologyIcon = ({ type }: Technology) => {
-  if (type === 'react') return <div>react icon</div>;
-  if (type === 'node') return <div>node icon</div>;
-  if (type === 'typescript') return <div>typescriptIcon</div>;
-  return null;
-};
+const StyledReactIcon = styled(FaReact)`
+  ${baseIconStyles}
+`;
+
+const StyledNodeIcon = styled(FaNodeJs)`
+  ${baseIconStyles}
+`;
+
+const StyledTypescriptIcon = styled.span`
+  font-size: var(--size-5);
+  color: ${props => props.theme.text};
+  text-transform: uppercase;
+`;
+
+export const ReactIcon = () => <StyledReactIcon />;
+export const NodeIcon = () => <StyledNodeIcon />;
+export const TypescriptIcon = () => <StyledTypescriptIcon>ts</StyledTypescriptIcon>;

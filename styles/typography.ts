@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { pixelsToRem } from '@/utils';
 
+//--------- Headings & Texts ---------//
 type TypographyType = {
   size: string;
   weight: string;
@@ -10,7 +11,6 @@ type TypographyType = {
   hover?: boolean;
 };
 
-// Headings & Texts
 export const Typography = styled.span<TypographyType>`
   font-size: ${props => props.theme[props.size]};
   font-weight: ${props => props.theme[props.weight]};
@@ -31,13 +31,13 @@ export const Typography = styled.span<TypographyType>`
     `}
 `;
 
-type ExternalLinkType = {
+//--------- OutterLink ---------//
+type OutterLinkType = {
   size: string;
   weight: string;
 };
 
-// External links
-export const OutterLink = styled.a<ExternalLinkType>`
+export const OutterLink = styled.a<OutterLinkType>`
   font-size: ${props => props.theme[props.size]};
   font-weight: ${props => props.theme[props.weight]};
 
@@ -51,7 +51,8 @@ export const OutterLink = styled.a<ExternalLinkType>`
   }
 `;
 
-type InternalLinkType = {
+//--------- InnerLink ---------//
+type InnerLinkType = {
   size?: string;
   weight?: string;
   highlighted?: boolean;
@@ -59,8 +60,7 @@ type InternalLinkType = {
   active?: boolean;
 };
 
-// Internal Links
-export const InnerLink = styled.a<InternalLinkType>`
+export const InnerLink = styled.a<InnerLinkType>`
   font-size: ${props => (props.size ? props.theme[props.size] : props.theme.testBase)};
   font-weight: ${props => (props.weight ? props.theme[props.weight] : props.theme.regularWeight)};
   color: ${props => props.theme.text};
