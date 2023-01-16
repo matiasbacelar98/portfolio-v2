@@ -1,3 +1,7 @@
+/* eslint-disable */
+
+const nextTranslate = require('next-translate');
+
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
@@ -5,5 +9,4 @@ const nextConfig = {
   },
 };
 
-// eslint-disable-next-line
-module.exports = nextConfig;
+module.exports = { ...nextConfig, ...nextTranslate() };

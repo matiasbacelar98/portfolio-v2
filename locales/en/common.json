@@ -1,0 +1,67 @@
+{
+  "homeSection": {
+    "links": ["About", "Experience", "Projects", "Contact"],
+    "salute": "Hi there!",
+    "title": "I’m Matias Bacelar, a front-end focused software developer who likes to build interfaces & digital experiences for the web.",
+    "cta": "Get in touch"
+  },
+  "aboutSection": {
+    "title": "About",
+    "content": [
+      "I am a self-taught developer from La Plata (Buenos Aires) with a focus on Javascript & React. I have an interest in micro interactions and effects in the UI as well as creating user experiences that are dynamic and interactive.",
+      "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession. I enjoy building interfaces that are useful without losing the aesthetics of the application as I believe that usability and aesthetics are equally important.",
+      "These are some of the technologies that I normally use for my personal projects and professionally:"
+    ]
+  },
+  "experienceSection": {
+    "title": "Experience",
+    "info": [
+      {
+        "position": "Freelance Developer",
+        "company": "Freelancer",
+        "time": "Aug 2021 - May 2022",
+        "firstItem": "Website for the SPB Circle of Officers with the React ecosystem, the most important features were custom form validation, storing data in firebase, custom maps and animations.",
+        "secondItem": "Application called Tiendas platenses that give users the ability to search for different products and contact the specific seller of that product."
+      },
+      {
+        "position": "Front-end Developer ",
+        "company": "ModoAgrario",
+        "time": "May 2022 - Present",
+        "firstItem": "Developed and mantained code for the company software (Collaborative E-sourcing platform) with React and his ecosystem.",
+        "secondItem": "Develop the landing page of the company with Next JS, I used the Internationalized Routing functionality to have translations in English, Spanish and Portuguese as well as adding animations using framer motion."
+      }
+    ]
+  },
+  "projectsSection": {
+    "title": "Projects",
+    "cursorText": "See",
+    "projects": [
+      {
+        "name": "Snapcode",
+        "technologies": ["Vite", "React", "Framer motion", "Supabase"],
+        "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
+        "liveUrl": "url",
+        "githubUrl": "github"
+      },
+      {
+        "name": "Moderne",
+        "technologies": ["React", "Framer motion", "Mapbox", "Styled components"],
+        "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
+        "liveUrl": "url",
+        "githubUrl": "github"
+      },
+      {
+        "name": "Portfolio v1",
+        "technologies": ["Next", "Strapi", "Axios", "Styled components"],
+        "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
+        "liveUrl": "url",
+        "githubUrl": "github"
+      }
+    ]
+  },
+  "footerSection": {
+    "title": "Let’s talk   +",
+    "message": "If you want to contact me to ask me something my inbox is always open.",
+    "copyright": "Designed & Built by"
+  }
+}

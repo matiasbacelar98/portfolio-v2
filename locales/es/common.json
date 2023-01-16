@@ -1,0 +1,67 @@
+{
+  "homeSection": {
+    "links": ["Sobre", "Experiencia", "Projectos", "Contacto"],
+    "salute": "Hola!",
+    "title": "Soy Matias Bacelar, desarrollador de software con foco en front-end que disfruta constuir interfaces y experiencias digitales para la web.",
+    "cta": "Contáctame"
+  },
+  "aboutSection": {
+    "title": "Sobre",
+    "content": [
+      "Soy un desarrollador autodidacta de La Plata (Buenos Aires) con foco en Javascript & React. Me interesan las micro interacciones y los efectos en la UI como también crear experiencias de usuario que sean dinámicas e interactivas.",
+      "Empecé a programar por diversión hace unos años y sin darme cuenta la programación se convirtió en un hobby y ahora en una profesión. Disfruto construyendo interfaces que sean útiles sin perder la estética de la aplicación ya que creo que la usabilidad y la estética son igualmente importantes.",
+      "Estas son algunas de las tecnologías que suelo utilizar para mis proyectos personales y profesionales:"
+    ]
+  },
+  "experienceSection": {
+    "title": "Experiencia",
+    "info": [
+      {
+        "position": "Freelance Developer",
+        "company": "Freelancer",
+        "time": "Agosto 2021 - Mayo 2022",
+        "firstItem": "Sitio web para el Círculo de Oficiales de SPB con el ecosistema de React, las características más importantes fueron la validación de formularios dinamicos, el almacenamiento de datos en firebase, mapas personalizados y animaciones.",
+        "secondItem": "Aplicación llamada Tiendas platenses que brinda a los usuarios la posibilidad de buscar diferentes productos y contactar al vendedor específico de ese producto."
+      },
+      {
+        "position": "Front-end Developer ",
+        "company": "ModoAgrario",
+        "time": "Mayo 2022 - Presente",
+        "firstItem": "Desarrollo y mantenimiento de código para el software de la empresa (plataforma colaborativa de E-sourcing) con React y su ecosistema.",
+        "secondItem": "Desarrollo del sitio web de la empresa con Next JS, utilizacion de la funcionalidad de Enrutamiento Internacionalizado para tener traducciones en inglés, español y portugués además de animaciones utilizando framer motion."
+      }
+    ]
+  },
+  "projectsSection": {
+    "title": "Projectos",
+    "cursorText": "Ver",
+    "projects": [
+      {
+        "name": "Snapcode",
+        "technologies": ["Vite", "React", "Framer motion", "Supabase"],
+        "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
+        "liveUrl": "url",
+        "githubUrl": "github"
+      },
+      {
+        "name": "Moderne",
+        "technologies": ["React", "Framer motion", "Mapbox", "Styled components"],
+        "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
+        "liveUrl": "url",
+        "githubUrl": "github"
+      },
+      {
+        "name": "Portfolio v1",
+        "technologies": ["Next", "Strapi", "Axios", "Styled components"],
+        "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
+        "liveUrl": "url",
+        "githubUrl": "github"
+      }
+    ]
+  },
+  "footerSection": {
+    "title": "Hablemos  +",
+    "message": "Si queres contactarme para preguntarme algo mi bandeja de entrada siempre está abierta.",
+    "copyright": "Diseñado y construido por"
+  }
+}
