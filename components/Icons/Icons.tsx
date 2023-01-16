@@ -1,31 +1,41 @@
+import { useRef } from 'react';
+import styled, { css } from 'styled-components';
+
 import { FaReact, FaNodeJs, FaLinkedinIn } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
 import { HiOutlineExternalLink } from 'react-icons/hi';
 import { AiOutlineMail } from 'react-icons/ai';
-import styled, { css } from 'styled-components';
+
+import { useCursor } from 'hooks';
+import { getBoundingBox } from '@/utils';
 
 //------------- HandIcon -------------//
+// Types
 type SizesType = {
   [key: string]: string;
-};
-const sizes: SizesType = {
-  lg: 'var(--size-6)',
-  md: 'var(--size-4)',
-  sm: 'var(--size-3)',
 };
 
 type HandImageType = {
   size: string;
 };
-const HandImage = styled.img<HandImageType>`
-  max-width: ${props => `${sizes[props.size]}`};
-`;
 
 type Hand = {
   type: 'salute' | 'point' | 'cool';
   size: 'lg' | 'md' | 'sm';
 };
 
+// Styles
+const sizes: SizesType = {
+  lg: 'var(--size-6)',
+  md: 'var(--size-4)',
+  sm: 'var(--size-3)',
+};
+
+const HandImage = styled.img<HandImageType>`
+  max-width: ${props => `${sizes[props.size]}`};
+`;
+
+// Main component
 export const HandIcon = ({ type, size }: Hand) => {
   if (type === 'salute') return <HandImage src="/icons/waving-hand.png" alt="waving hand" size={size} />;
   if (type === 'point') return <HandImage src="/icons/pointright-hand.png" alt="waving hand" size={size} />;
@@ -34,6 +44,17 @@ export const HandIcon = ({ type, size }: Hand) => {
 };
 
 //------------- SocialIcon -------------//
+// Types
+type SocialIconType = {
+  isCard?: boolean;
+};
+
+type Social = {
+  type: 'github' | 'linkedin' | 'mail' | 'open';
+  isCard?: boolean;
+};
+
+// Styles
 const socialIconStyles = css`
   font-size: var(--size-3);
   color: ${props => props.theme.accent};
@@ -43,19 +64,18 @@ const socialIconStyles = css`
 const StyledGithubIcon = styled(FiGithub)`
   ${socialIconStyles}
 `;
+
 const StyledLinkedinIcon = styled(FaLinkedinIn)`
   ${socialIconStyles}
 `;
+
 const StyledMailIcon = styled(AiOutlineMail)`
   ${socialIconStyles}
 `;
+
 const StyledOpenIcon = styled(HiOutlineExternalLink)`
   ${socialIconStyles}
 `;
-
-type SocialIconType = {
-  isCard?: boolean;
-};
 
 const SocialIconWrapper = styled.div<SocialIconType>`
   display: grid;
@@ -79,36 +99,63 @@ const SocialIconWrapper = styled.div<SocialIconType>`
   }
 `;
 
-type Social = {
-  type: 'github' | 'linkedin' | 'mail' | 'open';
-  isCard?: boolean;
+// Hooks
+const useAnimateCursor = () => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const { updateCursorPos, resetCursorPos, updateCursorType, resetCursorType } = useCursor();
+
+  //----- Utils -----//
+  const handleMouseMove = () => {
+    // Change cursor style
+    updateCursorType('hovered');
+
+    // Use this because i'am sure the value is of the expected type.
+    const element: HTMLDivElement = ref.current as HTMLDivElement;
+    const coordinates = getBoundingBox(element);
+
+    // Take element coordinates
+    const { xCenter, yCenter } = coordinates;
+
+    // Center custom_cursor relative to the element
+    return updateCursorPos(xCenter, yCenter);
+  };
+
+  const handleMouseLeave = () => {
+    resetCursorPos();
+    resetCursorType();
+  };
+
+  return { ref, handleMouseMove, handleMouseLeave };
 };
 
+// Main component
 export const SocialIcon = ({ type, isCard = false }: Social) => {
+  const { ref, handleMouseMove, handleMouseLeave } = useAnimateCursor();
+
   if (type === 'github')
     return (
-      <SocialIconWrapper isCard={isCard}>
+      <SocialIconWrapper isCard={isCard} ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
         <StyledGithubIcon />
       </SocialIconWrapper>
     );
 
   if (type === 'linkedin')
     return (
-      <SocialIconWrapper isCard={isCard}>
+      <SocialIconWrapper isCard={isCard} ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
         <StyledLinkedinIcon />
       </SocialIconWrapper>
     );
 
   if (type === 'mail')
     return (
-      <SocialIconWrapper isCard={isCard}>
+      <SocialIconWrapper isCard={isCard} ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
         <StyledMailIcon />
       </SocialIconWrapper>
     );
 
   if (type === 'open')
     return (
-      <SocialIconWrapper isCard={isCard}>
+      <SocialIconWrapper isCard={isCard} ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
         <StyledOpenIcon />
       </SocialIconWrapper>
     );
@@ -117,6 +164,7 @@ export const SocialIcon = ({ type, isCard = false }: Social) => {
 };
 
 //------------- Technologies Icons -------------//
+// Styles
 const techIconStyles = css`
   font-size: var(--size-6);
   color: ${props => props.theme.text};
@@ -136,6 +184,7 @@ const StyledTypescriptIcon = styled.span`
   text-transform: uppercase;
 `;
 
+// Components
 export const ReactIcon = () => <StyledReactIcon />;
 export const NodeIcon = () => <StyledNodeIcon />;
 export const TypescriptIcon = () => <StyledTypescriptIcon>ts</StyledTypescriptIcon>;

@@ -7,6 +7,7 @@ const reset = css`
   *::before,
   *::after {
     box-sizing: border-box;
+    cursor: none !important; // Remove default cursor in all elements
   }
 
   /* Remove horizontal scroll */

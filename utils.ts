@@ -21,3 +21,15 @@ type PixelsToRemType = (value: string) => string;
 export const pixelsToRem: PixelsToRemType = value => {
   return `${Number(value) / 16}rem`;
 };
+
+// Get element x & y center coordinates
+type GetBoundingBoxType = <T extends HTMLElement>(target: T) => { xCenter: number; yCenter: number };
+
+export const getBoundingBox: GetBoundingBoxType = target => {
+  const box = target.getBoundingClientRect();
+
+  return {
+    xCenter: (box.left + box.right) / 2,
+    yCenter: (box.top + box.bottom) / 2,
+  };
+};

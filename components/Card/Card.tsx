@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { ReactIcon, NodeIcon, TypescriptIcon } from '@/components/Icons';
 
+//----------- Styles -----------//
 const StyledCard = styled.article`
   width: var(--size-20);
   height: var(--size-20);
@@ -12,6 +13,7 @@ const StyledCard = styled.article`
   border-radius: var(--border-radius);
 `;
 
+//----------- Main component -----------//
 type Technology = {
   type: 'react' | 'node' | 'typescript';
 };
