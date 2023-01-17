@@ -6,7 +6,10 @@ export const useTheme = () => {
 
   // If the component is outside of the tree
   if (themeContext === undefined) {
-    throw Error('The component must be inside of the ThemeProvider, ' + 'otherwise it will not function correctly.');
+    throw Error(
+      'The component must be inside of the ThemeProvider, ' +
+        'otherwise it will not function correctly.'
+    );
   }
 
   const { theme, toggleTheme } = themeContext;

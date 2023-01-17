@@ -75,7 +75,14 @@ const Logo = () => {
       <LogoText>Mat</LogoText>
       <DotArea ref={ref}>
         <button onClick={toggleTheme}>
-          <svg width="9" height="9" overflow="visible" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            width="9"
+            height="9"
+            overflow="visible"
+            viewBox="0 0 9 9"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <Circle cx="4" cy="4" r="4" />
           </svg>
         </button>

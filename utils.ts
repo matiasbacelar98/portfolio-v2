@@ -1,7 +1,19 @@
 // FluidValues - Typography/Spacing
-type FluidValuesType = (minWidthPx: number, maxWidthPx: number, minValue: number, maxValue: number, pixelsPerRem?: number) => string;
+type FluidValuesType = (
+  minWidthPx: number,
+  maxWidthPx: number,
+  minValue: number,
+  maxValue: number,
+  pixelsPerRem?: number
+) => string;
 
-export const fluidValues: FluidValuesType = (minWidthPx, maxWidthPx, minValue, maxValue, pixelsPerRem = 16) => {
+export const fluidValues: FluidValuesType = (
+  minWidthPx,
+  maxWidthPx,
+  minValue,
+  maxValue,
+  pixelsPerRem = 16
+) => {
   const minWidth = minWidthPx / pixelsPerRem;
   const maxWidth = maxWidthPx / pixelsPerRem;
   const min = minValue / pixelsPerRem;
@@ -10,7 +22,9 @@ export const fluidValues: FluidValuesType = (minWidthPx, maxWidthPx, minValue, m
   const slope = (max - min) / (maxWidth - minWidth);
   const yAxisIntersection = -minWidth * slope + min;
 
-  const clampFunc = `clamp(${min}rem, ${yAxisIntersection.toFixed(4)}rem + ${(slope * 100).toFixed(4)}vw, ${max}rem);`;
+  const clampFunc = `clamp(${min}rem, ${yAxisIntersection.toFixed(4)}rem + ${(slope * 100).toFixed(
+    4
+  )}vw, ${max}rem);`;
 
   return clampFunc;
 };
@@ -23,7 +37,9 @@ export const pixelsToRem: PixelsToRemType = value => {
 };
 
 // Get element x & y center coordinates
-type GetBoundingBoxType = <T extends HTMLElement>(target: T) => { xCenter: number; yCenter: number };
+type GetBoundingBoxType = <T extends HTMLElement>(
+  target: T
+) => { xCenter: number; yCenter: number };
 
 export const getBoundingBox: GetBoundingBoxType = target => {
   const box = target.getBoundingClientRect();

@@ -24,4 +24,9 @@ export const lightTheme: DefaultTheme = {
   accent: 'hsl(0, 91%, 60%)',
 };
 
-export const darkTheme: DefaultTheme = { ...defaults, text: 'hsl(0, 0%, 100%)', bg: 'hsl(0, 0%, 7%)', accent: 'hsl(0, 91%, 60%)' };
+export const darkTheme: DefaultTheme = {
+  ...defaults,
+  text: 'hsl(0, 0%, 100%)',
+  bg: 'hsl(0, 0%, 7%)',
+  accent: 'hsl(0, 91%, 60%)',
+};

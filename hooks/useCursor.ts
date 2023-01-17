@@ -6,7 +6,10 @@ export const useCursor = () => {
 
   // If the component is outside of the tree
   if (cursorContext === undefined) {
-    throw Error('The component must be inside of the CursorProvider, ' + 'otherwise it will not function correctly.');
+    throw Error(
+      'The component must be inside of the CursorProvider, ' +
+        'otherwise it will not function correctly.'
+    );
   }
 
   const { positions, cursorType, cursorStyles, dispatch } = cursorContext;
@@ -46,5 +49,12 @@ export const useCursor = () => {
       payload: 'default',
     });
   };
-  return { positions, cursorType, updateCursorType, resetCursorType, resetCursorPos, updateCursorPos };
+  return {
+    positions,
+    cursorType,
+    updateCursorType,
+    resetCursorType,
+    resetCursorPos,
+    updateCursorPos,
+  };
 };

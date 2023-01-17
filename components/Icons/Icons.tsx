@@ -37,9 +37,12 @@ const HandImage = styled.img<HandImageType>`
 
 // Main component
 export const HandIcon = ({ type, size }: Hand) => {
-  if (type === 'salute') return <HandImage src="/icons/waving-hand.png" alt="waving hand" size={size} />;
-  if (type === 'point') return <HandImage src="/icons/pointright-hand.png" alt="waving hand" size={size} />;
-  if (type === 'cool') return <HandImage src="/icons/cool-hand.png" alt="waving hand" size={size} />;
+  if (type === 'salute')
+    return <HandImage src="/icons/waving-hand.png" alt="waving hand" size={size} />;
+  if (type === 'point')
+    return <HandImage src="/icons/pointright-hand.png" alt="waving hand" size={size} />;
+  if (type === 'cool')
+    return <HandImage src="/icons/cool-hand.png" alt="waving hand" size={size} />;
   return null;
 };
 
@@ -134,28 +137,48 @@ export const SocialIcon = ({ type, isCard = false }: Social) => {
 
   if (type === 'github')
     return (
-      <SocialIconWrapper isCard={isCard} ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+      <SocialIconWrapper
+        isCard={isCard}
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
         <StyledGithubIcon />
       </SocialIconWrapper>
     );
 
   if (type === 'linkedin')
     return (
-      <SocialIconWrapper isCard={isCard} ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+      <SocialIconWrapper
+        isCard={isCard}
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
         <StyledLinkedinIcon />
       </SocialIconWrapper>
     );
 
   if (type === 'mail')
     return (
-      <SocialIconWrapper isCard={isCard} ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+      <SocialIconWrapper
+        isCard={isCard}
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
         <StyledMailIcon />
       </SocialIconWrapper>
     );
 
   if (type === 'open')
     return (
-      <SocialIconWrapper isCard={isCard} ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+      <SocialIconWrapper
+        isCard={isCard}
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
         <StyledOpenIcon />
       </SocialIconWrapper>
     );

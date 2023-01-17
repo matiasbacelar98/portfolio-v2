@@ -38,6 +38,13 @@ const StyledCursor = styled.div<StyledCursorType>`
   will-change: width, height, transform, border;
 
   ${props =>
+    props.type === 'small' &&
+    css`
+      width: var(--size-2);
+      height: var(--size-2);
+    `}
+
+  ${props =>
     props.type === 'hovered' &&
     css`
       width: var(--size-7);

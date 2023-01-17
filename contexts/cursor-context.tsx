@@ -1,7 +1,9 @@
 import { createContext, useReducer, Dispatch, PropsWithChildren } from 'react';
 
 //----------- Types -----------//
-type Action = { type: 'updatePositions'; payload: { x: number; y: number } } | { type: 'updateCursorType'; payload: string };
+type Action =
+  | { type: 'updatePositions'; payload: { x: number; y: number } }
+  | { type: 'updateCursorType'; payload: string };
 
 type CursorContextValue = {
   positions: [number, number];
@@ -29,7 +31,7 @@ export const CursorContext = createContext<CursorContextValue>({
 const cursorState: CursorStateType = {
   positions: [0, 0],
   cursorType: 'default',
-  cursorStyles: ['default', 'hovered', 'see', 'logo'],
+  cursorStyles: ['default', 'small', 'hovered', 'see', 'logo'],
 };
 
 // Reducer
