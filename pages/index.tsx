@@ -1,32 +1,152 @@
+import Layout from '@/components/Layout';
+
 const Home = () => {
   return (
-    <div>
-      <br />
+    <Layout>
       <h1>test...</h1>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
 
       <br />
-      <br />
-      <br />
-      <br />
-      <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
 
       <br />
-      <br />
-      <br />
-      <br />
-      <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
 
       <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
+
       <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
+
       <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
+
       <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
+
       <br />
-    </div>
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
+
+      <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
+
+      <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
+
+      <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
+
+      <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
+
+      <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
+
+      <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
+
+      <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
+
+      <br />
+
+      <p>
+        I started programming for fun a few years ago and without realizing it, programming became a
+        hobby and now a profession. I enjoy building interfaces that are useful without losing the
+        aesthetics of the application as I believe that usability and aesthetics are equally
+        important.
+      </p>
+    </Layout>
   );
 };
 

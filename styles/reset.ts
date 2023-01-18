@@ -13,6 +13,7 @@ const reset = css`
   /* Remove horizontal scroll */
   html {
     overflow-x: hidden;
+    overscroll-behavior: none;
   }
 
   /* Set core root defaults */
@@ -25,14 +26,6 @@ const reset = css`
     font-family: var(--font);
     color: ${({ theme }) => theme.text};
     background-color: ${({ theme }) => theme.bg};
-    padding: var(--size-5) var(--size-5) var(--size-3);
-    min-height: 100vh;
-  }
-
-  @media (min-width: ${breakpoints.md}) {
-    body {
-      padding: var(--size-5) var(--size-10) var(--size-3);
-    }
   }
 
   /* Remove default margin */
