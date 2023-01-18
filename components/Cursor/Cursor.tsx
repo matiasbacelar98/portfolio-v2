@@ -5,10 +5,6 @@ import { useCursor } from '@/hooks';
 import { themeValues as theme } from '@/constants';
 
 //----------- Styles -----------//
-type StyledCursorType = {
-  type: string;
-};
-
 const emptyCursor = (clr: string) => css`
   &::before {
     content: '';
@@ -21,6 +17,10 @@ const emptyCursor = (clr: string) => css`
     border: 3px solid ${props => props.theme[clr]};
   }
 `;
+
+type StyledCursorType = {
+  type: string;
+};
 
 const StyledCursor = styled.div<StyledCursorType>`
   position: fixed;
@@ -117,9 +117,8 @@ const useMouseMove = () => {
     // Add event to make custom_cursor follow the cursor
     document.addEventListener('mousemove', onMouseMove);
 
-    return () => {
-      document.removeEventListener('mousemove', onMouseMove);
-    };
+    // Clean up event
+    return () => document.removeEventListener('mousemove', onMouseMove);
   }, [positions]);
 
   return cursorRef;

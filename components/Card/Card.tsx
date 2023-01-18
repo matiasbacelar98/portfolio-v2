@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactIcon, NodeIcon, TypescriptIcon } from '@/components/Icons';
+import { TechIcon } from '@/components/Icons';
 
 //----------- Styles -----------//
 const StyledCard = styled.article`
@@ -19,28 +19,16 @@ type Technology = {
 };
 
 const Card = ({ type }: Technology) => {
-  if (type === 'react')
-    return (
-      <StyledCard>
-        <ReactIcon />
-      </StyledCard>
-    );
+  const types = {
+    react: <TechIcon type="react" />,
+    node: <TechIcon type="node" />,
+    typescript: <TechIcon type="typescript" />,
+  };
 
-  if (type === 'node')
-    return (
-      <StyledCard>
-        <NodeIcon />
-      </StyledCard>
-    );
+  const cardNotFound = !types[type];
 
-  if (type === 'typescript')
-    return (
-      <StyledCard>
-        <TypescriptIcon />
-      </StyledCard>
-    );
-
-  return null;
+  if (cardNotFound) throw new Error('Card type doesnt exist');
+  return <StyledCard>{types[type]}</StyledCard>;
 };
 
 export default Card;

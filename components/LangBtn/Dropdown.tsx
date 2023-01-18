@@ -59,8 +59,8 @@ type DropdownListType = {
 
 export const DropdownList = ({ toggleLang, locale }: DropdownListType) => {
   const animation = {
-    from: () => ({ opacity: 0, y: '0.5rem' }),
-    to: () => ({ opacity: 1, y: 0 }),
+    from: () => ({ opacity: 0, y: 5 }),
+    to: () => ({ opacity: 1, y: 0, transition: { type: 'tween', duration: 0.2 } }),
   };
 
   return (

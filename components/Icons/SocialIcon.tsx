@@ -1,53 +1,15 @@
 import { useRef } from 'react';
 import styled, { css } from 'styled-components';
 
-import { FaReact, FaNodeJs, FaLinkedinIn } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
 import { HiOutlineExternalLink } from 'react-icons/hi';
 import { AiOutlineMail } from 'react-icons/ai';
+import { FaLinkedinIn } from 'react-icons/fa';
 
 import { useCursor } from 'hooks';
 import { getBoundingBox } from '@/utils';
 
-//------------- HandIcon -------------//
-// Types
-type SizesType = {
-  [key: string]: string;
-};
-
-type HandImageType = {
-  size: string;
-};
-
-type Hand = {
-  type: 'salute' | 'point' | 'cool';
-  size: 'lg' | 'md' | 'sm';
-};
-
-// Styles
-const sizes: SizesType = {
-  lg: 'var(--size-6)',
-  md: 'var(--size-4)',
-  sm: 'var(--size-3)',
-};
-
-const HandImage = styled.img<HandImageType>`
-  max-width: ${props => `${sizes[props.size]}`};
-`;
-
-// Main component
-export const HandIcon = ({ type, size }: Hand) => {
-  if (type === 'salute')
-    return <HandImage src="/icons/waving-hand.png" alt="waving hand" size={size} />;
-  if (type === 'point')
-    return <HandImage src="/icons/pointright-hand.png" alt="waving hand" size={size} />;
-  if (type === 'cool')
-    return <HandImage src="/icons/cool-hand.png" alt="waving hand" size={size} />;
-  return null;
-};
-
-//------------- SocialIcon -------------//
-// Types
+//----------------- Types -----------------//
 type SocialIconType = {
   isCard?: boolean;
 };
@@ -57,7 +19,7 @@ type Social = {
   isCard?: boolean;
 };
 
-// Styles
+//----------------- Styles -----------------//
 const socialIconStyles = css`
   font-size: var(--size-3);
   color: ${props => props.theme.accent};
@@ -102,7 +64,7 @@ const SocialIconWrapper = styled.div<SocialIconType>`
   }
 `;
 
-// Hooks
+//----------------- Hooks -----------------//
 const useAnimateCursor = () => {
   const ref = useRef<HTMLDivElement | null>(null);
   const { updateCursorPos, resetCursorPos, updateCursorType, resetCursorType } = useCursor();
@@ -131,12 +93,12 @@ const useAnimateCursor = () => {
   return { ref, handleMouseMove, handleMouseLeave };
 };
 
-// Main component
+//----------------- Main component -----------------//
 export const SocialIcon = ({ type, isCard = false }: Social) => {
   const { ref, handleMouseMove, handleMouseLeave } = useAnimateCursor();
 
-  if (type === 'github')
-    return (
+  const types = {
+    github: (
       <SocialIconWrapper
         isCard={isCard}
         ref={ref}
@@ -145,10 +107,8 @@ export const SocialIcon = ({ type, isCard = false }: Social) => {
       >
         <StyledGithubIcon />
       </SocialIconWrapper>
-    );
-
-  if (type === 'linkedin')
-    return (
+    ),
+    linkedin: (
       <SocialIconWrapper
         isCard={isCard}
         ref={ref}
@@ -157,10 +117,8 @@ export const SocialIcon = ({ type, isCard = false }: Social) => {
       >
         <StyledLinkedinIcon />
       </SocialIconWrapper>
-    );
-
-  if (type === 'mail')
-    return (
+    ),
+    mail: (
       <SocialIconWrapper
         isCard={isCard}
         ref={ref}
@@ -169,10 +127,8 @@ export const SocialIcon = ({ type, isCard = false }: Social) => {
       >
         <StyledMailIcon />
       </SocialIconWrapper>
-    );
-
-  if (type === 'open')
-    return (
+    ),
+    open: (
       <SocialIconWrapper
         isCard={isCard}
         ref={ref}
@@ -181,33 +137,11 @@ export const SocialIcon = ({ type, isCard = false }: Social) => {
       >
         <StyledOpenIcon />
       </SocialIconWrapper>
-    );
+    ),
+  };
 
-  return null;
+  const socialTypeNotFound = !types[type];
+
+  if (socialTypeNotFound) throw new Error('SocialIcon type doesnt exist');
+  return types[type];
 };
-
-//------------- Technologies Icons -------------//
-// Styles
-const techIconStyles = css`
-  font-size: var(--size-6);
-  color: ${props => props.theme.text};
-`;
-
-const StyledReactIcon = styled(FaReact)`
-  ${techIconStyles}
-`;
-
-const StyledNodeIcon = styled(FaNodeJs)`
-  ${techIconStyles}
-`;
-
-const StyledTypescriptIcon = styled.span`
-  font-size: var(--size-5);
-  color: ${props => props.theme.text};
-  text-transform: uppercase;
-`;
-
-// Components
-export const ReactIcon = () => <StyledReactIcon />;
-export const NodeIcon = () => <StyledNodeIcon />;
-export const TypescriptIcon = () => <StyledTypescriptIcon>ts</StyledTypescriptIcon>;
