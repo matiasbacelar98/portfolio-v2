@@ -10,6 +10,11 @@ const StyledDropdownHeader = styled.button`
   align-items: center;
   background-color: transparent;
   border: 0;
+  width: var(--size-10);
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 type ArrowIconType = {
@@ -41,6 +46,11 @@ export const DropdownHeader = ({ toggleList, content, isOpen }: DropdownHeaderTy
 
 //------------ DropdownList ------------//
 const StyledDropdownList = styled(motion.ul)`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: var(--size-10);
+
   & > * + * {
     margin-top: var(--size-1);
   }
@@ -50,6 +60,10 @@ const DropdownBtn = styled.button`
   background-color: transparent;
   color: ${props => props.theme.text};
   border: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 type DropdownListType = {
@@ -64,7 +78,7 @@ export const DropdownList = ({ toggleLang, locale }: DropdownListType) => {
   };
 
   return (
-    <StyledDropdownList key="lang-list" initial={animation.from()} animate={animation.to()}>
+    <StyledDropdownList initial={animation.from()} animate={animation.to()}>
       <li>
         <DropdownBtn type="button" onClick={() => toggleLang(locale)}>
           <Flag lang={locale} />

@@ -1,7 +1,6 @@
-import { useRef } from 'react';
+import { MouseEvent } from 'react';
 import styled from 'styled-components';
 import { useTheme, useCursor } from '@/hooks';
-import { getBoundingBox } from '@/utils';
 
 //---------- Styles ----------//
 const LogoWrapper = styled.div`
@@ -18,17 +17,18 @@ const LogoText = styled.span`
   color: ${props => props.theme.text};
 `;
 
-const DotArea = styled.div`
+const DotArea = styled.button`
   display: flex;
   align-items: center;
   height: 100%;
+  background-color: transparent;
+  display: grid;
+  place-items: center;
+  border: 0;
+  padding-top: 0.375rem; // 6px
 
-  & button {
-    background-color: transparent;
-    display: grid;
-    place-items: center;
-    border: 0;
-    padding-top: var(--size-1);
+  &:hover {
+    cursor: pointer;
   }
 `;
 
@@ -36,56 +36,31 @@ const Circle = styled.circle`
   fill: ${props => props.theme.accent};
 `;
 
-//---------- Hooks ----------//
-const useAnimateCursor = () => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const { updateCursorPos, resetCursorPos, updateCursorType, resetCursorType } = useCursor();
-
-  //----- Utils -----//
-  const handleMouseMove = () => {
-    // Use this because i'am sure the value is of the expected type.
-    const element: HTMLDivElement = ref.current as HTMLDivElement;
-    const coordinates = getBoundingBox(element);
-
-    // Take element coordinates
-    const { xCenter, yCenter } = coordinates;
-
-    // Center custom_cursor relative to the element
-    updateCursorPos(xCenter, yCenter);
-
-    // Change cursor style
-    updateCursorType('logo');
-  };
-
-  const handleMouseLeave = () => {
-    resetCursorPos();
-    resetCursorType();
-  };
-
-  return { ref, handleMouseMove, handleMouseLeave };
-};
-
 //---------- Main component ----------//
 const Logo = () => {
-  const { ref, handleMouseMove, handleMouseLeave } = useAnimateCursor();
   const { toggleTheme } = useTheme();
+  const { updateCursorType, resetCursorType } = useCursor();
+
+  const handleMouseMove = (e: MouseEvent) => {
+    updateCursorType('logo');
+    e.preventDefault();
+  };
+  const handleMouseLeave = () => resetCursorType();
 
   return (
-    <LogoWrapper onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+    <LogoWrapper>
       <LogoText>Mat</LogoText>
-      <DotArea ref={ref}>
-        <button onClick={toggleTheme}>
-          <svg
-            width="9"
-            height="9"
-            overflow="visible"
-            viewBox="0 0 9 9"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <Circle cx="4" cy="4" r="4" />
-          </svg>
-        </button>
+      <DotArea onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} onClick={toggleTheme}>
+        <svg
+          width="10"
+          height="10"
+          viewBox="0 0 10 10"
+          overflow="visible"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <Circle cx="5" cy="5" r="5" />
+        </svg>
       </DotArea>
       <LogoText>as</LogoText>
     </LogoWrapper>

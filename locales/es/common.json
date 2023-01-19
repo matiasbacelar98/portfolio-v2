@@ -1,6 +1,23 @@
 {
   "homeSection": {
-    "links": ["Sobre", "Experiencia", "Projectos", "Contacto"],
+    "links": [
+      {
+        "name": "Sobre",
+        "href": "/#about"
+      },
+      {
+        "name": "Experiencia",
+        "href": "/#experience"
+      },
+      {
+        "name": "Projectos",
+        "href": "/#projects"
+      },
+      {
+        "name": "Contacto",
+        "href": "/#contact"
+      }
+    ],
     "salute": "Hola!",
     "title": "Soy Matias Bacelar, desarrollador de software con foco en front-end que disfruta constuir interfaces y experiencias digitales para la web.",
     "cta": "Contáctame"

@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { breakpoints } from '@/constants';
 
 const reset = css`
   /* Box sizing rules */
@@ -7,7 +6,6 @@ const reset = css`
   *::before,
   *::after {
     box-sizing: border-box;
-    cursor: none !important; // Remove default cursor in all elements
   }
 
   /* Remove horizontal scroll */
@@ -26,6 +24,7 @@ const reset = css`
     font-family: var(--font);
     color: ${({ theme }) => theme.text};
     background-color: ${({ theme }) => theme.bg};
+    min-height: 100vh;
   }
 
   /* Remove default margin */
@@ -102,6 +101,11 @@ const reset = css`
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+  }
+
+  /* Class for removing scroll */
+  .remove-scroll {
+    overflow-y: hidden;
   }
 `;
 

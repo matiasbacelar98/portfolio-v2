@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { Typography } from '@/styles';
 import { useCursor } from '@/hooks';
-import { themeValues as theme } from '@/constants';
+import { themeValues as theme, breakpoints } from '@/constants';
 
 //----------- Styles -----------//
 const emptyCursor = (clr: string) => css`
@@ -23,6 +23,7 @@ type StyledCursorType = {
 };
 
 const StyledCursor = styled.div<StyledCursorType>`
+  display: none;
   position: fixed;
   top: var(--size-41);
   left: var(--size-41);
@@ -37,11 +38,18 @@ const StyledCursor = styled.div<StyledCursorType>`
   transition-property: width, height, border;
   will-change: width, height, transform, border;
 
+  @media (min-width: ${breakpoints.md}) {
+    display: block;
+  }
+
+  // Styles
   ${props =>
     props.type === 'small' &&
     css`
-      width: var(--size-2);
-      height: var(--size-2);
+      background-color: transparent;
+
+      // Empty cursor styles
+      ${emptyCursor('accent')}
     `}
 
   ${props =>

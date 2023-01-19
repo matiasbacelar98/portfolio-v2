@@ -1,21 +1,44 @@
-import { useState, useRef } from 'react';
-import styled from 'styled-components';
+import { useState, useRef, MouseEvent } from 'react';
+import styled, { css } from 'styled-components';
 
 import { useOnClickOutside } from 'usehooks-ts';
 import { useCurrentLocale, useCursor } from '@/hooks';
 
-import Show from '@/components/Show';
 import { DropdownHeader, DropdownList } from './Dropdown';
+import Show from '@/components/Show';
+
+import { breakpoints } from '@/constants';
 
 import { SPANISH_OPTION, ENGLISH_OPTION } from './LangBtn.constants';
 
 //---------- Styles ----------//
-const Wrapper = styled.div`
-  width: max-content;
+type WrapperType = {
+  mobile: boolean;
+};
+
+const Wrapper = styled.div<WrapperType>`
+  display: ${props => (props.mobile ? 'block' : 'none')};
+
+  ${props =>
+    props.mobile &&
+    css`
+      position: relative;
+      width: max-content;
+    `}
+
+  @media (min-width: ${breakpoints.md}) {
+    display: block;
+    position: relative;
+    width: max-content;
+  }
 `;
 
 //---------- Main component----------//
-const LangBtn = () => {
+type LangBtnType = {
+  mobile?: boolean;
+};
+
+const LangBtn = ({ mobile }: LangBtnType) => {
   const [selectedLang, setSelectedLang] = useState(ENGLISH_OPTION);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -40,11 +63,19 @@ const LangBtn = () => {
     setSelectedLang(lang);
   };
 
+  const handleMouseMove = (e: MouseEvent) => {
+    updateCursorType('small');
+    e.preventDefault();
+  };
+
+  const handleMouseLeave = () => resetCursorType();
+
   return (
     <Wrapper
       ref={elementRef}
-      onMouseMove={() => updateCursorType('small')}
-      onMouseLeave={resetCursorType}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      mobile={mobile || false}
     >
       <DropdownHeader content={selectedLang} toggleList={toggleList} isOpen={isOpen} />
 
