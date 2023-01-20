@@ -3,15 +3,6 @@ import { CursorContext } from '@/contexts/cursor-context';
 
 export const useCursor = () => {
   const cursorContext = useContext(CursorContext);
-
-  // If the component is outside of the tree
-  if (cursorContext === undefined) {
-    throw Error(
-      'The component must be inside of the CursorProvider, ' +
-        'otherwise it will not function correctly.'
-    );
-  }
-
   const { positions, cursorType, cursorStyles, dispatch } = cursorContext;
 
   //--------- Utils ---------//
@@ -49,6 +40,7 @@ export const useCursor = () => {
       payload: 'default',
     });
   };
+
   return {
     positions,
     cursorType,

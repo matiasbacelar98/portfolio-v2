@@ -8,6 +8,7 @@ export const breakpoints = {
   xxxl: '87.5em', // 1400px
 };
 
+// Theme values
 export const themeValues = {
   headingXl: 'headingXl',
   headingLg: 'headingLg',
@@ -21,4 +22,13 @@ export const themeValues = {
   regularWeight: 'regularWeight',
   mediumWeight: 'mediumWeight',
   semiBoldWeight: 'semiBoldWeight',
+};
+
+// Section names
+export const sectionNames = {
+  home: 'home',
+  projects: 'projects',
+  experience: 'experience',
+  about: 'about',
+  contact: 'contact',
 };

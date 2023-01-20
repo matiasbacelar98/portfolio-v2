@@ -65,20 +65,7 @@ type InnerLinkType = {
 export const InnerLink = styled.a<InnerLinkType>`
   font-size: ${props => (props.size ? props.theme[props.size] : props.theme.testBase)};
   font-weight: ${props => (props.weight ? props.theme[props.weight] : props.theme.regularWeight)};
-  color: ${props => props.theme.text};
-
+  color: ${props => (props.active ? props => props.theme.accent : props.theme.text)};
   display: inline-block;
   position: relative;
-
-  transition: all 0.3s ease;
-
-  ${props =>
-    props.active &&
-    css`
-      color: ${props => props.theme.accent};
-
-      &:hover {
-        color: ${props => props.theme.text};
-      }
-    `}
 `;

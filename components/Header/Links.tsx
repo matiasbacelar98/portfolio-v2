@@ -1,7 +1,9 @@
 import { MouseEvent } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import styled from 'styled-components';
-import Link from 'next/link';
+
 import { v4 as uuidv4 } from 'uuid';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -22,10 +24,13 @@ type ItemType = {
 };
 
 const Item = ({ content }: ItemType) => {
+  const { asPath } = useRouter();
+  const isActive = asPath === content.href;
+
   return (
     <StyledItem>
       <Link href={content.href} passHref>
-        <InnerLink>{content.name}</InnerLink>
+        <InnerLink active={isActive}>{content.name}</InnerLink>
       </Link>
     </StyledItem>
   );
