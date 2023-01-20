@@ -26,6 +26,7 @@
       "alias": {
         "map": [
           ["@/components", "./components"],
+          ["@/layouts", "./layouts"],
           ["@/hooks", "./hooks"],
           ["@/contexts", "./contexts"],
           ["@/public", "./public"],
