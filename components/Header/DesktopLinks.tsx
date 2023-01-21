@@ -9,7 +9,6 @@ import useTranslation from 'next-translate/useTranslation';
 
 import { useCursor, useGetDistance } from '@/hooks';
 import { breakpoints, sectionNames } from '@/constants';
-import { formatSectionName } from '@/utils';
 import { InnerLink } from '@/styles';
 
 //------------- Item -------------//
@@ -21,11 +20,12 @@ type ItemType = {
   content: {
     name: string;
     href: string;
+    section: string;
   };
 };
 
 const Item = ({ content }: ItemType) => {
-  const { href, name } = content;
+  const { href, name, section: sectionName } = content;
 
   // Url
   const { asPath } = useRouter();
@@ -33,7 +33,6 @@ const Item = ({ content }: ItemType) => {
 
   // Scroll
   const { goToSection } = useGetDistance();
-  const sectionName = formatSectionName(name);
 
   return (
     <StyledItem>
@@ -66,6 +65,7 @@ const Links = () => {
   type LinkType = {
     name: string;
     href: string;
+    section: string;
   };
 
   const linksArr: LinkType[] = t(

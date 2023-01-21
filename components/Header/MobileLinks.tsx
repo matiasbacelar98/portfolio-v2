@@ -12,7 +12,6 @@ import LangBtn from '@/components/LangBtn';
 import { SocialIcon } from '@/components/Icons';
 
 import { useGetDistance } from 'hooks';
-import { formatSectionName } from '@/utils';
 import { breakpoints, themeValues as theme, sectionNames } from '@/constants';
 import { InnerLink } from '@/styles';
 
@@ -64,16 +63,16 @@ type ItemType = {
   content: {
     name: string;
     href: string;
+    section: string;
   };
   closedMenu: () => void;
 };
 
 const Item = ({ content, closedMenu }: ItemType) => {
-  const { href, name } = content;
+  const { href, name, section: sectionName } = content;
 
   // Scroll
   const { goToSection } = useGetDistance();
-  const sectionName = formatSectionName(name);
 
   //------ Utils ------//
   const handleClick = () => {
@@ -110,6 +109,7 @@ const List = ({ closedMenu }: ClosedMenuType) => {
   type LinkType = {
     name: string;
     href: string;
+    section: string;
   };
 
   const linksArr: LinkType[] = t(
@@ -162,15 +162,16 @@ const StyledWrapper = styled(motion.aside)`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: var(--size-5) var(--size-3);
   background-color: ${props => props.theme.bg};
   color: ${props => props.theme.text};
-  opacity: 0.96;
+  opacity: 0.9;
 
   @media (min-width: ${breakpoints.md}) {
     display: none;

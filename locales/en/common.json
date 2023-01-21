@@ -3,19 +3,23 @@
     "links": [
       {
         "name": "About",
-        "href": "/#about"
+        "href": "/#about",
+        "section": "about"
       },
       {
         "name": "Experience",
-        "href": "/#experience"
+        "href": "/#experience",
+        "section": "experience"
       },
       {
         "name": "Projects",
-        "href": "/#projects"
+        "href": "/#projects",
+        "section": "projects"
       },
       {
         "name": "Contact",
-        "href": "/#contact"
+        "href": "/#contact",
+        "section": "contact"
       }
     ],
     "salute": "Hi there!",
