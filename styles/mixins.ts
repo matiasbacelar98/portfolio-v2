@@ -8,3 +8,9 @@ export const sideSpacing = css`
     padding-inline: var(--size-5);
   }
 `;
+
+export const spacingFlow = css`
+  & > * + * {
+    padding-top: var(--size-20);
+  }
+`;

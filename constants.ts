@@ -41,5 +41,5 @@ export const sectionNames: ValuesType = {
 export const linkUrls = {
   linkedin: 'https://www.linkedin.com/in/matias-bacelar-371140199/',
   github: 'https://github.com/matiasbacelar98',
-  mail: 'mailto:matiasbacelar@gmail.com"',
+  mail: 'mailto:matiasbacelar@gmail.com',
 };
