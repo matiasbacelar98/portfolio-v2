@@ -45,7 +45,7 @@ const LangBtn = ({ mobile }: LangBtnType) => {
   const elementRef = useRef<HTMLDivElement | null>(null);
 
   // Cursor info
-  const { updateCursorType, resetCursorType } = useCursor();
+  const { updateCursorType } = useCursor();
 
   // Get current locale
   const { changeLocale } = useCurrentLocale();
@@ -63,17 +63,17 @@ const LangBtn = ({ mobile }: LangBtnType) => {
     setSelectedLang(lang);
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseEnter = (e: MouseEvent) => {
     updateCursorType('small');
     e.preventDefault();
   };
 
-  const handleMouseLeave = () => resetCursorType();
+  const handleMouseLeave = () => updateCursorType('hovered');
 
   return (
     <Wrapper
       ref={elementRef}
-      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       mobile={mobile || false}
     >

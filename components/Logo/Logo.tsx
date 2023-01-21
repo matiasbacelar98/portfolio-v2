@@ -51,18 +51,18 @@ type LogoType = {
 
 const Logo = ({ closedMenu = null }: LogoType) => {
   const { toggleTheme } = useTheme();
-  const { updateCursorType, resetCursorType } = useCursor();
+  const { updateCursorType } = useCursor();
 
   // Scroll
   const { goToSection } = useGetDistance();
 
   //------- Utils -------//
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseEnter = (e: MouseEvent) => {
     updateCursorType('logo');
     e.preventDefault();
   };
 
-  const handleMouseLeave = () => resetCursorType();
+  const handleMouseLeave = () => updateCursorType('hovered');
 
   const handleClick = () => {
     goToSection(sectionNames.home);
@@ -76,7 +76,7 @@ const Logo = ({ closedMenu = null }: LogoType) => {
       <LogoWrapper onClick={handleClick}>
         <LogoText>Mat</LogoText>
         <DotArea
-          onMouseMove={handleMouseMove}
+          onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onClick={e => {
             e.stopPropagation();

@@ -75,17 +75,17 @@ const Links = () => {
   );
 
   //--------- Cursor animation ---------//
-  const { updateCursorType, resetCursorType } = useCursor();
+  const { updateCursorType } = useCursor();
 
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseEnter = (e: MouseEvent) => {
     updateCursorType('small');
     e.preventDefault();
   };
 
-  const handleMouseLeave = () => resetCursorType();
+  const handleMouseLeave = () => updateCursorType('hovered');
 
   return (
-    <List onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+    <List onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {linksArr.map(link => (
         <Item key={uuidv4()} content={link} />
       ))}

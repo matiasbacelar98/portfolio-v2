@@ -23,19 +23,19 @@ const StyledHeader = styled.header`
 `;
 
 const Header = () => {
-  const { updateCursorType, resetCursorType } = useCursor();
+  const { updateCursorType } = useCursor();
 
   //----- Utils -----//
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseEnter = (e: MouseEvent) => {
     // Ignore this event if preventDefault has been called.
     if (e.defaultPrevented) return;
 
     updateCursorType('hovered');
   };
-  const handleMouseLeave = () => resetCursorType();
+  const handleMouseLeave = () => updateCursorType('hovered');
 
   return (
-    <StyledHeader onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+    <StyledHeader onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Logo />
       <Links />
       <LangBtn />
