@@ -8,6 +8,7 @@ import { FaLinkedinIn } from 'react-icons/fa';
 
 import { useCursor } from 'hooks';
 import { getBoundingBox } from '@/utils';
+import { linkUrls } from '@/constants';
 
 //----------------- Types -----------------//
 type SocialIconType = {
@@ -56,6 +57,7 @@ const SocialIconWrapper = styled.div<SocialIconType>`
 
   &:hover {
     border: 2px solid ${props => props.theme.text};
+    cursor: pointer;
 
     // Change icon
     & svg {
@@ -99,34 +101,40 @@ export const SocialIcon = ({ type, isCard = false }: Social) => {
 
   const types = {
     github: (
-      <SocialIconWrapper
-        isCard={isCard}
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-      >
-        <StyledGithubIcon />
-      </SocialIconWrapper>
+      <a target="_blank" href={linkUrls.github} rel="noreferrer">
+        <SocialIconWrapper
+          isCard={isCard}
+          ref={ref}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
+          <StyledGithubIcon />
+        </SocialIconWrapper>
+      </a>
     ),
     linkedin: (
-      <SocialIconWrapper
-        isCard={isCard}
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-      >
-        <StyledLinkedinIcon />
-      </SocialIconWrapper>
+      <a target="_blank" href={linkUrls.linkedin} rel="noreferrer">
+        <SocialIconWrapper
+          isCard={isCard}
+          ref={ref}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
+          <StyledLinkedinIcon />
+        </SocialIconWrapper>
+      </a>
     ),
     mail: (
-      <SocialIconWrapper
-        isCard={isCard}
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-      >
-        <StyledMailIcon />
-      </SocialIconWrapper>
+      <a target="_blank" href={linkUrls.mail} rel="noreferrer">
+        <SocialIconWrapper
+          isCard={isCard}
+          ref={ref}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
+          <StyledMailIcon />
+        </SocialIconWrapper>
+      </a>
     ),
     open: (
       <SocialIconWrapper

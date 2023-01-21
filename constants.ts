@@ -25,10 +25,21 @@ export const themeValues = {
 };
 
 // Section names
-export const sectionNames = {
+type ValuesType = {
+  [key: string]: string;
+};
+
+export const sectionNames: ValuesType = {
   home: 'home',
   projects: 'projects',
   experience: 'experience',
   about: 'about',
   contact: 'contact',
+};
+
+// Links urls
+export const linkUrls = {
+  linkedin: 'https://www.linkedin.com/in/matias-bacelar-371140199/',
+  github: 'https://github.com/matiasbacelar98',
+  mail: 'mailto:matiasbacelar@gmail.com"',
 };

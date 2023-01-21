@@ -49,3 +49,6 @@ export const getBoundingBox: GetBoundingBoxType = target => {
     yCenter: (box.top + box.bottom) / 2,
   };
 };
+
+// Format href
+export const formatSectionName = (str: string): string => str.replace(/[#/]/g, '').toLowerCase();

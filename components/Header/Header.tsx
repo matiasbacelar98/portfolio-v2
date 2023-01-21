@@ -2,14 +2,14 @@ import { MouseEvent } from 'react';
 import styled from 'styled-components';
 
 import { useCursor } from '@/hooks';
-import { breakpoints } from '@/constants';
+import { sideSpacing } from '@/styles';
 
 //  Outer components
 import Logo from '@/components/Logo';
 import LangBtn from '@/components/LangBtn';
 
 // Inner components
-import Links from './Links';
+import Links from './DesktopLinks';
 import MobileBtn from './MobileBtn';
 
 //----------- Main component -----------//
@@ -18,11 +18,8 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding-top: var(--size-5);
-  padding-inline: var(--size-3);
 
-  @media (min-width: ${breakpoints.md}) {
-    padding-inline: var(--size-5);
-  }
+  ${sideSpacing}
 `;
 
 const Header = () => {

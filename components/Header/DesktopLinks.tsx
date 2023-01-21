@@ -7,9 +7,10 @@ import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import useTranslation from 'next-translate/useTranslation';
 
-import { useCursor } from '@/hooks';
+import { useCursor, useGetDistance } from '@/hooks';
+import { breakpoints, sectionNames } from '@/constants';
+import { formatSectionName } from '@/utils';
 import { InnerLink } from '@/styles';
-import { breakpoints } from '@/constants';
 
 //------------- Item -------------//
 const StyledItem = styled.li`
@@ -24,13 +25,22 @@ type ItemType = {
 };
 
 const Item = ({ content }: ItemType) => {
+  const { href, name } = content;
+
+  // Url
   const { asPath } = useRouter();
   const isActive = asPath === content.href;
 
+  // Scroll
+  const { goToSection } = useGetDistance();
+  const sectionName = formatSectionName(name);
+
   return (
     <StyledItem>
-      <Link href={content.href} passHref>
-        <InnerLink active={isActive}>{content.name}</InnerLink>
+      <Link href={href} passHref>
+        <InnerLink active={isActive} onClick={() => goToSection(sectionNames[sectionName])}>
+          {name}
+        </InnerLink>
       </Link>
     </StyledItem>
   );

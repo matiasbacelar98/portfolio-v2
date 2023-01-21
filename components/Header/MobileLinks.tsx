@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
@@ -9,8 +11,10 @@ import Logo from '@/components/Logo';
 import LangBtn from '@/components/LangBtn';
 import { SocialIcon } from '@/components/Icons';
 
+import { useGetDistance } from 'hooks';
+import { formatSectionName } from '@/utils';
+import { breakpoints, themeValues as theme, sectionNames } from '@/constants';
 import { InnerLink } from '@/styles';
-import { breakpoints, themeValues as theme } from '@/constants';
 
 type ClosedMenuType = {
   closedMenu: () => void;
@@ -40,7 +44,7 @@ const CloseBtn = styled.button`
 const Heading = ({ closedMenu }: ClosedMenuType) => {
   return (
     <StyledHeading>
-      <Logo />
+      <Logo closedMenu={closedMenu} />
 
       <CloseBtn onClick={closedMenu}>
         <CloseIcon />
@@ -61,14 +65,29 @@ type ItemType = {
     name: string;
     href: string;
   };
+  closedMenu: () => void;
 };
 
-const Item = ({ content }: ItemType) => {
+const Item = ({ content, closedMenu }: ItemType) => {
+  const { href, name } = content;
+
+  // Scroll
+  const { goToSection } = useGetDistance();
+  const sectionName = formatSectionName(name);
+
+  //------ Utils ------//
+  const handleClick = () => {
+    closedMenu();
+    goToSection(sectionNames[sectionName]);
+  };
+
   return (
     <li>
-      <InnerLink href={content.href} size={theme.headingXl}>
-        <ItemContent>{content.name}</ItemContent>
-      </InnerLink>
+      <Link href={href} passHref>
+        <InnerLink size={theme.headingXl} onClick={handleClick}>
+          <ItemContent>{name}</ItemContent>
+        </InnerLink>
+      </Link>
     </li>
   );
 };
@@ -85,7 +104,7 @@ const StyledList = styled.ul`
   }
 `;
 
-const List = () => {
+const List = ({ closedMenu }: ClosedMenuType) => {
   const { t } = useTranslation();
 
   type LinkType = {
@@ -102,7 +121,7 @@ const List = () => {
   return (
     <StyledList>
       {linksArr.map(link => (
-        <Item key={uuidv4()} content={link} />
+        <Item key={uuidv4()} content={link} closedMenu={closedMenu} />
       ))}
     </StyledList>
   );
@@ -175,7 +194,7 @@ const MobileLinks = ({ closedMenu }: ClosedMenuType) => {
       key="mobile-menu"
     >
       <Heading closedMenu={closedMenu} />
-      <List />
+      <List closedMenu={closedMenu} />
       <SocialIcons />
     </StyledWrapper>
   );

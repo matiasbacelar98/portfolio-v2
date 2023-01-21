@@ -1,7 +1,7 @@
 import { useEffect, useRef, useContext, RefObject } from 'react';
 import { DistancesContext } from '@/contexts/distances-context';
 
-export const useStoreDistance = (sectionName: string): RefObject<HTMLElement> => {
+export const useStoreDistance = (sectionName: string): { ref: RefObject<HTMLElement> } => {
   const effectRan = useRef(false);
   const ref = useRef<HTMLElement>(null);
 
@@ -25,5 +25,5 @@ export const useStoreDistance = (sectionName: string): RefObject<HTMLElement> =>
     }
   }, [sectionName, storeSectionDistance]);
 
-  return ref;
+  return { ref };
 };

@@ -1,6 +1,10 @@
+import Link from 'next/link';
 import { MouseEvent } from 'react';
+
 import styled from 'styled-components';
-import { useTheme, useCursor } from '@/hooks';
+
+import { useTheme, useCursor, useGetDistance } from '@/hooks';
+import { sectionNames } from '@/constants';
 
 //---------- Styles ----------//
 const LogoWrapper = styled.div`
@@ -9,6 +13,10 @@ const LogoWrapper = styled.div`
   user-select: none;
   width: max-content;
   height: var(--size-5);
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const LogoText = styled.span`
@@ -37,33 +45,58 @@ const Circle = styled.circle`
 `;
 
 //---------- Main component ----------//
-const Logo = () => {
+type LogoType = {
+  closedMenu?: { (): void } | null;
+};
+
+const Logo = ({ closedMenu = null }: LogoType) => {
   const { toggleTheme } = useTheme();
   const { updateCursorType, resetCursorType } = useCursor();
 
+  // Scroll
+  const { goToSection } = useGetDistance();
+
+  //------- Utils -------//
   const handleMouseMove = (e: MouseEvent) => {
     updateCursorType('logo');
     e.preventDefault();
   };
+
   const handleMouseLeave = () => resetCursorType();
 
+  const handleClick = () => {
+    goToSection(sectionNames.home);
+
+    // If mobile then close menu
+    if (closedMenu) closedMenu();
+  };
+
   return (
-    <LogoWrapper>
-      <LogoText>Mat</LogoText>
-      <DotArea onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} onClick={toggleTheme}>
-        <svg
-          width="10"
-          height="10"
-          viewBox="0 0 10 10"
-          overflow="visible"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+    <Link href="/">
+      <LogoWrapper onClick={handleClick}>
+        <LogoText>Mat</LogoText>
+        <DotArea
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          onClick={e => {
+            e.stopPropagation();
+            toggleTheme();
+          }}
         >
-          <Circle cx="5" cy="5" r="5" />
-        </svg>
-      </DotArea>
-      <LogoText>as</LogoText>
-    </LogoWrapper>
+          <svg
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            overflow="visible"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <Circle cx="5" cy="5" r="5" />
+          </svg>
+        </DotArea>
+        <LogoText>as</LogoText>
+      </LogoWrapper>
+    </Link>
   );
 };
 
