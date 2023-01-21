@@ -5,6 +5,7 @@ import Hero from '@/layouts/Hero';
 import About from '@/layouts/About';
 import Experience from '@/layouts/Experience';
 import Projects from '@/layouts/Projects';
+import Contact from '@/layouts/Contact';
 
 const Home = () => {
   return (
@@ -73,6 +74,27 @@ const Home = () => {
       <br />
       <br />
       <Projects />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <Contact />
     </Layout>
   );
 };

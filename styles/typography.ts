@@ -15,7 +15,7 @@ type TypographyType = {
 export const Typography = styled.span<TypographyType>`
   font-size: ${props => props.theme[props.size]};
   font-weight: ${props => props.theme[props.weight]};
-  text-transform: ${props => (props.uppercase ? 'uppercase' : 'lowercase')};
+  text-transform: ${props => (props.uppercase ? 'uppercase' : 'none')};
 
   color: ${props => (props.highlighted ? props.theme.accent : props.theme.text)};
 
