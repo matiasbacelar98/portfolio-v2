@@ -1,4 +1,3 @@
-import { MouseEvent } from 'react';
 import styled from 'styled-components';
 
 import { useCursor } from '@/hooks';
@@ -9,7 +8,7 @@ import Logo from '@/components/Logo';
 import LangBtn from '@/components/LangBtn';
 
 // Inner components
-import Links from './DesktopLinks';
+import DesktopLinks from './DesktopLinks';
 import MobileBtn from './MobileBtn';
 
 //----------- Main component -----------//
@@ -26,18 +25,13 @@ const Header = () => {
   const { updateCursorType } = useCursor();
 
   //----- Utils -----//
-  const handleMouseEnter = (e: MouseEvent) => {
-    // Ignore this event if preventDefault has been called.
-    if (e.defaultPrevented) return;
-
-    updateCursorType('hovered');
-  };
+  const handleMouseEnter = () => updateCursorType('hovered');
   const handleMouseLeave = () => updateCursorType('hovered');
 
   return (
     <StyledHeader onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Logo />
-      <Links />
+      <DesktopLinks />
       <LangBtn />
       <MobileBtn />
     </StyledHeader>

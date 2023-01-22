@@ -69,7 +69,7 @@ const SocialIconWrapper = styled.div<SocialIconType>`
 //----------------- Hooks -----------------//
 const useAnimateCursor = () => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const { updateCursorPos, resetCursorPos, updateCursorType, resetCursorType } = useCursor();
+  const { updateCursorPos, resetCursorPos, updateCursorType } = useCursor();
 
   //----- Utils -----//
   const handleMouseMove = () => {
@@ -89,7 +89,7 @@ const useAnimateCursor = () => {
 
   const handleMouseLeave = () => {
     resetCursorPos();
-    resetCursorType();
+    updateCursorType('small');
   };
 
   return { ref, handleMouseMove, handleMouseLeave };

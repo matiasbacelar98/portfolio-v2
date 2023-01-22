@@ -3,23 +3,23 @@
     "links": [
       {
         "name": "About",
-        "href": "/#about",
-        "section": "about"
+        "section": "about",
+        "id": "iq4_C-DS6BaB0pDliUP7F"
       },
       {
         "name": "Experience",
-        "href": "/#experience",
-        "section": "experience"
+        "section": "experience",
+        "id": "qOehGmzOUJoIVOlCuLMSK"
       },
       {
         "name": "Projects",
-        "href": "/#projects",
-        "section": "projects"
+        "section": "projects",
+        "id": "SUnkhdKDkhl0Nfpe7Zrmu"
       },
       {
         "name": "Contact",
-        "href": "/#contact",
-        "section": "contact"
+        "section": "contact",
+        "id": "iDikzElxItSyYW-fWraHa"
       }
     ],
     "salute": "Hi there!",
@@ -38,6 +38,7 @@
     "title": "Experience",
     "info": [
       {
+        "id": "xQEzJedV0twxY0Y_RFsnh",
         "position": "Freelance Developer",
         "company": "Freelancer",
         "time": "Aug 2021 - May 2022",
@@ -45,6 +46,7 @@
         "secondItem": "Application called Tiendas platenses that give users the ability to search for different products and contact the specific seller of that product."
       },
       {
+        "id": "a0RZ5qb7NRJHHbNufacTQ",
         "position": "Front-end Developer ",
         "company": "ModoAgrario",
         "time": "May 2022 - Present",
@@ -62,21 +64,24 @@
         "technologies": ["Vite", "React", "Framer motion", "Supabase"],
         "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
         "liveUrl": "url",
-        "githubUrl": "github"
+        "githubUrl": "github",
+        "id": "aMp4FCff2vtzRCcEFcmLB"
       },
       {
         "name": "Moderne",
         "technologies": ["React", "Framer motion", "Mapbox", "Styled components"],
         "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
         "liveUrl": "url",
-        "githubUrl": "github"
+        "githubUrl": "github",
+        "id": "qRxubD1LPErLDHpqZcOMF"
       },
       {
         "name": "Portfolio v1",
         "technologies": ["Next", "Strapi", "Axios", "Styled components"],
         "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
         "liveUrl": "url",
-        "githubUrl": "github"
+        "githubUrl": "github",
+        "id": "RPPvMYOFGVp_Qg7SCt39F"
       }
     ]
   },

@@ -1,9 +1,6 @@
-import Link from 'next/link';
-
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-import { v4 as uuidv4 } from 'uuid';
 import useTranslation from 'next-translate/useTranslation';
 import { AiOutlineClose } from 'react-icons/ai';
 
@@ -12,8 +9,7 @@ import LangBtn from '@/components/LangBtn';
 import { SocialIcon } from '@/components/Icons';
 
 import { useGetDistance } from 'hooks';
-import { breakpoints, themeValues as theme, sectionNames } from '@/constants';
-import { InnerLink } from '@/styles';
+import { breakpoints, sectionNames } from '@/constants';
 
 type ClosedMenuType = {
   closedMenu: () => void;
@@ -53,8 +49,17 @@ const Heading = ({ closedMenu }: ClosedMenuType) => {
 };
 
 //------------- Item -------------//
-const ItemContent = styled.span`
-  color: ${props => props.theme.text};
+type ItemContentType = {
+  isActive?: boolean;
+};
+
+const StyledItemBtn = styled.button`
+  background-color: transparent;
+  border: 0;
+`;
+
+const ItemContent = styled.span<ItemContentType>`
+  color: ${props => (props.isActive ? props.theme.accent : props.theme.text)};
   font-weight: ${props => props.theme.mediumWeight};
   font-size: var(--size-3);
 `;
@@ -62,14 +67,14 @@ const ItemContent = styled.span`
 type ItemType = {
   content: {
     name: string;
-    href: string;
     section: string;
+    id: string;
   };
   closedMenu: () => void;
 };
 
 const Item = ({ content, closedMenu }: ItemType) => {
-  const { href, name, section: sectionName } = content;
+  const { name, section: sectionName } = content;
 
   // Scroll
   const { goToSection } = useGetDistance();
@@ -82,11 +87,9 @@ const Item = ({ content, closedMenu }: ItemType) => {
 
   return (
     <li>
-      <Link href={href} passHref>
-        <InnerLink size={theme.headingXl} onClick={handleClick}>
-          <ItemContent>{name}</ItemContent>
-        </InnerLink>
-      </Link>
+      <StyledItemBtn onClick={handleClick}>
+        <ItemContent>{name}</ItemContent>
+      </StyledItemBtn>
     </li>
   );
 };
@@ -108,8 +111,8 @@ const List = ({ closedMenu }: ClosedMenuType) => {
 
   type LinkType = {
     name: string;
-    href: string;
     section: string;
+    id: string;
   };
 
   const linksArr: LinkType[] = t(
@@ -121,7 +124,7 @@ const List = ({ closedMenu }: ClosedMenuType) => {
   return (
     <StyledList>
       {linksArr.map(link => (
-        <Item key={uuidv4()} content={link} closedMenu={closedMenu} />
+        <Item key={link.id} content={link} closedMenu={closedMenu} />
       ))}
     </StyledList>
   );

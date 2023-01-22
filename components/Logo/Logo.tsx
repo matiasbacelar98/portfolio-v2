@@ -1,6 +1,3 @@
-import Link from 'next/link';
-import { MouseEvent } from 'react';
-
 import styled from 'styled-components';
 
 import { useTheme, useCursor, useGetDistance } from '@/hooks';
@@ -57,11 +54,7 @@ const Logo = ({ closedMenu = null }: LogoType) => {
   const { goToSection } = useGetDistance();
 
   //------- Utils -------//
-  const handleMouseEnter = (e: MouseEvent) => {
-    updateCursorType('logo');
-    e.preventDefault();
-  };
-
+  const handleMouseEnter = () => updateCursorType('logo');
   const handleMouseLeave = () => updateCursorType('hovered');
 
   const handleClick = () => {
@@ -72,31 +65,28 @@ const Logo = ({ closedMenu = null }: LogoType) => {
   };
 
   return (
-    <Link href="/">
-      <LogoWrapper onClick={handleClick}>
-        <LogoText>Mat</LogoText>
-        <DotArea
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          onClick={e => {
-            e.stopPropagation();
-            toggleTheme();
-          }}
+    <LogoWrapper onClick={handleClick} tabIndex={0}>
+      <LogoText>Mat</LogoText>
+
+      <DotArea
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={toggleTheme}
+      >
+        <svg
+          width="10"
+          height="10"
+          viewBox="0 0 10 10"
+          overflow="visible"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            width="10"
-            height="10"
-            viewBox="0 0 10 10"
-            overflow="visible"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <Circle cx="5" cy="5" r="5" />
-          </svg>
-        </DotArea>
-        <LogoText>as</LogoText>
-      </LogoWrapper>
-    </Link>
+          <Circle cx="5" cy="5" r="5" />
+        </svg>
+      </DotArea>
+
+      <LogoText>as</LogoText>
+    </LogoWrapper>
   );
 };
 

@@ -1,4 +1,4 @@
-import { useState, useRef, MouseEvent } from 'react';
+import { useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 
 import { useOnClickOutside } from 'usehooks-ts';
@@ -11,7 +11,7 @@ import { breakpoints } from '@/constants';
 
 import { SPANISH_OPTION, ENGLISH_OPTION } from './LangBtn.constants';
 
-//---------- Styles ----------//
+//---------- Main component----------//
 type WrapperType = {
   mobile: boolean;
 };
@@ -33,7 +33,6 @@ const Wrapper = styled.div<WrapperType>`
   }
 `;
 
-//---------- Main component----------//
 type LangBtnType = {
   mobile?: boolean;
 };
@@ -63,11 +62,7 @@ const LangBtn = ({ mobile }: LangBtnType) => {
     setSelectedLang(lang);
   };
 
-  const handleMouseEnter = (e: MouseEvent) => {
-    updateCursorType('small');
-    e.preventDefault();
-  };
-
+  const handleMouseEnter = () => updateCursorType('small');
   const handleMouseLeave = () => updateCursorType('hovered');
 
   return (

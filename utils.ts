@@ -1,3 +1,5 @@
+import { MouseEvent } from 'react';
+
 // FluidValues - Typography/Spacing
 type FluidValuesType = (
   minWidthPx: number,
@@ -50,5 +52,10 @@ export const getBoundingBox: GetBoundingBoxType = target => {
   };
 };
 
-// Format href
-export const formatSectionName = (str: string): string => str.replace(/[#/]/g, '').toLowerCase();
+// Check if mouse left from the top
+type MouseLeaveFromTheTopType = <T extends HTMLElement>(e: MouseEvent, ref: T) => boolean;
+
+export const mouseLeaveFromTheTop: MouseLeaveFromTheTopType = (e, target) => {
+  const bottom = target.offsetTop + target.getBoundingClientRect().height;
+  return bottom > e.pageY;
+};

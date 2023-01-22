@@ -1,46 +1,48 @@
-import { MouseEvent } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import useTranslation from 'next-translate/useTranslation';
 
 import styled from 'styled-components';
 
-import { v4 as uuidv4 } from 'uuid';
-import useTranslation from 'next-translate/useTranslation';
-
 import { useCursor, useGetDistance } from '@/hooks';
-import { breakpoints, sectionNames } from '@/constants';
-import { InnerLink } from '@/styles';
+import { breakpoints, sectionNames, themeValues as theme } from '@/constants';
+import { Typography } from '@/styles';
 
 //------------- Item -------------//
 const StyledItem = styled.li`
   width: max-content;
+
+  button {
+    padding: 4px var(--size-1);
+    background-color: transparent;
+    border: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 `;
 
 type ItemType = {
   content: {
     name: string;
-    href: string;
     section: string;
+    id: number;
   };
 };
 
 const Item = ({ content }: ItemType) => {
-  const { href, name, section: sectionName } = content;
+  const { name, section: sectionName } = content;
 
-  // Url
-  const { asPath } = useRouter();
-  const isActive = asPath === content.href;
-
-  // Scroll
   const { goToSection } = useGetDistance();
+
+  const handleClick = () => goToSection(sectionNames[sectionName]);
 
   return (
     <StyledItem>
-      <Link href={href} passHref>
-        <InnerLink active={isActive} onClick={() => goToSection(sectionNames[sectionName])}>
+      <button onClick={handleClick}>
+        <Typography size={theme.textBase} weight={theme.regularWeight}>
           {name}
-        </InnerLink>
-      </Link>
+        </Typography>
+      </button>
     </StyledItem>
   );
 };
@@ -59,13 +61,13 @@ const List = styled.ul`
   }
 `;
 
-const Links = () => {
+const DesktopLinks = () => {
   const { t } = useTranslation();
 
   type LinkType = {
     name: string;
-    href: string;
     section: string;
+    id: number;
   };
 
   const linksArr: LinkType[] = t(
@@ -77,20 +79,16 @@ const Links = () => {
   //--------- Cursor animation ---------//
   const { updateCursorType } = useCursor();
 
-  const handleMouseEnter = (e: MouseEvent) => {
-    updateCursorType('small');
-    e.preventDefault();
-  };
-
   const handleMouseLeave = () => updateCursorType('hovered');
+  const handleMouseEnter = () => updateCursorType('small');
 
   return (
-    <List onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <List onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter}>
       {linksArr.map(link => (
-        <Item key={uuidv4()} content={link} />
+        <Item content={link} key={link.id} />
       ))}
     </List>
   );
 };
 
-export default Links;
+export default DesktopLinks;

@@ -3,23 +3,23 @@
     "links": [
       {
         "name": "Sobre",
-        "href": "/#about",
-        "section": "about"
+        "section": "about",
+        "id": "qjs8hH0dwr4ygI3mP7dnj"
       },
       {
         "name": "Experiencia",
-        "href": "/#experience",
-        "section": "experience"
+        "section": "experience",
+        "id": "4sPlIo342TGcXrl1VQgLe"
       },
       {
         "name": "Projectos",
-        "href": "/#projects",
-        "section": "projects"
+        "section": "projects",
+        "id": "p1DZkNAu6HjZbFUzSSwdk"
       },
       {
         "name": "Contacto",
-        "href": "/#contact",
-        "section": "contact"
+        "section": "contact",
+        "id": "BmnM0Altup5uR6wrtMofI"
       }
     ],
     "salute": "Hola!",
@@ -38,6 +38,7 @@
     "title": "Experiencia",
     "info": [
       {
+        "id": "ELxCcpWgvoFxIDJZkP4xT",
         "position": "Freelance Developer",
         "company": "Freelancer",
         "time": "Agosto 2021 - Mayo 2022",
@@ -45,6 +46,7 @@
         "secondItem": "Aplicación llamada Tiendas platenses que brinda a los usuarios la posibilidad de buscar diferentes productos y contactar al vendedor específico de ese producto."
       },
       {
+        "id": "VJf9l-Tw9SgcI4yN9kd8O",
         "position": "Front-end Developer ",
         "company": "ModoAgrario",
         "time": "Mayo 2022 - Presente",
@@ -58,6 +60,7 @@
     "cursorText": "Ver",
     "projects": [
       {
+        "id": "IsiBx8LKfjEyeGTfJhnbo",
         "name": "Snapcode",
         "technologies": ["Vite", "React", "Framer motion", "Supabase"],
         "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
@@ -65,6 +68,7 @@
         "githubUrl": "github"
       },
       {
+        "id": "C2r83cpLTRvy5HBm0I0Vv",
         "name": "Moderne",
         "technologies": ["React", "Framer motion", "Mapbox", "Styled components"],
         "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
@@ -72,6 +76,7 @@
         "githubUrl": "github"
       },
       {
+        "id": "dNVdVnFjiifqzNKvQaEQL",
         "name": "Portfolio v1",
         "technologies": ["Next", "Strapi", "Axios", "Styled components"],
         "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
