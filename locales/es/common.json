@@ -22,9 +22,13 @@
         "id": "BmnM0Altup5uR6wrtMofI"
       }
     ],
-    "salute": "Hola!",
-    "title": "Soy Matias Bacelar, desarrollador de software con foco en front-end que disfruta constuir interfaces y experiencias digitales para la web.",
-    "cta": "Contáctame"
+    "title": {
+      "salute": "Hola!",
+      "first": "Soy",
+      "second": "desarrollador de software con foco en front-end que disfruta construir interfaces digitales",
+      "third": "para la web."
+    },
+    "cta": "Contactame"
   },
   "aboutSection": {
     "title": "Sobre",

@@ -21,8 +21,8 @@ const Layout = ({ children }: PropsWithChildren) => {
 
   return (
     <ScrollerMotion spring={{ ...smoothScrollValues }}>
+      <Header />
       <Spacing>
-        <Header />
         <Main>{children}</Main>
         <Footer />
       </Spacing>

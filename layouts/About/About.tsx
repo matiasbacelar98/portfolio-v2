@@ -1,6 +1,8 @@
 import { MouseEvent } from 'react';
 import styled from 'styled-components';
 
+import useTranslation from 'next-translate/useTranslation';
+
 import AboutContent from './AboutContent';
 import AboutIcons from './AboutIcons';
 
@@ -31,6 +33,7 @@ const SectionsWrapper = styled.div`
 `;
 
 const About = () => {
+  const { t } = useTranslation();
   const { ref } = useStoreDistance(sectionNames.about);
   const { updateCursorType } = useCursor();
 
@@ -50,7 +53,7 @@ const About = () => {
 
   return (
     <Wrapper ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Title content="About" line />
+      <Title content={t('common:aboutSection.title')} line />
 
       <SectionsWrapper>
         <AboutContent />

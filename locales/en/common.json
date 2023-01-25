@@ -22,8 +22,12 @@
         "id": "iDikzElxItSyYW-fWraHa"
       }
     ],
-    "salute": "Hi there!",
-    "title": "I’m Matias Bacelar, a front-end focused software developer who likes to build interfaces & digital experiences for the web.",
+    "title": {
+      "salute": "Hi there!",
+      "first": "I’m",
+      "second": "a front-end focused software developer who likes to build interfaces & digital experiences for",
+      "third": "the web."
+    },
     "cta": "Get in touch"
   },
   "aboutSection": {

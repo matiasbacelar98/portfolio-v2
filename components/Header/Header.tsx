@@ -17,6 +17,12 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding-top: var(--size-5);
+  position: absolute;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
 
   ${sideSpacing}
 `;

@@ -1,5 +1,6 @@
 import { css } from 'styled-components';
 import { breakpoints } from '@/constants';
+import { fluidValues } from '@/utils';
 
 export const sideSpacing = css`
   padding-inline: var(--size-3);
@@ -11,6 +12,6 @@ export const sideSpacing = css`
 
 export const spacingFlow = css`
   & > * + * {
-    padding-top: var(--size-20);
+    padding-top: ${fluidValues(320, 1200, 80, 160)};
   }
 `;
