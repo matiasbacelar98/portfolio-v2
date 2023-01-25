@@ -20,7 +20,7 @@ const variables = css`
     // Fonts
     --font: 'HK Grotesk', sans-serif;
     // Spacing
-    ${generateSpacingValues(40)}
+    ${generateSpacingValues(80)}
     // Others
     --border-radius: 0.5rem;
     --box-shadow: -2px 2px 15px -2px rgba(0, 0, 0, 0.3);

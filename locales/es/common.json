@@ -29,9 +29,18 @@
   "aboutSection": {
     "title": "Sobre",
     "content": [
-      "Soy un desarrollador autodidacta de La Plata (Buenos Aires) con foco en Javascript & React. Me interesan las micro interacciones y los efectos en la UI como también crear experiencias de usuario que sean dinámicas e interactivas.",
-      "Empecé a programar por diversión hace unos años y sin darme cuenta la programación se convirtió en un hobby y ahora en una profesión. Disfruto construyendo interfaces que sean útiles sin perder la estética de la aplicación ya que creo que la usabilidad y la estética son igualmente importantes.",
-      "Estas son algunas de las tecnologías que suelo utilizar para mis proyectos personales y profesionales:"
+      {
+        "id": "XUQGcJseNPCJygw8ITSQF",
+        "text": "Soy un desarrollador autodidacta de La Plata (Buenos Aires) con foco en Javascript & React. Me interesan las micro interacciones y los efectos en la UI como también crear experiencias de usuario que sean dinámicas e interactivas."
+      },
+      {
+        "id": "XAImxsqYGLiOl5qyN57fx",
+        "text": "Empecé a programar por diversión hace unos años y sin darme cuenta la programación se convirtió en un hobby y ahora en una profesión. Disfruto construyendo interfaces que sean útiles sin perder la estética de la aplicación ya que creo que la usabilidad y la estética son igualmente importantes."
+      },
+      {
+        "id": "c4VXHvgp-d2Saod-Hp9Dc",
+        "text": "Estas son algunas de las tecnologías que suelo utilizar para mis proyectos personales y profesionales:"
+      }
     ]
   },
   "experienceSection": {

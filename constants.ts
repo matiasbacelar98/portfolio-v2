@@ -1,6 +1,7 @@
 // CSS Media Queries breakpoints
 export const breakpoints = {
-  sm: '20em', // 320px
+  xsm: '20em', // 320px
+  sm: '31.25rem', // 500px
   md: '48em', // 768px
   lg: '59.375em', // 950px
   xl: '64rem', // 1024px

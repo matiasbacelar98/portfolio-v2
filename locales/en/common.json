@@ -29,9 +29,18 @@
   "aboutSection": {
     "title": "About",
     "content": [
-      "I am a self-taught developer from La Plata (Buenos Aires) with a focus on Javascript & React. I have an interest in micro interactions and effects in the UI as well as creating user experiences that are dynamic and interactive.",
-      "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession. I enjoy building interfaces that are useful without losing the aesthetics of the application as I believe that usability and aesthetics are equally important.",
-      "These are some of the technologies that I normally use for my personal projects and professionally:"
+      {
+        "id": "8MNYHWUz5X_etV7_NwgqG",
+        "text": "I am a self-taught developer from La Plata (Buenos Aires) with a focus on Javascript & React. I have an interest in micro interactions and effects in the UI as well as creating user experiences that are dynamic and interactive."
+      },
+      {
+        "text": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession. I enjoy building interfaces that are useful without losing the aesthetics of the application as I believe that usability and aesthetics are equally important.",
+        "id": "-I48kfEDEG3FqkFQ3Fazl"
+      },
+      {
+        "id": "jsf3wh_yC-4qsiRt___JF",
+        "text": "These are some of the technologies that I normally use for my personal projects and professionally:"
+      }
     ]
   },
   "experienceSection": {

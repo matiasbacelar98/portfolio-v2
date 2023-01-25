@@ -1,6 +1,13 @@
+import { MouseEvent, useRef } from 'react';
 import styled from 'styled-components';
-import { sideSpacing, Typography } from '@/styles';
+import useTranslation from 'next-translate/useTranslation';
+
+import Title from '@/components/Title';
+
+import { useCursor } from '@/hooks';
+import { mouseLeaveFromTheTop } from '@/utils';
 import { themeValues as theme, breakpoints, linkUrls } from '@/constants';
+import { sideSpacing, Typography } from '@/styles';
 
 const Wrapper = styled.section`
   ${sideSpacing}
@@ -36,27 +43,39 @@ const Circle = styled.div`
 `;
 
 const Contact = () => {
+  const ref = useRef<HTMLElement | null>(null);
+  const { updateCursorType } = useCursor();
+  const { t } = useTranslation();
+
+  //----- Utils -----//
+  const handleMouseEnter = () => updateCursorType('hovered');
+
+  const handleMouseLeave = (e: MouseEvent) => {
+    // If reference is not ready don't execute
+    if (!ref.current) return;
+
+    // If mouse left from the top
+    if (mouseLeaveFromTheTop(e, ref.current)) return updateCursorType('default');
+
+    // If mouse left from the bottom
+    return updateCursorType('small');
+  };
+
   return (
-    <Wrapper>
+    <Wrapper ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <TitleWrapper>
         <Circle />
 
         <a target="_blank" href={linkUrls.mail} rel="noreferrer">
-          <Typography
-            as="h2"
-            size={theme.headingLg}
-            weight={theme.regularWeight}
-            display="inline-block"
-            highlighted
-            hover
-          >
-            Let&apos;s talk +
-          </Typography>
+          <Title
+            content={t('common:footerSection.title')}
+            config={{ hover: true, highlighted: true, display: 'inline-block' }}
+          />
         </a>
       </TitleWrapper>
 
       <Typography as="p" size={theme.textBase} weight={theme.regularWeight} mxWidth={'300'}>
-        If you want to contact me to ask me something my inbox is always open.
+        {t('common:footerSection.message')}
       </Typography>
     </Wrapper>
   );

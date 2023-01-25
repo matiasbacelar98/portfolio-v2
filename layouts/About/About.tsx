@@ -1,16 +1,63 @@
+import { MouseEvent } from 'react';
 import styled from 'styled-components';
+
+import AboutContent from './AboutContent';
+import AboutIcons from './AboutIcons';
+
+import Title from '@/components/Title';
+
 import { sideSpacing } from '@/styles';
-import { sectionNames } from '@/constants';
-import { useStoreDistance } from '@/hooks';
+import { sectionNames, breakpoints } from '@/constants';
+import { useStoreDistance, useCursor } from '@/hooks';
+import { mouseLeaveFromTheTop } from '@/utils';
 
 const Wrapper = styled.section`
   ${sideSpacing}
+
+  & > * + * {
+    margin-top: var(--size-5);
+  }
+`;
+
+const SectionsWrapper = styled.div`
+  display: grid;
+  row-gap: var(--size-5);
+
+  @media (min-width: ${breakpoints.xl}) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--size-6);
+    row-gap: 0;
+  }
 `;
 
 const About = () => {
   const { ref } = useStoreDistance(sectionNames.about);
+  const { updateCursorType } = useCursor();
 
-  return <Wrapper ref={ref}>About section</Wrapper>;
+  //----- Utils -----//
+  const handleMouseEnter = () => updateCursorType('default');
+
+  const handleMouseLeave = (e: MouseEvent) => {
+    // If reference is not ready don't execute
+    if (!ref.current) return;
+
+    // If mouse left from the top
+    if (mouseLeaveFromTheTop(e, ref.current)) return updateCursorType('hovered');
+
+    // If mouse left from the bottom
+    return updateCursorType('default');
+  };
+
+  return (
+    <Wrapper ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Title content="About" line />
+
+      <SectionsWrapper>
+        <AboutContent />
+        <AboutIcons />
+      </SectionsWrapper>
+    </Wrapper>
+  );
 };
 
 export default About;
