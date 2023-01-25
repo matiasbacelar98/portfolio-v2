@@ -1,16 +1,55 @@
 import styled from 'styled-components';
+import useTranslation from 'next-translate/useTranslation';
+
+import Job from './Job';
+import Title from '@/components/Title';
+
 import { sideSpacing } from '@/styles';
 import { sectionNames } from '@/constants';
-import { useStoreDistance } from '@/hooks';
+import { useStoreDistance, useCursor } from '@/hooks';
 
+//----------- Main component -----------//
 const Wrapper = styled.section`
   ${sideSpacing}
+
+  & > * + * {
+    margin-top: var(--size-5);
+  }
 `;
 
-const Experience = () => {
-  const { ref } = useStoreDistance(sectionNames.experience);
+type JobType = {
+  id: string;
+  position: string;
+  company: string;
+  time: string;
+  firstItem: string;
+  secondItem: string;
+};
 
-  return <Wrapper ref={ref}>Experience section</Wrapper>;
+const Experience = () => {
+  const { updateCursorType } = useCursor();
+  const { ref } = useStoreDistance(sectionNames.experience);
+  const { t } = useTranslation();
+
+  const jobsArr: JobType[] = t(
+    'common:experienceSection.info',
+    { count: [] },
+    { returnObjects: true }
+  );
+
+  return (
+    <Wrapper
+      ref={ref}
+      onMouseEnter={() => updateCursorType('default')}
+      onMouseLeave={() => updateCursorType('default')}
+    >
+      <Title content={t('common:experienceSection.title')} line />
+
+      {jobsArr.map(job => (
+        <Job key={job.id} data={job} />
+      ))}
+    </Wrapper>
+  );
 };
 
 export default Experience;
