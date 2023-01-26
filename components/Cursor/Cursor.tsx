@@ -34,9 +34,18 @@ const StyledCursor = styled.div<StyledCursorType>`
   z-index: 9999;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: all 0.1s ease-out;
   transition-property: width, height, border;
   will-change: width, height, transform, border;
+
+  // Transition
+  ${props =>
+    props.type === 'see'
+      ? css`
+          transition: all 0.11s ease-out;
+        `
+      : css`
+          transition: all 0.1s ease-out;
+        `}
 
   @media (min-width: ${breakpoints.md}) {
     display: block;
@@ -79,13 +88,13 @@ const StyledCursor = styled.div<StyledCursorType>`
     css`
       width: var(--size-15);
       height: var(--size-15);
-      display: grid;
+      display: grid !important;
       place-items: center;
     `}
 `;
 
 const StyledTextWrapper = styled.div<StyledCursorType>`
-  display: ${props => (props.type === 'see' ? 'block' : 'none')};
+  display: ${props => (props.type === 'see' ? 'inline-block' : 'none')};
 `;
 
 //----------- Hooks -----------//

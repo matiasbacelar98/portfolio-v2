@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useCursor } from '@/hooks';
-import { themeValues as theme, linkUrls } from '@/constants';
+import { themeValues as theme } from '@/constants';
 import { Typography, OutterLink } from '@/styles';
 
 //---------------- JobRole ----------------//
@@ -20,9 +20,10 @@ type JobRoleProps = {
   company: string;
   role: string;
   time: string;
+  link: string;
 };
 
-const JobRole = ({ role, company, time }: JobRoleProps) => {
+const JobRole = ({ role, company, time, link }: JobRoleProps) => {
   const { updateCursorType } = useCursor();
 
   return (
@@ -35,7 +36,7 @@ const JobRole = ({ role, company, time }: JobRoleProps) => {
         <OutterLink
           size={theme.headingSm}
           weight={theme.regularWeight}
-          href={linkUrls.linkedin}
+          href={link}
           target="_blank"
           rel="noopener noreferrer"
           onMouseEnter={() => updateCursorType('hovered')}
@@ -113,15 +114,16 @@ type JobTypeProps = {
     time: string;
     firstItem: string;
     secondItem: string;
+    link: string;
   };
 };
 
 const Job = ({ data }: JobTypeProps) => {
-  const { position, company, time, firstItem, secondItem } = data;
+  const { position, company, time, firstItem, secondItem, link } = data;
 
   return (
     <div>
-      <JobRole role={position} company={company} time={time} />
+      <JobRole role={position} company={company} time={time} link={link} />
       <JobInfo first={firstItem} second={secondItem} />
     </div>
   );

@@ -2,7 +2,6 @@ import { useRef } from 'react';
 import styled, { css } from 'styled-components';
 
 import { FiGithub } from 'react-icons/fi';
-import { HiOutlineExternalLink } from 'react-icons/hi';
 import { AiOutlineMail } from 'react-icons/ai';
 import { FaLinkedinIn } from 'react-icons/fa';
 
@@ -11,13 +10,8 @@ import { getBoundingBox } from '@/utils';
 import { linkUrls } from '@/constants';
 
 //----------------- Types -----------------//
-type SocialIconType = {
-  isCard?: boolean;
-};
-
 type Social = {
-  type: 'github' | 'linkedin' | 'mail' | 'open';
-  isCard?: boolean;
+  type: 'github' | 'linkedin' | 'mail';
 };
 
 //----------------- Styles -----------------//
@@ -39,18 +33,14 @@ const StyledMailIcon = styled(AiOutlineMail)`
   ${socialIconStyles}
 `;
 
-const StyledOpenIcon = styled(HiOutlineExternalLink)`
-  ${socialIconStyles}
-`;
-
-const SocialIconWrapper = styled.div<SocialIconType>`
+const SocialIconWrapper = styled.div`
   display: grid;
   place-items: center;
 
   width: var(--size-6);
   height: var(--size-6);
 
-  border: 2px solid ${props => (props.isCard ? 'transparent' : props.theme.accent)};
+  border: 2px solid ${props => props.theme.accent};
   border-radius: 50%;
 
   transition: border 150ms ease-in;
@@ -96,55 +86,30 @@ const useAnimateCursor = () => {
 };
 
 //----------------- Main component -----------------//
-export const SocialIcon = ({ type, isCard = false }: Social) => {
+export const SocialIcon = ({ type }: Social) => {
   const { ref, handleMouseMove, handleMouseLeave } = useAnimateCursor();
 
   const types = {
     github: (
       <a target="_blank" href={linkUrls.github} rel="noreferrer">
-        <SocialIconWrapper
-          isCard={isCard}
-          ref={ref}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-        >
+        <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           <StyledGithubIcon />
         </SocialIconWrapper>
       </a>
     ),
     linkedin: (
       <a target="_blank" href={linkUrls.linkedin} rel="noreferrer">
-        <SocialIconWrapper
-          isCard={isCard}
-          ref={ref}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-        >
+        <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           <StyledLinkedinIcon />
         </SocialIconWrapper>
       </a>
     ),
     mail: (
       <a target="_blank" href={linkUrls.mail} rel="noreferrer">
-        <SocialIconWrapper
-          isCard={isCard}
-          ref={ref}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-        >
+        <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           <StyledMailIcon />
         </SocialIconWrapper>
       </a>
-    ),
-    open: (
-      <SocialIconWrapper
-        isCard={isCard}
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-      >
-        <StyledOpenIcon />
-      </SocialIconWrapper>
     ),
   };
 

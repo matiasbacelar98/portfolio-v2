@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import useTranslation from 'next-translate/useTranslation';
 
 import Job from './Job';
+import Resume from './Resume';
 import Title from '@/components/Title';
 
 import { sideSpacing } from '@/styles';
@@ -24,6 +25,7 @@ type JobType = {
   time: string;
   firstItem: string;
   secondItem: string;
+  link: string;
 };
 
 const Experience = () => {
@@ -48,6 +50,8 @@ const Experience = () => {
       {jobsArr.map(job => (
         <Job key={job.id} data={job} />
       ))}
+
+      <Resume />
     </Wrapper>
   );
 };

@@ -56,6 +56,7 @@
         "company": "@ Freelancer",
         "time": "Agosto 2021 - Mayo 2022",
         "firstItem": "Sitio web para el Círculo de Oficiales de SPB con el ecosistema de React, las características más importantes fueron la validación de formularios dinamicos, el almacenamiento de datos en firebase, mapas personalizados y animaciones.",
+        "link": "https://www.linkedin.com/in/matias-bacelar-371140199/",
         "secondItem": "Aplicación llamada Tiendas platenses que brinda a los usuarios la posibilidad de buscar diferentes productos y contactar al vendedor específico de ese producto."
       },
       {
@@ -63,10 +64,12 @@
         "position": "Front-end Developer ",
         "company": "@ ModoAgrario",
         "time": "Mayo 2022 - Presente",
+        "link": "https://www.modoagrario.com/",
         "firstItem": "Desarrollo y mantenimiento de código para el software de la empresa (plataforma colaborativa de E-sourcing) con React y su ecosistema.",
         "secondItem": "Desarrollo del sitio web de la empresa con Next JS, utilizacion de la funcionalidad de Enrutamiento Internacionalizado para tener traducciones en inglés, español y portugués además de animaciones utilizando framer motion."
       }
-    ]
+    ],
+    "resume": "Ver mi currículum"
   },
   "projectsSection": {
     "title": "Projectos",
@@ -77,24 +80,27 @@
         "name": "Snapcode",
         "technologies": ["Vite", "React", "Framer motion", "Supabase"],
         "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
-        "liveUrl": "url",
-        "githubUrl": "github"
+        "liveUrl": "https://snapcode-app.vercel.app/",
+        "githubUrl": "https://github.com/matiasbacelar98/snapcode",
+        "img": "https://res.cloudinary.com/mb-dev-98/image/upload/f_auto,c_limit,w_1920,q_auto/v1674467855/snapcode_main_fea174a64e_01e829d021_8d21ca90e9.png"
       },
       {
         "id": "C2r83cpLTRvy5HBm0I0Vv",
         "name": "Moderne",
         "technologies": ["React", "Framer motion", "Mapbox", "Styled components"],
         "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
-        "liveUrl": "url",
-        "githubUrl": "github"
+        "liveUrl": "https://moderne-app.vercel.app/",
+        "githubUrl": "https://github.com/matiasbacelar98/moderne-app",
+        "img": "https://res.cloudinary.com/mb-dev-98/image/upload/f_auto,c_limit,w_1920,q_auto/v1674467925/moderne_main_e91720befd_ad584b9b9d_afd132ac76_748c5a83d3.svg"
       },
       {
         "id": "dNVdVnFjiifqzNKvQaEQL",
         "name": "Portfolio v1",
         "technologies": ["Next", "Strapi", "Axios", "Styled components"],
         "info": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession.",
-        "liveUrl": "url",
-        "githubUrl": "github"
+        "liveUrl": "https://matiasbacelar-v1.vercel.app/",
+        "githubUrl": "https://github.com/matiasbacelar98/portfolio-personal",
+        "img": "https://res.cloudinary.com/mb-dev-98/image/upload/f_auto,c_limit,w_1920,q_auto/v1674467981/portfolio_main_771c5a61ef_a42d32894c_bb09b71af1_8d8aefe3fd.svg"
       }
     ]
   },
