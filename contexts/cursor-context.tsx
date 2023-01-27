@@ -30,7 +30,7 @@ export const CursorContext = createContext<CursorContextValue>({
 // InitialValue
 const cursorState: CursorStateType = {
   positions: [0, 0],
-  cursorType: 'default',
+  cursorType: 'hovered',
   cursorStyles: ['default', 'small', 'hovered', 'see', 'logo'],
 };
 

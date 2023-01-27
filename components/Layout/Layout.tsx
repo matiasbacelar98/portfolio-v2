@@ -20,13 +20,16 @@ const Layout = ({ children }: PropsWithChildren) => {
   const smoothScrollValues = { damping: 120, mass: 1, stiffness: 800 };
 
   return (
-    <ScrollerMotion spring={{ ...smoothScrollValues }}>
+    <>
       <Header />
-      <Spacing>
-        <Main>{children}</Main>
-        <Footer />
-      </Spacing>
-    </ScrollerMotion>
+
+      <ScrollerMotion spring={{ ...smoothScrollValues }}>
+        <Spacing>
+          <Main>{children}</Main>
+          <Footer />
+        </Spacing>
+      </ScrollerMotion>
+    </>
   );
 };
 
