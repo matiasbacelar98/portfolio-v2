@@ -37,15 +37,17 @@ const StyledCursor = styled.div<StyledCursorType>`
   transition-property: width, height, border;
   will-change: width, height, transform, border;
 
+  transition: all 0.1s ease-out;
+
   // Transition
-  ${props =>
+  /* ${props =>
     props.type === 'see'
       ? css`
           transition: all 0.11s ease-out;
         `
       : css`
           transition: all 0.1s ease-out;
-        `}
+        `} */
 
   @media (min-width: ${breakpoints.md}) {
     display: block;

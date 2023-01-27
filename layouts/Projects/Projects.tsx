@@ -27,6 +27,7 @@ const ProjectGrid = styled.div`
   row-gap: var(--size-3);
 
   @media (min-width: ${breakpoints.md}) {
+    place-content: center;
     row-gap: var(--size-5);
   }
 
@@ -34,6 +35,7 @@ const ProjectGrid = styled.div`
     width: 95%;
     margin-inline: auto;
 
+    place-content: initial;
     grid-template-columns: repeat(2, 1fr);
     row-gap: var(--size-13);
     column-gap: var(--size-30);
