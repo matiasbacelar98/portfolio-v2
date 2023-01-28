@@ -1,6 +1,9 @@
-import { MouseEvent, useRef } from 'react';
-import styled from 'styled-components';
+import { MouseEvent, useRef, useEffect } from 'react';
+
 import useTranslation from 'next-translate/useTranslation';
+
+import { motion, useAnimationControls } from 'framer-motion';
+import styled from 'styled-components';
 
 import { HandIcon } from '@/components/Icons';
 
@@ -10,6 +13,7 @@ import { mouseLeaveFromTheTop } from '@/utils';
 import { sideSpacing, Typography, OutterLink } from '@/styles';
 import { themeValues as theme, linkUrls, breakpoints } from '@/constants';
 
+//----------- Styles -----------//
 const Wrapper = styled.section`
   ${sideSpacing}
   display: flex;
@@ -64,10 +68,42 @@ const ContactWrapper = styled.div`
   }
 `;
 
+//----------- Hooks -----------//
+const useAnimateHero = () => {
+  const controls = {
+    salute: useAnimationControls(),
+    title: useAnimationControls(),
+    cta: useAnimationControls(),
+  };
+
+  useEffect(() => {
+    const animate = (delay: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: delay, type: 'tween', ease: 'circOut', duration: 0.2 },
+    });
+
+    const animateHero = async () => {
+      const isMobileWidth = window.innerWidth < 768;
+      const initialDelay = isMobileWidth ? 1.5 : 2.5;
+
+      await controls.salute.start(animate(initialDelay));
+      await controls.title.start(animate(0.2));
+      await controls.cta.start(animate(0));
+    };
+
+    animateHero();
+  }, [controls.cta, controls.salute, controls.title]);
+
+  return controls;
+};
+
+//----------- Main component -----------//
 const Hero = () => {
   const ref = useRef<HTMLElement | null>(null);
   const { updateCursorType } = useCursor();
   const { t } = useTranslation();
+  const controls = useAnimateHero();
 
   //----- Utils -----//
   const handleMouseEnter = () => updateCursorType('hovered');
@@ -83,44 +119,66 @@ const Hero = () => {
     return updateCursorType('default');
   };
 
+  const addScroll = () => {
+    const htmlNode = document.querySelector('html');
+    if (htmlNode) htmlNode.classList.remove('remove-scroll');
+  };
+
   return (
     <Wrapper ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <TextWrapper>
-        <HeroFlexWrapper>
-          <Typography as="h1" size={theme.headingXl} weight={theme.lightWeight} mxWidth={'720'}>
-            {t('common:homeSection.title.salute')}
-          </Typography>
-
-          <HandIcon type="salute" size="lg" />
-        </HeroFlexWrapper>
-
-        <Typography as="h1" size={theme.headingXl} weight={theme.lightWeight} mxWidth={'720'}>
-          {t('common:homeSection.title.first')}
-          <Typography as="span" size={theme.headingXl} weight={theme.semiBoldWeight} highlighted>
-            &nbsp;Matias Bacelar
-          </Typography>
-          ,&nbsp;{t('common:homeSection.title.second')} <br /> {t('common:homeSection.title.third')}
-        </Typography>
-
-        <ContactWrapper>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={controls.salute}>
           <HeroFlexWrapper>
-            <Typography as="h2" size={theme.headingSm} weight={theme.regularWeight}>
-              {t('common:homeSection.cta')}
+            <Typography
+              as="span"
+              display="inline-block"
+              size={theme.headingXl}
+              weight={theme.lightWeight}
+              mxWidth={'720'}
+            >
+              {t('common:homeSection.title.salute')}
             </Typography>
 
-            <HandIcon type="point" size="md" />
+            <HandIcon type="salute" size="lg" />
           </HeroFlexWrapper>
+        </motion.div>
 
-          <OutterLink
-            size={theme.headingSm}
-            weight={theme.regularWeight}
-            href={linkUrls.mail}
-            target="_blank"
-            rel="noreferrer"
-          >
-            @matiasbacelar
-          </OutterLink>
-        </ContactWrapper>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={controls.title}>
+          <Typography as="h1" size={theme.headingXl} weight={theme.lightWeight} mxWidth={'720'}>
+            {t('common:homeSection.title.first')}
+            <Typography as="span" size={theme.headingXl} weight={theme.semiBoldWeight} highlighted>
+              &nbsp;Matias Bacelar
+            </Typography>
+            ,&nbsp;{t('common:homeSection.title.second')} <br />{' '}
+            {t('common:homeSection.title.third')}
+          </Typography>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={controls.cta}
+          onAnimationComplete={addScroll}
+        >
+          <ContactWrapper>
+            <HeroFlexWrapper>
+              <Typography as="h2" size={theme.headingSm} weight={theme.regularWeight}>
+                {t('common:homeSection.cta')}
+              </Typography>
+
+              <HandIcon type="point" size="md" />
+            </HeroFlexWrapper>
+
+            <OutterLink
+              size={theme.headingSm}
+              weight={theme.regularWeight}
+              href={linkUrls.mail}
+              target="_blank"
+              rel="noreferrer"
+            >
+              @matiasbacelar
+            </OutterLink>
+          </ContactWrapper>
+        </motion.div>
       </TextWrapper>
     </Wrapper>
   );

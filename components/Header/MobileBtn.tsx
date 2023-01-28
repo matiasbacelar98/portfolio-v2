@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { HiOutlineMenuAlt4 } from 'react-icons/hi';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 
 import { useIsomorphicLayoutEffect } from 'usehooks-ts';
 
@@ -10,7 +11,7 @@ import MobileLinks from './MobileLinks';
 import { breakpoints } from '@/constants';
 
 //-------- Styles --------//
-const StyledBtn = styled.button`
+const StyledBtn = styled(motion.button)`
   background-color: transparent;
   border: 0;
   display: grid;
@@ -81,7 +82,12 @@ const MobileBtn = () => {
 
   return (
     <>
-      <StyledBtn onClick={openMenu}>
+      <StyledBtn
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, ease: 'circOut', duration: 0.2 }}
+        onClick={openMenu}
+      >
         <HamburguerIcon />
       </StyledBtn>
 

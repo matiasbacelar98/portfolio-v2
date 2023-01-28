@@ -24,6 +24,7 @@ const variables = css`
     // Others
     --border-radius: 0.5rem;
     --box-shadow: -2px 2px 15px -2px rgba(0, 0, 0, 0.3);
+    --scrollbar-width: 0;
   }
 `;
 

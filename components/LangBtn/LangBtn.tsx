@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 
 import { useOnClickOutside } from 'usehooks-ts';
@@ -13,10 +14,10 @@ import { SPANISH_OPTION, ENGLISH_OPTION } from './LangBtn.constants';
 
 //---------- Main component----------//
 type WrapperType = {
-  mobile: boolean;
+  mobile: boolean | undefined;
 };
 
-const Wrapper = styled.div<WrapperType>`
+const Wrapper = styled(motion.div)<WrapperType>`
   display: ${props => (props.mobile ? 'block' : 'none')};
 
   ${props =>
@@ -34,7 +35,7 @@ const Wrapper = styled.div<WrapperType>`
 `;
 
 type LangBtnType = {
-  mobile?: boolean;
+  mobile: boolean;
 };
 
 const LangBtn = ({ mobile }: LangBtnType) => {
@@ -70,7 +71,10 @@ const LangBtn = ({ mobile }: LangBtnType) => {
       ref={elementRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      mobile={mobile || false}
+      mobile={mobile ? true : undefined}
+      initial={{ opacity: mobile ? 1 : 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2, ease: 'circOut', delay: 2 }}
     >
       <DropdownHeader content={selectedLang} toggleList={toggleList} isOpen={isOpen} />
 

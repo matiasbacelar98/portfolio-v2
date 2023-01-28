@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import { motion, useAnimation } from 'framer-motion';
 import { useDebounce } from 'usehooks-ts';
 
-import { useCursor, useTheme } from '@/hooks';
-import { sideSpacing } from '@/styles';
+import { useCursor, useTheme, useGetScrollbarWidth } from '@/hooks';
 
 //  Outer components
 import Logo from '@/components/Logo';
@@ -15,19 +14,27 @@ import LangBtn from '@/components/LangBtn';
 import DesktopLinks from './DesktopLinks';
 import MobileBtn from './MobileBtn';
 
+import { breakpoints } from '@/constants';
+
 //----------- Styles -----------//
 const StyledHeader = styled(motion.header)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--size-5) 0;
+
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
 
-  ${sideSpacing}
+  padding: var(--size-5) 0;
+  padding-inline: var(--size-3);
+
+  @media (min-width: ${breakpoints.md}) {
+    padding-left: var(--size-5);
+    padding-right: calc(var(--size-5) + var(--scrollbar-width));
+  }
 `;
 
 //----------- Hooks -----------//
@@ -116,6 +123,8 @@ const Header = () => {
   const { updateCursorType } = useCursor();
   const { ref, controls } = useAnimateOnScroll();
 
+  useGetScrollbarWidth();
+
   //----- Utils -----//
   const handleMouseEnter = () => updateCursorType('hovered');
   const handleMouseLeave = () => updateCursorType('hovered');
@@ -129,7 +138,7 @@ const Header = () => {
     >
       <Logo />
       <DesktopLinks />
-      <LangBtn />
+      <LangBtn mobile={false} />
       <MobileBtn />
     </StyledHeader>
   );

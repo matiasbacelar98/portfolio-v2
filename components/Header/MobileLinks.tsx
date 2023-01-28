@@ -150,9 +150,9 @@ const SocialIcons = () => {
   return (
     <StyledSocialIcons>
       <StyledIconsWrapper>
-        <SocialIcon type="github" isCard />
-        <SocialIcon type="linkedin" isCard />
-        <SocialIcon type="mail" isCard />
+        <SocialIcon type="github" />
+        <SocialIcon type="linkedin" />
+        <SocialIcon type="mail" />
       </StyledIconsWrapper>
 
       <LangBtn mobile />

@@ -1,10 +1,11 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 import { useTheme, useCursor, useGetDistance } from '@/hooks';
 import { sectionNames } from '@/constants';
 
 //---------- Styles ----------//
-const LogoWrapper = styled.div`
+const LogoWrapper = styled(motion.div)`
   display: flex;
   align-items: center;
   user-select: none;
@@ -65,7 +66,13 @@ const Logo = ({ closedMenu = null }: LogoType) => {
   };
 
   return (
-    <LogoWrapper onClick={handleClick} tabIndex={0}>
+    <LogoWrapper
+      onClick={handleClick}
+      tabIndex={0}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2, ease: 'circOut', delay: 0.8 }}
+    >
       <LogoText>Mat</LogoText>
 
       <DotArea

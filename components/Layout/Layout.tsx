@@ -1,6 +1,8 @@
 import { PropsWithChildren } from 'react';
-import { ScrollerMotion } from 'scroller-motion';
+
 import styled from 'styled-components';
+import { ScrollerMotion } from 'scroller-motion';
+import { useIsomorphicLayoutEffect } from 'usehooks-ts';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -18,6 +20,12 @@ const Spacing = styled.div`
 
 const Layout = ({ children }: PropsWithChildren) => {
   const smoothScrollValues = { damping: 120, mass: 1, stiffness: 800 };
+
+  // Remove scroll when mount
+  useIsomorphicLayoutEffect(() => {
+    const htmlNode = document.querySelector('html');
+    if (htmlNode) htmlNode.classList.add('remove-scroll');
+  }, []);
 
   return (
     <>
