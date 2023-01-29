@@ -26,15 +26,17 @@ type TitleType = {
     highlighted?: boolean;
     hover?: boolean;
   };
+  accessibleId: string;
 };
 
-const Title = ({ content, config, line }: TitleType) => {
+const Title = ({ content, config, line, accessibleId }: TitleType) => {
   return (
     <TitleWrapper>
       {line ? <Line /> : null}
 
       <Typography
         as="h2"
+        id={accessibleId}
         size={theme.headingLg}
         weight={theme.regularWeight}
         highlighted={!config?.highlighted ? false : true}

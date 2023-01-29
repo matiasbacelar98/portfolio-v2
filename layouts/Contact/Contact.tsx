@@ -62,7 +62,12 @@ const Contact = () => {
   };
 
   return (
-    <Wrapper ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <Wrapper
+      ref={ref}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      aria-labelledby="contact-title"
+    >
       <TitleWrapper>
         <Circle />
 
@@ -70,6 +75,7 @@ const Contact = () => {
           <Title
             content={t('common:footerSection.title')}
             config={{ hover: true, highlighted: true, display: 'inline-block' }}
+            accessibleId="contact-title"
           />
         </a>
       </TitleWrapper>

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -7,10 +8,10 @@ import Title from '@/components/Title';
 
 import { sideSpacing } from '@/styles';
 import { sectionNames } from '@/constants';
-import { useStoreDistance, useCursor } from '@/hooks';
+import { useStoreDistance, useCursor, useSectionAnim } from '@/hooks';
 
 //----------- Main component -----------//
-const Wrapper = styled.section`
+const Wrapper = styled(motion.section)`
   ${sideSpacing}
 
   & > * + * {
@@ -32,6 +33,7 @@ const Experience = () => {
   const { updateCursorType } = useCursor();
   const { ref } = useStoreDistance(sectionNames.experience);
   const { t } = useTranslation();
+  const { initial, onScroll, viewport } = useSectionAnim();
 
   const jobsArr: JobType[] = t(
     'common:experienceSection.info',
@@ -41,11 +43,15 @@ const Experience = () => {
 
   return (
     <Wrapper
+      aria-labelledby="experience-title"
+      initial={initial}
+      whileInView={onScroll}
+      viewport={viewport}
       ref={ref}
       onMouseEnter={() => updateCursorType('default')}
       onMouseLeave={() => updateCursorType('default')}
     >
-      <Title content={t('common:experienceSection.title')} line />
+      <Title content={t('common:experienceSection.title')} accessibleId="experience-title" line />
 
       {jobsArr.map(job => (
         <Job key={job.id} data={job} />

@@ -14,33 +14,36 @@ const ProjectWrapper = styled.article`
   }
 `;
 
-const ProjectImg = styled.div`
-  display: block;
-  cursor: none;
+const TiltWrapper = styled.div`
+  display: none;
 
   @media (min-width: ${breakpoints.md}) {
     display: block;
-    position: relative;
-    max-width: 31.25rem; // 500px
-    height: 36.625rem; // 586px
-    overflow: hidden;
+  }
+`;
 
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      content: '';
-      background-color: hsl(0, 0%, 0%);
-      z-index: 2;
-      opacity: 0;
-      transition: opacity 500ms ease;
-    }
+const ProjectImg = styled.div`
+  position: relative;
+  cursor: none;
+  max-width: 31.25rem; // 500px
+  height: 36.625rem; // 586px
+  overflow: hidden;
 
-    &:hover::before {
-      opacity: 0.5;
-    }
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: hsl(0, 0%, 0%);
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 500ms ease;
+  }
+
+  &:hover::before {
+    opacity: 0.5;
   }
 `;
 
@@ -87,8 +90,8 @@ const Project = ({ data }: ProjectTypeProps) => {
 
   return (
     <ProjectWrapper>
-      <Tilt scale={1.07} transitionSpeed={2000} tiltMaxAngleX={8.5} tiltMaxAngleY={8.5} gyroscope>
-        <a href={liveUrl} target="_blank" rel="noreferrer">
+      <TiltWrapper>
+        <Tilt scale={1.07} transitionSpeed={2000} tiltMaxAngleX={8.5} tiltMaxAngleY={8.5}>
           <ProjectImg
             onMouseEnter={() => updateCursorType('see')}
             onMouseLeave={() => updateCursorType('default')}
@@ -97,8 +100,8 @@ const Project = ({ data }: ProjectTypeProps) => {
               <Image src={img} alt={`${name} cover`} layout="fill" objectFit="cover" />
             </ImageWrapper>
           </ProjectImg>
-        </a>
-      </Tilt>
+        </Tilt>
+      </TiltWrapper>
 
       <Typography as="h3" size={theme.headingSm} weight={theme.mediumWeight} highlighted>
         {name}

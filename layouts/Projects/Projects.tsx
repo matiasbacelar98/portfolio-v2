@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -8,7 +9,7 @@ import { sideSpacing } from '@/styles';
 import { sectionNames, breakpoints } from '@/constants';
 import { useStoreDistance } from '@/hooks';
 
-const Wrapper = styled.section`
+const Wrapper = styled(motion.section)`
   ${sideSpacing}
 
   & > * + * {
@@ -67,8 +68,8 @@ const Projects = () => {
   );
 
   return (
-    <Wrapper ref={ref}>
-      <Title content={t('common:projectsSection.title')} line />
+    <Wrapper aria-labelledby="projects-title" ref={ref}>
+      <Title content={t('common:projectsSection.title')} accessibleId="projects-title" line />
 
       <ProjectGrid>
         {projectsArr.map(project => (

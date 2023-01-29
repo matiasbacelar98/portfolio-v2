@@ -125,7 +125,12 @@ const Hero = () => {
   };
 
   return (
-    <Wrapper ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <Wrapper
+      aria-labelledby="hero-title"
+      ref={ref}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <TextWrapper>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={controls.salute}>
           <HeroFlexWrapper>
@@ -144,7 +149,13 @@ const Hero = () => {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 30 }} animate={controls.title}>
-          <Typography as="h1" size={theme.headingXl} weight={theme.lightWeight} mxWidth={'720'}>
+          <Typography
+            as="h1"
+            id="hero-title"
+            size={theme.headingXl}
+            weight={theme.lightWeight}
+            mxWidth={'720'}
+          >
             {t('common:homeSection.title.first')}
             <Typography as="span" size={theme.headingXl} weight={theme.semiBoldWeight} highlighted>
               &nbsp;Matias Bacelar

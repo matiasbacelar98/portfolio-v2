@@ -108,11 +108,13 @@ const DesktopLinks = () => {
   };
 
   return (
-    <List onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter}>
-      {linksArr.map((link, index) => (
-        <Item key={link.id} content={link} index={index} variants={variants} />
-      ))}
-    </List>
+    <nav>
+      <List onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter}>
+        {linksArr.map((link, index) => (
+          <Item key={link.id} content={link} index={index} variants={variants} />
+        ))}
+      </List>
+    </nav>
   );
 };
 

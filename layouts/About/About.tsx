@@ -1,4 +1,5 @@
 import { MouseEvent } from 'react';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 import useTranslation from 'next-translate/useTranslation';
@@ -10,10 +11,10 @@ import Title from '@/components/Title';
 
 import { sideSpacing } from '@/styles';
 import { sectionNames, breakpoints } from '@/constants';
-import { useStoreDistance, useCursor } from '@/hooks';
+import { useStoreDistance, useCursor, useSectionAnim } from '@/hooks';
 import { mouseLeaveFromTheTop } from '@/utils';
 
-const Wrapper = styled.section`
+const Wrapper = styled(motion.section)`
   ${sideSpacing}
 
   & > * + * {
@@ -36,6 +37,7 @@ const About = () => {
   const { t } = useTranslation();
   const { ref } = useStoreDistance(sectionNames.about);
   const { updateCursorType } = useCursor();
+  const { initial, onScroll, viewport } = useSectionAnim();
 
   //----- Utils -----//
   const handleMouseEnter = () => updateCursorType('default');
@@ -52,8 +54,16 @@ const About = () => {
   };
 
   return (
-    <Wrapper ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Title content={t('common:aboutSection.title')} line />
+    <Wrapper
+      aria-labelledby="about-title"
+      viewport={viewport}
+      initial={initial}
+      whileInView={onScroll}
+      ref={ref}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <Title content={t('common:aboutSection.title')} accessibleId="about-title" line />
 
       <SectionsWrapper>
         <AboutContent />

@@ -95,12 +95,14 @@ const Item = ({ content, closedMenu }: ItemType) => {
 };
 
 //------------- List-------------//
+const StyledNav = styled.nav`
+  flex-grow: 2;
+  margin-top: var(--size-5);
+`;
+
 const StyledList = styled.ul`
   display: flex;
   flex-direction: column;
-  flex-grow: 2;
-  margin-top: var(--size-5);
-
   & > * + * {
     margin-top: var(--size-3);
   }
@@ -122,11 +124,13 @@ const List = ({ closedMenu }: ClosedMenuType) => {
   );
 
   return (
-    <StyledList>
-      {linksArr.map(link => (
-        <Item key={link.id} content={link} closedMenu={closedMenu} />
-      ))}
-    </StyledList>
+    <StyledNav>
+      <StyledList>
+        {linksArr.map(link => (
+          <Item key={link.id} content={link} closedMenu={closedMenu} />
+        ))}
+      </StyledList>
+    </StyledNav>
   );
 };
 
