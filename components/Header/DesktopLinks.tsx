@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { useCursor, useGetDistance } from '@/hooks';
 import { breakpoints, sectionNames, themeValues as theme } from '@/constants';
-import { Typography } from '@/styles';
+import { Typography, keyboardStyles } from '@/styles';
 
 //------------- Item -------------//
 const StyledItem = styled(motion.li)`
@@ -19,6 +19,8 @@ const StyledItem = styled(motion.li)`
     &:hover {
       cursor: pointer;
     }
+
+    ${keyboardStyles}
   }
 `;
 

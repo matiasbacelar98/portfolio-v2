@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import Flag from './Flag';
+import { keyboardStyles } from '@/styles';
 
 //------------ DropdownHeader ------------//
 const StyledDropdownHeader = styled.button`
@@ -15,6 +16,8 @@ const StyledDropdownHeader = styled.button`
   &:hover {
     cursor: pointer;
   }
+
+  ${keyboardStyles}
 `;
 
 type ArrowIconType = {
@@ -64,6 +67,8 @@ const DropdownBtn = styled.button`
   &:hover {
     cursor: pointer;
   }
+
+  ${keyboardStyles}
 `;
 
 type DropdownListType = {

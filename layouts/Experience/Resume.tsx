@@ -16,6 +16,15 @@ const ResumeWrapper = styled.a`
   & > * + * {
     margin-left: var(--size-2);
   }
+
+  &:focus,
+  &:active {
+    outline: 0.5px solid transparent;
+
+    h3 {
+      color: ${props => props.theme.text};
+    }
+  }
 `;
 
 const Resume = () => {

@@ -42,6 +42,17 @@ const Circle = styled.div`
   border-radius: 50%;
 `;
 
+const ContactLink = styled.a`
+  &:active,
+  &:focus {
+    outline: 0.5px solid transparent;
+
+    h2 {
+      color: ${props => props.theme.text};
+    }
+  }
+`;
+
 const Contact = () => {
   const ref = useRef<HTMLElement | null>(null);
   const { updateCursorType } = useCursor();
@@ -71,13 +82,13 @@ const Contact = () => {
       <TitleWrapper>
         <Circle />
 
-        <a target="_blank" href={linkUrls.mail} rel="noreferrer">
+        <ContactLink target="_blank" href={linkUrls.mail} rel="noreferrer">
           <Title
             content={t('home:footerSection.title')}
             config={{ hover: true, highlighted: true, display: 'inline-block' }}
             accessibleId="contact-title"
           />
-        </a>
+        </ContactLink>
       </TitleWrapper>
 
       <Typography as="p" size={theme.textBase} weight={theme.regularWeight} mxWidth={'300'}>

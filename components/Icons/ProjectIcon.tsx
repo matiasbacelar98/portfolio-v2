@@ -38,6 +38,16 @@ const StyledOpenIcon = styled(HiOutlineExternalLink)`
   ${socialIconStyles}
 `;
 
+const StyledIconLink = styled.a`
+  &:focus,
+  &:active {
+    outline: 0.5px solid transparent;
+    & div svg {
+      color: ${props => props.theme.text};
+    }
+  }
+`;
+
 type ProjectIconProps = {
   type: 'github' | 'open';
   url: string;
@@ -70,18 +80,18 @@ export const ProjectIcon = ({ type, url }: ProjectIconProps) => {
 
   const types = {
     github: (
-      <a target="_blank" href={url} rel="noreferrer">
+      <StyledIconLink target="_blank" href={url} rel="noreferrer">
         <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           <StyledGithubIcon />
         </SocialIconWrapper>
-      </a>
+      </StyledIconLink>
     ),
     open: (
-      <a target="_blank" href={url} rel="noreferrer">
+      <StyledIconLink target="_blank" href={url} rel="noreferrer">
         <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           <StyledOpenIcon />
         </SocialIconWrapper>
-      </a>
+      </StyledIconLink>
     ),
   };
 

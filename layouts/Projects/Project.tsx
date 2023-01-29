@@ -102,9 +102,11 @@ const Project = ({ data }: ProjectTypeProps) => {
             onMouseEnter={() => updateCursorType('see')}
             onMouseLeave={() => updateCursorType('default')}
           >
-            <ImageWrapper>
-              <Image src={img} alt={`${name} cover`} layout="fill" objectFit="cover" />
-            </ImageWrapper>
+            <a href={liveUrl} target="_blank" rel="noreferrer">
+              <ImageWrapper>
+                <Image src={img} alt={`${name} cover`} layout="fill" objectFit="cover" />
+              </ImageWrapper>
+            </a>
           </ProjectImg>
         </Tilt>
       </TiltWrapper>

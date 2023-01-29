@@ -56,6 +56,22 @@ const SocialIconWrapper = styled.div`
   }
 `;
 
+const SocialIconLink = styled.a`
+  &:focus,
+  &:active {
+    outline: 1px solid transparent;
+    border-radius: 50%;
+
+    & div {
+      border-color: ${props => props.theme.text};
+
+      & svg {
+        color: ${props => props.theme.text};
+      }
+    }
+  }
+`;
+
 //----------------- Hooks -----------------//
 const useAnimateCursor = () => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -91,25 +107,25 @@ export const SocialIcon = ({ type }: Social) => {
 
   const types = {
     github: (
-      <a target="_blank" href={linkUrls.github} rel="noreferrer">
+      <SocialIconLink target="_blank" href={linkUrls.github} rel="noreferrer">
         <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           <StyledGithubIcon />
         </SocialIconWrapper>
-      </a>
+      </SocialIconLink>
     ),
     linkedin: (
-      <a target="_blank" href={linkUrls.linkedin} rel="noreferrer">
+      <SocialIconLink target="_blank" href={linkUrls.linkedin} rel="noreferrer">
         <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           <StyledLinkedinIcon />
         </SocialIconWrapper>
-      </a>
+      </SocialIconLink>
     ),
     mail: (
-      <a target="_blank" href={linkUrls.mail} rel="noreferrer">
+      <SocialIconLink target="_blank" href={linkUrls.mail} rel="noreferrer">
         <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           <StyledMailIcon />
         </SocialIconWrapper>
-      </a>
+      </SocialIconLink>
     ),
   };
 

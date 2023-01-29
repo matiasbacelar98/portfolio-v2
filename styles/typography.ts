@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { keyboardStyles } from '@/styles';
 import { pixelsToRem } from '@/utils';
 
 //--------- Headings & Texts ---------//
@@ -56,11 +57,17 @@ export const OutterLink = styled.a<OutterLinkType>`
   transition: color 200ms ease-in-out;
 
   &::selection {
-    color: ${props => props.theme.accent};
-    background: ${props => props.theme.text};
+    color: ${props => props.theme.text};
+    background: ${props => props.theme.accent};
   }
 
   &:hover {
+    color: ${props => props.theme.text};
+  }
+
+  &:focus,
+  &:active {
+    outline: 0.5px solid transparent;
     color: ${props => props.theme.text};
   }
 `;
@@ -91,6 +98,8 @@ export const InnerLink = styled.a<InnerLinkType>`
     color: ${props => (props.highlighted ? props.theme.text : props.theme.accent)};
     background: ${props => (props.highlighted ? props.theme.accent : props.theme.text)};
   }
+
+  ${keyboardStyles}
 
   ${props =>
     props.hover &&

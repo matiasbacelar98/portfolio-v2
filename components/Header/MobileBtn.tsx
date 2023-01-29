@@ -9,6 +9,7 @@ import Show from '@/components/Show';
 import MobileLinks from './MobileLinks';
 
 import { breakpoints } from '@/constants';
+import { keyboardStyles } from '@/styles';
 
 //-------- Styles --------//
 const StyledBtn = styled(motion.button)`
@@ -20,6 +21,8 @@ const StyledBtn = styled(motion.button)`
   &:hover {
     cursor: pointer;
   }
+
+  ${keyboardStyles}
 
   @media (min-width: ${breakpoints.md}) {
     display: none;

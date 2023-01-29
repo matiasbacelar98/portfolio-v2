@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { useTheme, useCursor, useGetDistance } from '@/hooks';
 import { sectionNames } from '@/constants';
+import { keyboardStyles } from '@/styles';
 
 //---------- Styles ----------//
 const LogoWrapper = styled(motion.div)`
@@ -15,6 +16,8 @@ const LogoWrapper = styled(motion.div)`
   &:hover {
     cursor: pointer;
   }
+
+  ${keyboardStyles}
 `;
 
 const LogoText = styled.span`
@@ -36,6 +39,8 @@ const DotArea = styled.button`
   &:hover {
     cursor: pointer;
   }
+
+  ${keyboardStyles}
 `;
 
 const Circle = styled.circle`

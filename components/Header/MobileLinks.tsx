@@ -10,6 +10,7 @@ import { SocialIcon } from '@/components/Icons';
 
 import { useGetDistance } from 'hooks';
 import { breakpoints, sectionNames } from '@/constants';
+import { keyboardStyles } from '@/styles';
 
 type ClosedMenuType = {
   closedMenu: () => void;
@@ -34,6 +35,8 @@ const CloseBtn = styled.button`
   &:hover {
     cursor: pointer;
   }
+
+  ${keyboardStyles}
 `;
 
 const Heading = ({ closedMenu }: ClosedMenuType) => {
@@ -56,6 +59,8 @@ type ItemContentType = {
 const StyledItemBtn = styled.button`
   background-color: transparent;
   border: 0;
+
+  ${keyboardStyles}
 `;
 
 const ItemContent = styled.span<ItemContentType>`
