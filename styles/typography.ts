@@ -24,6 +24,11 @@ export const Typography = styled.span<TypographyType>`
 
   transition: color 200ms ease-in-out;
 
+  &::selection {
+    color: ${props => (props.highlighted ? props.theme.text : props.theme.accent)};
+    background: ${props => (props.highlighted ? props.theme.accent : props.theme.text)};
+  }
+
   ${props =>
     props.hover &&
     css`
@@ -48,6 +53,11 @@ export const OutterLink = styled.a<OutterLinkType>`
 
   transition: color 200ms ease-in-out;
 
+  &::selection {
+    color: ${props => props.theme.accent};
+    background: ${props => props.theme.text};
+  }
+
   &:hover {
     color: ${props => props.theme.text};
   }
@@ -68,4 +78,9 @@ export const InnerLink = styled.a<InnerLinkType>`
   color: ${props => (props.active ? props => props.theme.accent : props.theme.text)};
   display: inline-block;
   position: relative;
+
+  &::selection {
+    color: ${props => (props.highlighted ? props.theme.text : props.theme.accent)};
+    background: ${props => (props.highlighted ? props.theme.accent : props.theme.text)};
+  }
 `;

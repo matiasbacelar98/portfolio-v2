@@ -58,8 +58,14 @@ const TechnologiesWrapper = styled.div`
   flex-wrap: wrap;
   margin-top: 4px;
 
-  & > * {
-    margin-right: var(--size-1);
+  & > * + * {
+    margin-left: 4px;
+  }
+`;
+
+const TechWrapper = styled.div`
+  & > * + * {
+    margin-left: 4px;
   }
 `;
 
@@ -108,16 +114,28 @@ const Project = ({ data }: ProjectTypeProps) => {
       </Typography>
 
       <TechnologiesWrapper>
-        {technologies.map(tech => (
-          <Typography
-            key={tech}
-            as="p"
-            display="inline-block"
-            size={theme.textBase}
-            weight={theme.regularWeight}
-          >
-            {tech}
-          </Typography>
+        {technologies.map((tech, index) => (
+          <TechWrapper key={tech}>
+            <Typography
+              as="p"
+              display="inline-block"
+              size={theme.textBase}
+              weight={theme.regularWeight}
+            >
+              {tech}
+            </Typography>
+
+            {index !== technologies.length - 1 ? (
+              <Typography
+                display="inline-block"
+                size={theme.textBase}
+                weight={theme.regularWeight}
+                as="span"
+              >
+                -
+              </Typography>
+            ) : null}
+          </TechWrapper>
         ))}
       </TechnologiesWrapper>
 
