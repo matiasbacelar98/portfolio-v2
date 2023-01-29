@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import Flag from './Flag';
-import { keyboardStyles } from '@/styles';
 
 //------------ DropdownHeader ------------//
 const StyledDropdownHeader = styled.button`
@@ -17,7 +16,11 @@ const StyledDropdownHeader = styled.button`
     cursor: pointer;
   }
 
-  ${keyboardStyles}
+  &:focus {
+    border-color: ${props => props.theme.accent};
+    outline: 0.5px solid ${props => props.theme.accent};
+    border-radius: 4px;
+  }
 `;
 
 type ArrowIconType = {
@@ -68,7 +71,11 @@ const DropdownBtn = styled.button`
     cursor: pointer;
   }
 
-  ${keyboardStyles}
+  &:focus {
+    border-color: ${props => props.theme.accent};
+    outline: 0.5px solid ${props => props.theme.accent};
+    border-radius: 4px;
+  }
 `;
 
 type DropdownListType = {

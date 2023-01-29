@@ -39,16 +39,16 @@ type LangBtnType = {
 };
 
 const LangBtn = ({ mobile }: LangBtnType) => {
-  const [selectedLang, setSelectedLang] = useState(ENGLISH_OPTION);
+  // Get current locale
+  const { changeLocale, currentLocale } = useCurrentLocale();
+
+  const [selectedLang, setSelectedLang] = useState(currentLocale || ENGLISH_OPTION);
   const [isOpen, setIsOpen] = useState(false);
 
   const elementRef = useRef<HTMLDivElement | null>(null);
 
   // Cursor info
   const { updateCursorType } = useCursor();
-
-  // Get current locale
-  const { changeLocale } = useCurrentLocale();
 
   // Closed dropdown
   useOnClickOutside(elementRef, () => setIsOpen(false));
