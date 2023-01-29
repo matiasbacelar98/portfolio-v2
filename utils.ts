@@ -59,3 +59,9 @@ export const mouseLeaveFromTheTop: MouseLeaveFromTheTopType = (e, target) => {
   const bottom = target.offsetTop + target.getBoundingClientRect().height;
   return bottom > e.pageY;
 };
+
+// Add sroll to page
+export const addScroll = () => {
+  const htmlNode = document.querySelector('html');
+  if (htmlNode) htmlNode.classList.remove('remove-scroll');
+};

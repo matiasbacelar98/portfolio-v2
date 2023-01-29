@@ -62,14 +62,14 @@ const Projects = () => {
   const { ref } = useStoreDistance(sectionNames.projects);
 
   const projectsArr: ProjectType[] = t(
-    'common:projectsSection.projects',
+    'home:projectsSection.projects',
     { count: [] },
     { returnObjects: true }
   );
 
   return (
     <Wrapper aria-labelledby="projects-title" ref={ref}>
-      <Title content={t('common:projectsSection.title')} accessibleId="projects-title" line />
+      <Title content={t('home:projectsSection.title')} accessibleId="projects-title" line />
 
       <ProjectGrid>
         {projectsArr.map(project => (

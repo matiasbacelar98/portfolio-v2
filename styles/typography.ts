@@ -10,12 +10,14 @@ type TypographyType = {
   display?: string;
   hover?: boolean;
   uppercase?: boolean;
+  center?: boolean;
 };
 
 export const Typography = styled.span<TypographyType>`
   font-size: ${props => props.theme[props.size]};
   font-weight: ${props => props.theme[props.weight]};
   text-transform: ${props => (props.uppercase ? 'uppercase' : 'none')};
+  text-align: ${props => (props.center ? 'center' : 'start')};
 
   color: ${props => (props.highlighted ? props.theme.accent : props.theme.text)};
 
@@ -70,17 +72,31 @@ type InnerLinkType = {
   highlighted?: boolean;
   hover?: boolean;
   active?: boolean;
+  center?: boolean;
 };
 
 export const InnerLink = styled.a<InnerLinkType>`
   font-size: ${props => (props.size ? props.theme[props.size] : props.theme.testBase)};
   font-weight: ${props => (props.weight ? props.theme[props.weight] : props.theme.regularWeight)};
-  color: ${props => (props.active ? props => props.theme.accent : props.theme.text)};
+  text-align: ${props => (props.center ? 'center' : 'start')};
+
+  color: ${props => (props.highlighted ? props.theme.accent : props.theme.text)};
+
   display: inline-block;
   position: relative;
+
+  transition: color 200ms ease-in-out;
 
   &::selection {
     color: ${props => (props.highlighted ? props.theme.text : props.theme.accent)};
     background: ${props => (props.highlighted ? props.theme.accent : props.theme.text)};
   }
+
+  ${props =>
+    props.hover &&
+    css`
+      &:hover {
+        color: ${props => props.theme.text};
+      }
+    `}
 `;

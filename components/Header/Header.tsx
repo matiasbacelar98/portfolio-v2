@@ -28,12 +28,12 @@ const StyledHeader = styled(motion.header)`
   left: 0;
   z-index: 1000;
 
-  padding: var(--size-5) 0;
-  padding-inline: var(--size-3);
+  padding: var(--size-5) var(--size-3);
+  padding-right: calc(var(--size-3) + var(--scrollbar-width)) !important;
 
   @media (min-width: ${breakpoints.md}) {
     padding-left: var(--size-5);
-    padding-right: calc(var(--size-5) + var(--scrollbar-width));
+    padding-right: calc(var(--size-5) + var(--scrollbar-width)) !important;
   }
 `;
 

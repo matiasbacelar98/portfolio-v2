@@ -79,7 +79,7 @@ const ContentList = () => {
   const { t } = useTranslation();
 
   const contentArr: ContentType[] = t(
-    'common:aboutSection.content',
+    'home:aboutSection.content',
     { count: [] },
     { returnObjects: true }
   );

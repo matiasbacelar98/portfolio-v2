@@ -43,7 +43,7 @@ const Copyright = () => {
     <StyledCopyright>
       <InfoWrapper>
         <Typography as="span" size={theme.textBase} weight={theme.regularWeight} highlighted>
-          {t('common:footerSection.copyright')}
+          {t('common:footer.copyright')}
         </Typography>
       </InfoWrapper>
 

@@ -73,7 +73,7 @@ const Contact = () => {
 
         <a target="_blank" href={linkUrls.mail} rel="noreferrer">
           <Title
-            content={t('common:footerSection.title')}
+            content={t('home:footerSection.title')}
             config={{ hover: true, highlighted: true, display: 'inline-block' }}
             accessibleId="contact-title"
           />
@@ -81,7 +81,7 @@ const Contact = () => {
       </TitleWrapper>
 
       <Typography as="p" size={theme.textBase} weight={theme.regularWeight} mxWidth={'300'}>
-        {t('common:footerSection.message')}
+        {t('home:footerSection.message')}
       </Typography>
     </Wrapper>
   );

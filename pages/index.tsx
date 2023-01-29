@@ -9,7 +9,7 @@ import Contact from '@/layouts/Contact';
 
 const Home = () => {
   return (
-    <Layout>
+    <Layout page="home">
       <Hero />
       <About />
       <Experience />

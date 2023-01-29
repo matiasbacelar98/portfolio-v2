@@ -83,11 +83,7 @@ const DesktopLinks = () => {
     id: number;
   };
 
-  const linksArr: LinkType[] = t(
-    'common:homeSection.links',
-    { count: [] },
-    { returnObjects: true }
-  );
+  const linksArr: LinkType[] = t('common:header.links', { count: [] }, { returnObjects: true });
 
   //--------- Cursor animation ---------//
   const { updateCursorType } = useCursor();

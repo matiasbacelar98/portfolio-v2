@@ -36,7 +36,7 @@ const Experience = () => {
   const { initial, onScroll, viewport } = useSectionAnim();
 
   const jobsArr: JobType[] = t(
-    'common:experienceSection.info',
+    'home:experienceSection.info',
     { count: [] },
     { returnObjects: true }
   );
@@ -51,7 +51,7 @@ const Experience = () => {
       onMouseEnter={() => updateCursorType('default')}
       onMouseLeave={() => updateCursorType('default')}
     >
-      <Title content={t('common:experienceSection.title')} accessibleId="experience-title" line />
+      <Title content={t('home:experienceSection.title')} accessibleId="experience-title" line />
 
       {jobsArr.map(job => (
         <Job key={job.id} data={job} />

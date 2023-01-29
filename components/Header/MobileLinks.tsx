@@ -117,11 +117,7 @@ const List = ({ closedMenu }: ClosedMenuType) => {
     id: string;
   };
 
-  const linksArr: LinkType[] = t(
-    'common:homeSection.links',
-    { count: [] },
-    { returnObjects: true }
-  );
+  const linksArr: LinkType[] = t('common:header.links', { count: [] }, { returnObjects: true });
 
   return (
     <StyledNav>

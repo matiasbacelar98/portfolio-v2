@@ -63,7 +63,7 @@ const About = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Title content={t('common:aboutSection.title')} accessibleId="about-title" line />
+      <Title content={t('home:aboutSection.title')} accessibleId="about-title" line />
 
       <SectionsWrapper>
         <AboutContent />

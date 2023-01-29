@@ -46,7 +46,7 @@ const Resume = () => {
         highlighted={isHighlightedActive}
         hover
       >
-        {t('common:experienceSection.resume')}
+        {t('home:experienceSection.resume')}
       </Typography>
 
       <HandIcon type="point" size="sm" />

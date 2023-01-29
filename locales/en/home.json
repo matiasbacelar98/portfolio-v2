@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "title": "Matias Bacelar",
+    "description": "Matias Bacelar is a front-end focused software developer who likes to build interfaces & digital experiences for the web."
+  },
+  "homeSection": {
+    "title": {
+      "salute": "Hi there!",
+      "first": "I’m",
+      "second": "a front-end focused software developer who likes to build interfaces & digital experiences for",
+      "third": "the web."
+    },
+    "cta": "Get in touch"
+  },
+  "aboutSection": {
+    "title": "About",
+    "content": [
+      {
+        "id": "8MNYHWUz5X_etV7_NwgqG",
+        "text": "I am a self-taught developer from La Plata (Buenos Aires) with a focus on Javascript & React. I have an interest in micro interactions and effects in the UI as well as creating user experiences that are dynamic and interactive."
+      },
+      {
+        "text": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession. I enjoy building interfaces that are useful without losing the aesthetics of the application as I believe that usability and aesthetics are equally important.",
+        "id": "-I48kfEDEG3FqkFQ3Fazl"
+      },
+      {
+        "id": "jsf3wh_yC-4qsiRt___JF",
+        "text": "These are some of the technologies that I normally use for my personal projects and professionally:"
+      }
+    ]
+  },
+  "experienceSection": {
+    "title": "Experience",
+    "info": [
+      {
+        "id": "xQEzJedV0twxY0Y_RFsnh",
+        "position": "Freelance Developer",
+        "company": "@ Freelancer",
+        "time": "Aug 2021 - May 2022",
+        "firstItem": "Website for the SPB Circle of Officers with the React ecosystem, the most important features were custom form validation, storing data in firebase, custom maps and animations.",
+        "secondItem": "Application called Tiendas platenses that give users the ability to search for different products and contact the specific seller of that product.",
+        "link": "https://www.linkedin.com/in/matias-bacelar-371140199/"
+      },
+      {
+        "id": "a0RZ5qb7NRJHHbNufacTQ",
+        "position": "Front-end Developer",
+        "company": "@ ModoAgrario",
+        "time": "May 2022 - Present",
+        "firstItem": "Developed and mantained code for the company software (Collaborative E-sourcing platform) with React and his ecosystem.",
+        "secondItem": "Develop the landing page of the company with Next JS, I used the Internationalized Routing functionality to have translations in English, Spanish and Portuguese as well as adding animations using framer motion.",
+        "link": "https://www.modoagrario.com/"
+      }
+    ],
+    "resume": "View My Resume"
+  },
+  "projectsSection": {
+    "title": "Projects",
+    "cursorText": "See",
+    "projects": [
+      {
+        "id": "IsiBx8LKfjEyeGTfJhnbo",
+        "name": "Snapcode",
+        "technologies": ["Vite", "React", "Framer motion", "Supabase"],
+        "info": "Snapcode is an application to create code snippets, download, save and delete them using GitHub as authentication provider & Supabase.",
+        "liveUrl": "https://snapcode-app.vercel.app/",
+        "githubUrl": "https://github.com/matiasbacelar98/snapcode",
+        "img": "https://res.cloudinary.com/mb-dev-98/image/upload/v1674422100/snapcode_main_fea174a64e_f99779a793.png"
+      },
+      {
+        "id": "C2r83cpLTRvy5HBm0I0Vv",
+        "name": "Moderne",
+        "technologies": ["React", "Framer motion", "Mapbox", "Styled components"],
+        "info": "Moderne is an app for a fictional high tech property construction company, in this project the focus is on animations using both Framer Motion and CSS.",
+        "liveUrl": "https://moderne-app.vercel.app/",
+        "githubUrl": "https://github.com/matiasbacelar98/moderne-app",
+        "img": "https://res.cloudinary.com/mb-dev-98/image/upload/f_auto,c_limit,w_1920,q_auto/v1674467925/moderne_main_e91720befd_ad584b9b9d_afd132ac76_748c5a83d3.svg"
+      },
+      {
+        "id": "dNVdVnFjiifqzNKvQaEQL",
+        "name": "Portfolio v1",
+        "technologies": ["Next", "Strapi", "Axios", "Styled components"],
+        "info": "First version of my portfolio build with Next JS (SSG) in the frontend and and Strapi CMS as a backend.",
+        "liveUrl": "https://matiasbacelar-v1.vercel.app/",
+        "githubUrl": "https://github.com/matiasbacelar98/portfolio-personal",
+        "img": "https://res.cloudinary.com/mb-dev-98/image/upload/f_auto,c_limit,w_1920,q_auto/v1674467981/portfolio_main_771c5a61ef_a42d32894c_bb09b71af1_8d8aefe3fd.svg"
+      }
+    ]
+  },
+  "footerSection": {
+    "title": "Let’s talk   +",
+    "message": "If you want to contact me to ask me something my inbox is always open.",
+    "copyright": "Designed & Built by"
+  }
+}

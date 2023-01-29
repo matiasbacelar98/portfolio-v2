@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { HandIcon } from '@/components/Icons';
 
 import { useCursor } from '@/hooks';
-import { mouseLeaveFromTheTop } from '@/utils';
+import { mouseLeaveFromTheTop, addScroll } from '@/utils';
 
 import { sideSpacing, Typography, OutterLink } from '@/styles';
 import { themeValues as theme, linkUrls, breakpoints } from '@/constants';
@@ -119,11 +119,6 @@ const Hero = () => {
     return updateCursorType('default');
   };
 
-  const addScroll = () => {
-    const htmlNode = document.querySelector('html');
-    if (htmlNode) htmlNode.classList.remove('remove-scroll');
-  };
-
   return (
     <Wrapper
       aria-labelledby="hero-title"
@@ -141,7 +136,7 @@ const Hero = () => {
               weight={theme.lightWeight}
               mxWidth={'720'}
             >
-              {t('common:homeSection.title.salute')}
+              {t('home:homeSection.title.salute')}
             </Typography>
 
             <HandIcon type="salute" size="lg" />
@@ -156,12 +151,11 @@ const Hero = () => {
             weight={theme.lightWeight}
             mxWidth={'720'}
           >
-            {t('common:homeSection.title.first')}
+            {t('home:homeSection.title.first')}
             <Typography as="span" size={theme.headingXl} weight={theme.semiBoldWeight} highlighted>
               &nbsp;Matias Bacelar
             </Typography>
-            ,&nbsp;{t('common:homeSection.title.second')} <br />{' '}
-            {t('common:homeSection.title.third')}
+            ,&nbsp;{t('home:homeSection.title.second')} <br /> {t('home:homeSection.title.third')}
           </Typography>
         </motion.div>
 
@@ -173,7 +167,7 @@ const Hero = () => {
           <ContactWrapper>
             <HeroFlexWrapper>
               <Typography as="h2" size={theme.headingSm} weight={theme.regularWeight}>
-                {t('common:homeSection.cta')}
+                {t('home:homeSection.cta')}
               </Typography>
 
               <HandIcon type="point" size="md" />

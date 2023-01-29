@@ -1,13 +1,14 @@
-import { PropsWithChildren } from 'react';
-
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { ScrollerMotion } from 'scroller-motion';
-import { useIsomorphicLayoutEffect } from 'usehooks-ts';
+
 import useTranslation from 'next-translate/useTranslation';
+import { useIsomorphicLayoutEffect } from 'usehooks-ts';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Head from '@/components/Head';
+import Show from '@/components/Show';
 
 import { spacingFlow } from '@/styles';
 
@@ -20,13 +21,30 @@ const useRemoveScroll = () => {
   }, []);
 };
 
-const useHomeLocaleMetadata = () => {
+const useLocaleMetadata = (page: string) => {
   const { t } = useTranslation();
 
-  const title = t('common:homeMetaData.title');
-  const description = t('common:homeMetaData.description');
+  type PageType = {
+    [key: string]: string;
+  };
+
+  const pages: PageType = {
+    home: 'home',
+    notFound: 'notFound',
+  };
+
+  if (!pages[page]) throw new Error('The metadata for this page doesnt exists');
+
+  const title = t(`${pages[page]}:metadata.title`);
+  const description = t(`${pages[page]}:metadata.description`);
 
   return { title, description };
+};
+
+const useIsHomePage = () => {
+  const { pathname } = useRouter();
+  const isHomePath = pathname === '/' || pathname === '/es' || pathname === '/en';
+  return isHomePath;
 };
 
 //----------- Styles -----------//
@@ -39,11 +57,17 @@ const Spacing = styled.div`
 `;
 
 //----------- Main Component -----------//
-const Layout = ({ children }: PropsWithChildren) => {
+type LayoutProps = {
+  children: React.ReactNode;
+  page: string;
+};
+
+const Layout = ({ children, page }: LayoutProps) => {
   const smoothScrollValues = { damping: 120, mass: 1, stiffness: 800 };
+  const isHomePath = useIsHomePage();
 
   // Locale metadata
-  const { title, description } = useHomeLocaleMetadata();
+  const { title, description } = useLocaleMetadata(page);
 
   // Remove scroll when mounts
   useRemoveScroll();
@@ -51,13 +75,22 @@ const Layout = ({ children }: PropsWithChildren) => {
   return (
     <>
       <Head title={title} description={description} />
+
       <Header />
 
       <ScrollerMotion spring={{ ...smoothScrollValues }}>
         <Spacing>
           <Main>{children}</Main>
-          <Footer />
+
+          <Show show={isHomePath}>
+            <Footer />
+          </Show>
         </Spacing>
+
+        {/*-------- Footer for 404 -------- */}
+        <Show show={!isHomePath}>
+          <Footer />
+        </Show>
       </ScrollerMotion>
     </>
   );
