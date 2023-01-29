@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-import { useTheme, useCursor, useGetDistance } from '@/hooks';
+import { useTheme, useCursor, useGetDistance, useCurrentLocale } from '@/hooks';
 import { sectionNames } from '@/constants';
 import { keyboardStyles } from '@/styles';
 
 //---------- Styles ----------//
-const LogoWrapper = styled(motion.div)`
+const LogoWrapper = styled(motion.a)`
   display: flex;
   align-items: center;
   user-select: none;
@@ -40,7 +40,14 @@ const DotArea = styled.button`
     cursor: pointer;
   }
 
-  ${keyboardStyles}
+  &:active,
+  &:focus {
+    outline: 1px solid transparent;
+
+    circle {
+      fill: ${props => props.theme.text};
+    }
+  }
 `;
 
 const Circle = styled.circle`
@@ -55,6 +62,7 @@ type LogoType = {
 const Logo = ({ closedMenu = null }: LogoType) => {
   const { toggleTheme } = useTheme();
   const { updateCursorType } = useCursor();
+  const { currentLocale } = useCurrentLocale();
 
   // Scroll
   const { goToSection } = useGetDistance();
@@ -64,6 +72,7 @@ const Logo = ({ closedMenu = null }: LogoType) => {
   const handleMouseLeave = () => updateCursorType('hovered');
 
   const handleClick = () => {
+    // Scroll to section
     goToSection(sectionNames.home);
 
     // If mobile then close menu
@@ -77,6 +86,7 @@ const Logo = ({ closedMenu = null }: LogoType) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.2, ease: 'circOut', delay: 0.8 }}
+      href={`/${currentLocale === 'en' ? '' : 'es'}#hero`}
     >
       <LogoText>Mat</LogoText>
 

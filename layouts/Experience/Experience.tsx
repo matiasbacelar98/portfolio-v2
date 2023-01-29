@@ -44,6 +44,7 @@ const Experience = () => {
   return (
     <Wrapper
       aria-labelledby="experience-title"
+      id="experience"
       initial={initial}
       whileInView={onScroll}
       viewport={viewport}

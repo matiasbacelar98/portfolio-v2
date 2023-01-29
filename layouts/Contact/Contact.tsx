@@ -78,6 +78,7 @@ const Contact = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       aria-labelledby="contact-title"
+      id="contact"
     >
       <TitleWrapper>
         <Circle />

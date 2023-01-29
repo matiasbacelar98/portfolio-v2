@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 
 import { motion } from 'framer-motion';
@@ -10,17 +11,14 @@ import { Typography, keyboardStyles } from '@/styles';
 //------------- Item -------------//
 const StyledItem = styled(motion.li)`
   width: max-content;
+`;
 
-  button {
-    padding: 4px var(--size-1);
-    background-color: transparent;
-    border: 0;
+const StyledItemLink = styled.a`
+  padding: 4px var(--size-1);
+  ${keyboardStyles}
 
-    &:hover {
-      cursor: pointer;
-    }
-
-    ${keyboardStyles}
+  &:hover {
+    cursor: pointer;
   }
 `;
 
@@ -46,18 +44,30 @@ type ItemType = {
 
 const Item = ({ content, index, variants }: ItemType) => {
   const { name, section: sectionName } = content;
+  const router = useRouter();
 
   //------- Utils -------//
   const { goToSection } = useGetDistance();
-  const handleClick = () => goToSection(sectionNames[sectionName]);
+
+  const isHomePath = () =>
+    router.pathname === '/' || router.pathname === '/en' || router.pathname === 'es';
+
+  const redirectToHome = () => {
+    return router.push('/');
+  };
+
+  const handleClick = (sectionName: string) => {
+    if (isHomePath()) return goToSection(sectionNames[sectionName]);
+    return redirectToHome();
+  };
 
   return (
     <StyledItem custom={index} initial="hidden" animate="visible" variants={variants}>
-      <button onClick={handleClick}>
+      <StyledItemLink href={`#${sectionName}`} onClick={() => handleClick(sectionName)}>
         <Typography size={theme.textBase} weight={theme.regularWeight}>
           {name}
         </Typography>
-      </button>
+      </StyledItemLink>
     </StyledItem>
   );
 };

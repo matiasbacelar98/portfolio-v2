@@ -68,7 +68,7 @@ const Projects = () => {
   );
 
   return (
-    <Wrapper aria-labelledby="projects-title" ref={ref}>
+    <Wrapper aria-labelledby="projects-title" ref={ref} id="projects">
       <Title content={t('home:projectsSection.title')} accessibleId="projects-title" line />
 
       <ProjectGrid>

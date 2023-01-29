@@ -122,6 +122,7 @@ const Hero = () => {
   return (
     <Wrapper
       aria-labelledby="hero-title"
+      id="hero"
       ref={ref}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

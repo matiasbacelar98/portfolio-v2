@@ -56,10 +56,7 @@ type ItemContentType = {
   isActive?: boolean;
 };
 
-const StyledItemBtn = styled.button`
-  background-color: transparent;
-  border: 0;
-
+const StyledItemLink = styled.a`
   ${keyboardStyles}
 `;
 
@@ -92,9 +89,9 @@ const Item = ({ content, closedMenu }: ItemType) => {
 
   return (
     <li>
-      <StyledItemBtn onClick={handleClick}>
+      <StyledItemLink href={`#${sectionName}`} onClick={handleClick}>
         <ItemContent>{name}</ItemContent>
-      </StyledItemBtn>
+      </StyledItemLink>
     </li>
   );
 };

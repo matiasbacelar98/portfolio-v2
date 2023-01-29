@@ -56,6 +56,7 @@ const About = () => {
   return (
     <Wrapper
       aria-labelledby="about-title"
+      id="about"
       viewport={viewport}
       initial={initial}
       whileInView={onScroll}
