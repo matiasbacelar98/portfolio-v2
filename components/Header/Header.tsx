@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { motion, useAnimation } from 'framer-motion';
 import { useDebounce } from 'usehooks-ts';
 
+import SkipLink from '@/components/SkipLink';
+
 import { useCursor, useTheme, useGetScrollbarWidth } from '@/hooks';
 
 //  Outer components
@@ -136,6 +138,7 @@ const Header = () => {
       animate={controls}
       ref={ref}
     >
+      <SkipLink />
       <Logo />
       <DesktopLinks />
       <LangBtn mobile={false} />

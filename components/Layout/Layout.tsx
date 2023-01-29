@@ -80,7 +80,9 @@ const Layout = ({ children, page }: LayoutProps) => {
 
       <ScrollerMotion spring={{ ...smoothScrollValues }}>
         <Spacing>
-          <Main>{children}</Main>
+          <div id="content">
+            <Main>{children}</Main>
+          </div>
 
           <Show show={isHomePath}>
             <Footer />
