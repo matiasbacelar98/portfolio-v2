@@ -19,6 +19,7 @@ const StyledTypescriptIcon = styled.span`
   font-size: var(--size-5);
   color: ${props => props.theme.text};
   text-transform: uppercase;
+  user-select: none;
 `;
 
 //------------- Main component -------------//

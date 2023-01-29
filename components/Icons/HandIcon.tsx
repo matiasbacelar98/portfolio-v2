@@ -22,15 +22,20 @@ const sizes: SizesType = {
 };
 
 const HandImage = styled.img<HandImageType>`
+  user-select: none;
   max-width: ${props => `${sizes[props.size]}`};
 `;
 
 // Main component
 export const HandIcon = ({ type, size }: Hand) => {
   const types = {
-    salute: <HandImage src="/icons/waving-hand.png" alt="waving hand" size={size} />,
-    point: <HandImage src="/icons/pointright-hand.png" alt="waving hand" size={size} />,
-    cool: <HandImage src="/icons/cool-hand.png" alt="waving hand" size={size} />,
+    salute: (
+      <HandImage src="/icons/waving-hand.png" alt="waving hand" draggable="false" size={size} />
+    ),
+    point: (
+      <HandImage src="/icons/pointright-hand.png" alt="waving hand" draggable="false" size={size} />
+    ),
+    cool: <HandImage src="/icons/cool-hand.png" alt="waving hand" draggable="false" size={size} />,
   };
 
   const handTypeNotFound = !types[type];

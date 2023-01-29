@@ -12,6 +12,21 @@ const reset = css`
   html {
     overflow-x: hidden;
     overscroll-behavior: none;
+
+    scrollbar-width: thin;
+    scrollbar-color: ${props => props.theme.accent} ${props => props.theme.bg};
+  }
+
+  html::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background-color: ${props => props.theme.bg};
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background-color: ${props => props.theme.accent};
   }
 
   /* Set core root defaults */
