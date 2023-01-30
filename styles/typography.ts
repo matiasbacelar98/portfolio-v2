@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { keyboardStyles } from '@/styles';
 import { pixelsToRem } from '@/utils';
 
 //--------- Headings & Texts ---------//
@@ -99,7 +98,12 @@ export const InnerLink = styled.a<InnerLinkType>`
     background: ${props => (props.highlighted ? props.theme.accent : props.theme.text)};
   }
 
-  ${keyboardStyles}
+  &:focus,
+  &:active {
+    border-color: ${props => props.theme.accent};
+    outline: 0.5px solid ${props => props.theme.accent};
+    border-radius: 4px;
+  }
 
   ${props =>
     props.hover &&
