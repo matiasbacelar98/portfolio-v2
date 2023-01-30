@@ -8,7 +8,7 @@ import Layout from '@/components/Layout';
 
 import { fluidValues, addScroll } from '@/utils';
 import { Typography, InnerLink, sideSpacing } from '@/styles';
-import { themeValues as theme } from '../constants';
+import { themeValues as theme } from '@/constants';
 
 //----------- Styles -----------//
 const Wrapper = styled(motion.section)`

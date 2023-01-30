@@ -8,7 +8,7 @@ import Logo from '@/components/Logo';
 import LangBtn from '@/components/LangBtn';
 import { SocialIcon } from '@/components/Icons';
 
-import { useGetDistance } from 'hooks';
+import { useGetDistance } from '@/hooks';
 import { breakpoints, sectionNames } from '@/constants';
 import { keyboardStyles, AccesibleText } from '@/styles';
 

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import useTranslation from 'next-translate/useTranslation';
 
-import { SocialIcon, HandIcon } from '../Icons';
+import { SocialIcon, HandIcon } from '@/components/Icons';
 
 import { useCursor } from '@/hooks';
 import { mouseLeaveFromTheTop } from '@/utils';
