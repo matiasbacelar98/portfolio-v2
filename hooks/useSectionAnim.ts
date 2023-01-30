@@ -22,7 +22,7 @@ export const useSectionAnim = () => {
 
     setViewport(prev => ({
       ...prev,
-      amount: isMobile ? 0.1 : 0.5,
+      amount: isMobile ? 0.1 : 0.4,
     }));
   }, []);
 

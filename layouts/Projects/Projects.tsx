@@ -7,9 +7,9 @@ import Title from '@/components/Title';
 
 import { sideSpacing } from '@/styles';
 import { sectionNames, breakpoints } from '@/constants';
-import { useStoreDistance } from '@/hooks';
+import { useStoreDistance, useSectionAnim } from '@/hooks';
 
-const Wrapper = styled(motion.section)`
+const Wrapper = styled.section`
   ${sideSpacing}
 
   & > * + * {
@@ -60,6 +60,7 @@ type ProjectType = {
 const Projects = () => {
   const { t } = useTranslation();
   const { ref } = useStoreDistance(sectionNames.projects);
+  const { initial, onScroll, viewport } = useSectionAnim();
 
   const projectsArr: ProjectType[] = t(
     'home:projectsSection.projects',
@@ -69,7 +70,9 @@ const Projects = () => {
 
   return (
     <Wrapper aria-labelledby="projects-title" ref={ref} id="projects">
-      <Title content={t('home:projectsSection.title')} accessibleId="projects-title" line />
+      <motion.div initial={initial} whileInView={onScroll} viewport={viewport}>
+        <Title content={t('home:projectsSection.title')} accessibleId="projects-title" line />
+      </motion.div>
 
       <ProjectGrid>
         {projectsArr.map(project => (

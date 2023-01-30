@@ -43,6 +43,17 @@ const TextWrapper = styled.div`
   }
 `;
 
+const LinkContent = styled.span`
+  &::selection {
+    color: ${props => props.theme.text};
+    background: ${props => props.theme.accent};
+  }
+
+  &:focus {
+    color: ${props => props.theme.text};
+  }
+`;
+
 //------------ Main component ------------//
 const NotFound = () => {
   const { t } = useTranslation();
@@ -74,7 +85,7 @@ const NotFound = () => {
 
           <Link href="/" passHref>
             <InnerLink size={theme.headingSm} weight={theme.regularWeight} highlighted hover>
-              {t('notFound:cta')}
+              <LinkContent>{t('notFound:cta')}</LinkContent>
             </InnerLink>
           </Link>
         </TextWrapper>
