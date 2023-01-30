@@ -1,15 +1,17 @@
 import { MouseEvent, useRef } from 'react';
-import styled from 'styled-components';
+
 import useTranslation from 'next-translate/useTranslation';
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
 import Title from '@/components/Title';
 
-import { useCursor } from '@/hooks';
+import { useCursor, useSectionAnim } from '@/hooks';
 import { mouseLeaveFromTheTop } from '@/utils';
 import { themeValues as theme, breakpoints, linkUrls } from '@/constants';
 import { sideSpacing, Typography, AccesibleText } from '@/styles';
 
-const Wrapper = styled.section`
+const Wrapper = styled(motion.section)`
   ${sideSpacing}
 
   display: grid;
@@ -57,6 +59,7 @@ const Contact = () => {
   const ref = useRef<HTMLElement | null>(null);
   const { updateCursorType } = useCursor();
   const { t } = useTranslation();
+  const { initial, onScroll } = useSectionAnim();
 
   //----- Utils -----//
   const handleMouseEnter = () => updateCursorType('hovered');
@@ -79,6 +82,9 @@ const Contact = () => {
       onMouseLeave={handleMouseLeave}
       aria-labelledby="contact-title"
       id="contact"
+      initial={initial}
+      viewport={{ once: true, amount: 0.9 }}
+      whileInView={onScroll}
     >
       <TitleWrapper>
         <Circle />

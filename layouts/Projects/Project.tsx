@@ -11,7 +11,7 @@ import { breakpoints, themeValues as theme } from '@/constants';
 import { Typography } from '@/styles';
 
 //-------------- ProjectImg --------------//
-const ProjectImgWrapper = styled(motion.div)`
+const ProjectImgWrapper = styled.div`
   display: none;
 
   @media (min-width: ${breakpoints.md}) {
@@ -29,6 +29,11 @@ const ImageWrapper = styled.a`
   width: 100%;
   height: 100%;
   cursor: none;
+
+  &:focus {
+    outline: 1px solid transparent;
+    border: 2px solid ${props => props.theme.accent};
+  }
 `;
 
 type ProjectImgProps = {
@@ -43,19 +48,6 @@ const ProjectImg = ({ liveUrl, img, name }: ProjectImgProps) => {
   return (
     <Tilt scale={1.07} transitionSpeed={2000} tiltMaxAngleX={8.5} tiltMaxAngleY={8.5}>
       <ProjectImgWrapper
-        initial={{ opacity: 0, y: 50 }}
-        viewport={{
-          once: true,
-          amount: 0.1,
-        }}
-        whileInView={{
-          y: 0,
-          opacity: 1,
-          transition: {
-            duration: 0.4,
-            type: 'tween',
-          },
-        }}
         onMouseEnter={() => updateCursorType('see')}
         onMouseLeave={() => updateCursorType('default')}
       >
@@ -169,7 +161,7 @@ const ProjectIcons = ({ githubUrl, liveUrl }: ProjectIconsProps) => {
 };
 
 //-------------- Main component --------------//
-const ProjectWrapper = styled.article`
+const ProjectWrapper = styled(motion.article)`
   & > * + * {
     margin-top: var(--size-2);
   }
@@ -191,7 +183,21 @@ const Project = ({ data }: ProjectTypeProps) => {
   const { name, technologies, info, liveUrl, githubUrl, img } = data;
 
   return (
-    <ProjectWrapper>
+    <ProjectWrapper
+      initial={{ opacity: 0, y: 50 }}
+      viewport={{
+        once: true,
+        amount: 0.1,
+      }}
+      whileInView={{
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 0.4,
+          type: 'tween',
+        },
+      }}
+    >
       <ProjectImg name={name} liveUrl={liveUrl} img={img} />
       <ProjectName name={name} />
       <ProjectTechnologies technologies={technologies} />

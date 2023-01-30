@@ -1,5 +1,6 @@
 import { MouseEvent, useRef } from 'react';
 
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -65,7 +66,7 @@ const Copyright = () => {
 };
 
 //---------- Main component ----------//
-const StyledFooter = styled.footer`
+const StyledFooter = styled(motion.footer)`
   ${sideSpacing}
   padding-bottom: var(--size-4);
 `;
@@ -112,7 +113,21 @@ const Footer = () => {
   };
 
   return (
-    <StyledFooter ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <StyledFooter
+      initial={{ opacity: 0 }}
+      viewport={{ once: true, amount: 0.8 }}
+      whileInView={{
+        opacity: 1,
+        transition: {
+          duration: 0.2,
+          type: 'tween',
+          ease: 'easeIn',
+        },
+      }}
+      ref={ref}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <StyledLine />
 
       <ContentWrapper>
