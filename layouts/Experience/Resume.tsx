@@ -6,7 +6,7 @@ import { HandIcon } from '@/components/Icons';
 
 import { useCursor } from '@/hooks';
 import { themeValues as theme } from '@/constants';
-import { Typography } from '@/styles';
+import { Typography, AccesibleText } from '@/styles';
 
 const ResumeWrapper = styled.a`
   display: flex;
@@ -54,11 +54,14 @@ const Resume = () => {
         weight={theme.regularWeight}
         highlighted={isHighlightedActive}
         hover
+        aria-hidden="true"
       >
         {t('home:experienceSection.resume')}
       </Typography>
 
       <HandIcon type="point" size="sm" />
+
+      <AccesibleText>{t('common:accesibility.experienceLinks.resume')}</AccesibleText>
     </ResumeWrapper>
   );
 };

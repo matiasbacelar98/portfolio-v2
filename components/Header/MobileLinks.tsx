@@ -41,11 +41,17 @@ type HeadingPropsType = {
 };
 
 const Heading = ({ closedMenu, isMenuOpen }: HeadingPropsType) => {
+  const { t } = useTranslation();
+
   return (
     <StyledHeading>
       <Logo closedMenu={closedMenu} />
 
-      <CloseBtn aria-expanded={isMenuOpen} aria-label="Closed navigation menu" onClick={closedMenu}>
+      <CloseBtn
+        aria-expanded={isMenuOpen}
+        aria-label={t('common:accesibility.mobileBtn.close')}
+        onClick={closedMenu}
+      >
         <CloseIcon aria-hidden="true" focusable="false" />
       </CloseBtn>
     </StyledHeading>
@@ -72,12 +78,13 @@ type ItemType = {
     name: string;
     section: string;
     id: string;
+    accesibleText: string;
   };
   closedMenu: () => void;
 };
 
 const Item = ({ content, closedMenu }: ItemType) => {
-  const { name, section: sectionName } = content;
+  const { name, section: sectionName, accesibleText } = content;
 
   // Scroll
   const { goToSection } = useGetDistance();
@@ -92,7 +99,7 @@ const Item = ({ content, closedMenu }: ItemType) => {
     <li>
       <StyledItemLink href={`#${sectionName}`} onClick={handleClick}>
         <ItemContent aria-hidden="true">{name}</ItemContent>
-        <AccesibleText>{`go to section ${sectionName}`}</AccesibleText>
+        <AccesibleText>{accesibleText}</AccesibleText>
       </StyledItemLink>
     </li>
   );
@@ -123,6 +130,7 @@ const List = ({ closedMenu }: ListPropsType) => {
     name: string;
     section: string;
     id: string;
+    accesibleText: string;
   };
 
   const linksArr: LinkType[] = t('common:header.links', { count: [] }, { returnObjects: true });

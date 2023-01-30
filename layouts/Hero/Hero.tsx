@@ -189,7 +189,7 @@ const Hero = () => {
               rel="noreferrer"
             >
               <LinkContent aria-hidden="true">@matiasbacelar</LinkContent>
-              <AccesibleText>Send email to matiasbacelar</AccesibleText>
+              <AccesibleText>{t('common:accesibility.heroLinkText')}</AccesibleText>
             </OutterLink>
           </ContactWrapper>
         </motion.div>

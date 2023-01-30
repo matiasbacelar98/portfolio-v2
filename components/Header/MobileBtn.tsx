@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
+
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import useTranslation from 'next-translate/useTranslation';
+
 import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 
 import { useIsomorphicLayoutEffect } from 'usehooks-ts';
@@ -73,6 +76,9 @@ const useCloseMenuOnDesktop: CloseMenuType = (isOpen, setIsOpen) => {
 const MobileBtn = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Translations
+  const { t } = useTranslation();
+
   // Toggle scroll when menu opens or close
   useToggleWindowScroll(isOpen);
 
@@ -91,7 +97,7 @@ const MobileBtn = () => {
         transition={{ delay: 1.2, ease: 'circOut', duration: 0.2 }}
         onClick={openMenu}
         aria-expanded={isOpen}
-        aria-label="Open navigation menu"
+        aria-label={t('common:accesibility.mobileBtn.open')}
       >
         <HamburguerIcon aria-hidden="true" focusable="false" />
       </StyledBtn>

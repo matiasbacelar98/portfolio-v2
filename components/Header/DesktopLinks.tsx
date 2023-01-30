@@ -27,6 +27,7 @@ type ItemType = {
     name: string;
     section: string;
     id: number;
+    accesibleText: string;
   };
   index: number;
   variants: {
@@ -43,7 +44,7 @@ type ItemType = {
 };
 
 const Item = ({ content, index, variants }: ItemType) => {
-  const { name, section: sectionName } = content;
+  const { name, section: sectionName, accesibleText } = content;
   const router = useRouter();
 
   //------- Utils -------//
@@ -68,7 +69,7 @@ const Item = ({ content, index, variants }: ItemType) => {
           {name}
         </Typography>
 
-        <AccesibleText>{`go to section ${sectionName}`}</AccesibleText>
+        <AccesibleText>{accesibleText}</AccesibleText>
       </StyledItemLink>
     </StyledItem>
   );
@@ -95,6 +96,7 @@ const DesktopLinks = () => {
     name: string;
     section: string;
     id: number;
+    accesibleText: string;
   };
 
   const linksArr: LinkType[] = t('common:header.links', { count: [] }, { returnObjects: true });

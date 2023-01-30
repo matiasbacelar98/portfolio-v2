@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
@@ -46,11 +47,15 @@ type DropdownHeaderType = {
 };
 
 export const DropdownHeader = ({ toggleList, content, isOpen }: DropdownHeaderType) => {
+  const { t } = useTranslation();
+  const openLabel = t('common:accesibility.langBtn.dropdownLabel.open');
+  const closedLabel = t('common:accesibility.langBtn.dropdownLabel.close');
+
   return (
     <StyledDropdownHeader
       onClick={toggleList}
       aria-expanded={isOpen}
-      aria-label={isOpen ? 'Close languages options' : 'Open languages options'}
+      aria-label={isOpen ? closedLabel : openLabel}
     >
       <Flag lang={content} />
       <ArrowIcon aria-hidden="true" focusable="false" turn={isOpen ? 'open' : 'closed'} />
@@ -88,21 +93,34 @@ const DropdownBtn = styled.button`
 
 type DropdownListType = {
   toggleLang(lang: string): void;
+  toggleList: () => void;
   locale: string;
 };
 
-export const DropdownList = ({ toggleLang, locale }: DropdownListType) => {
+export const DropdownList = ({ toggleList, toggleLang, locale }: DropdownListType) => {
+  const { t } = useTranslation();
+
+  const langText = {
+    es: t('common:accesibility.langBtn.langOptions.spanish'),
+    en: t('common:accesibility.langBtn.langOptions.english'),
+  };
+
   const animation = {
     from: () => ({ opacity: 0, y: 5 }),
     to: () => ({ opacity: 1, y: 0, transition: { type: 'tween', duration: 0.2 } }),
   };
 
+  const handleClick = (locale: string) => {
+    toggleLang(locale);
+    toggleList();
+  };
+
   return (
     <StyledDropdownList initial={animation.from()} animate={animation.to()}>
       <li>
-        <DropdownBtn type="button" onClick={() => toggleLang(locale)}>
+        <DropdownBtn type="button" onClick={() => handleClick(locale)}>
           <Flag lang={locale} />
-          <AccesibleText>{locale === ENGLISH_OPTION ? 'English' : 'Spanish'}</AccesibleText>
+          <AccesibleText>{locale === ENGLISH_OPTION ? langText.en : langText.es}</AccesibleText>
         </DropdownBtn>
       </li>
     </StyledDropdownList>

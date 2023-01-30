@@ -4,27 +4,67 @@
       {
         "name": "Sobre",
         "section": "about",
-        "id": "qjs8hH0dwr4ygI3mP7dnj"
+        "id": "qjs8hH0dwr4ygI3mP7dnj",
+        "accesibleText": "Ir a seccion sobre"
       },
       {
         "name": "Experiencia",
         "section": "experience",
-        "id": "4sPlIo342TGcXrl1VQgLe"
+        "id": "4sPlIo342TGcXrl1VQgLe",
+        "accesibleText": "Ir a seccion experiencia"
       },
       {
         "name": "Projectos",
         "section": "projects",
-        "id": "p1DZkNAu6HjZbFUzSSwdk"
+        "id": "p1DZkNAu6HjZbFUzSSwdk",
+        "accesibleText": "Ir a seccion projectos"
       },
       {
         "name": "Contacto",
         "section": "contact",
-        "id": "BmnM0Altup5uR6wrtMofI"
+        "id": "BmnM0Altup5uR6wrtMofI",
+        "accesibleText": "Ir a seccion contacto"
       }
     ]
   },
   "footer": {
     "copyright": "Diseñado y construido por"
   },
-  "skipLink": "Saltar navegación"
+  "skipLink": "Saltar navegación",
+  "accesibility": {
+    "logo": {
+      "title": "Ir a seccion de inicio",
+      "theme": "Cambiar tema"
+    },
+    "langBtn": {
+      "langOptions": {
+        "english": "Ingles",
+        "spanish": "Español"
+      },
+      "dropdownLabel": {
+        "open": "Abrir opciones de lenguajes",
+        "close": "Cerrar opcioens de languajes"
+      }
+    },
+    "mobileBtn": {
+      "open": "Abir menu navegacion",
+      "close": "Cerrar menu navegacion"
+    },
+    "heroLinkText": "Enviar email a matiasbacelar",
+    "experienceLinks": {
+      "company": "Ir al sitio web",
+      "resume": "Ver curriculum vitae"
+    },
+    "projectsLinkText": "Ir al sitio web",
+    "links": {
+      "github": "Ir a github matias bacelar",
+      "linkedin": "Ir a linkedin matias bacelar",
+      "email": "Enviar mail a matias bacelar",
+      "live": "Ir a sitio web en vivo"
+    },
+    "linksProjects": {
+      "github": "Ir a github del projecto",
+      "live": "Ir a sitio web projecto"
+    }
+  }
 }

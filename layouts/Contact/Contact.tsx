@@ -95,7 +95,7 @@ const Contact = () => {
             config={{ hover: true, highlighted: true, display: 'inline-block' }}
             accessibleId="contact-title"
           />
-          <AccesibleText>Send email to matiasbacelar</AccesibleText>
+          <AccesibleText>{t('common:accesibility.links.email')}</AccesibleText>
         </ContactLink>
       </TitleWrapper>
 

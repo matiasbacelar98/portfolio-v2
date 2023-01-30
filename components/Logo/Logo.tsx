@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
@@ -55,6 +56,8 @@ type LogoType = {
 };
 
 const Logo = ({ closedMenu = null }: LogoType) => {
+  const { t } = useTranslation();
+
   const { toggleTheme } = useTheme();
   const { updateCursorType } = useCursor();
   const { currentLocale } = useCurrentLocale();
@@ -83,7 +86,7 @@ const Logo = ({ closedMenu = null }: LogoType) => {
       transition={{ duration: 0.2, ease: 'circOut', delay: 0.8 }}
       onClick={handleClick}
     >
-      <AccesibleText>Go to hero section</AccesibleText>
+      <AccesibleText>{t('common:accesibility.logo.title')}</AccesibleText>
 
       <LogoText aria-hidden="true">Mat</LogoText>
 
@@ -108,7 +111,7 @@ const Logo = ({ closedMenu = null }: LogoType) => {
           <Circle cx="5" cy="5" r="5" />
         </svg>
 
-        <AccesibleText>Toggle theme</AccesibleText>
+        <AccesibleText>{t('common:accesibility.logo.theme')}</AccesibleText>
       </DotArea>
 
       <LogoText aria-hidden="true">as</LogoText>

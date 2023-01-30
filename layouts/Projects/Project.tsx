@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import useTranslation from 'next-translate/useTranslation';
 
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -8,7 +9,7 @@ import { ProjectIcon } from '@/components/Icons';
 
 import { useCursor } from '@/hooks';
 import { breakpoints, themeValues as theme } from '@/constants';
-import { Typography } from '@/styles';
+import { Typography, AccesibleText } from '@/styles';
 
 //-------------- ProjectImg --------------//
 const ProjectImgWrapper = styled.div`
@@ -16,7 +17,7 @@ const ProjectImgWrapper = styled.div`
 
   @media (min-width: ${breakpoints.md}) {
     display: block;
-    max-width: 31.25rem; // 500px
+    width: 100%;
     height: 36.625rem; // 586px
 
     overflow: hidden;
@@ -43,7 +44,10 @@ type ProjectImgProps = {
 };
 
 const ProjectImg = ({ liveUrl, img, name }: ProjectImgProps) => {
+  const { t } = useTranslation();
   const { updateCursorType } = useCursor();
+
+  const projectAccesibleText = `${t('common:accesibility.projectsLinkText')} ${name}`;
 
   return (
     <Tilt scale={1.07} transitionSpeed={2000} tiltMaxAngleX={8.5} tiltMaxAngleY={8.5}>
@@ -54,6 +58,7 @@ const ProjectImg = ({ liveUrl, img, name }: ProjectImgProps) => {
         <ImageWrapper href={liveUrl} target="_blank" rel="noreferrer">
           <Image src={img} alt={`${name} cover`} layout="fill" objectFit="cover" />
         </ImageWrapper>
+        <AccesibleText>{projectAccesibleText}</AccesibleText>
       </ProjectImgWrapper>
     </Tilt>
   );

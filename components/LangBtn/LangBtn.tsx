@@ -80,6 +80,7 @@ const LangBtn = ({ mobile }: LangBtnType) => {
 
       <Show show={isOpen}>
         <DropdownList
+          toggleList={toggleList}
           toggleLang={toggleLang}
           locale={selectedLang === ENGLISH_OPTION ? SPANISH_OPTION : ENGLISH_OPTION}
         />

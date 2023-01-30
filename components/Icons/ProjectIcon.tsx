@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import styled, { css } from 'styled-components';
+import useTranslation from 'next-translate/useTranslation';
 
 import { HiOutlineExternalLink } from 'react-icons/hi';
 import { FiGithub } from 'react-icons/fi';
@@ -58,6 +59,7 @@ type ProjectIconProps = {
 export const ProjectIcon = ({ type, url }: ProjectIconProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const { updateCursorType, updateCursorPos, resetCursorPos } = useCursor();
+  const { t } = useTranslation();
 
   //----- Utils -----//
   const handleMouseMove = () => {
@@ -85,7 +87,7 @@ export const ProjectIcon = ({ type, url }: ProjectIconProps) => {
       <StyledIconLink target="_blank" href={url} rel="noreferrer">
         <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           <StyledGithubIcon aria-hidden="true" focusable="false" />
-          <AccesibleText>Go to project github page</AccesibleText>
+          <AccesibleText>{t('common:accesibility.linksProjects.github')}</AccesibleText>
         </SocialIconWrapper>
       </StyledIconLink>
     ),
@@ -93,7 +95,7 @@ export const ProjectIcon = ({ type, url }: ProjectIconProps) => {
       <StyledIconLink target="_blank" href={url} rel="noreferrer">
         <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           <StyledOpenIcon aria-hidden="true" focusable="false" />
-          <AccesibleText>Go to project live website</AccesibleText>
+          <AccesibleText>{t('common:accesibility.linksProjects.live')}</AccesibleText>
         </SocialIconWrapper>
       </StyledIconLink>
     ),
