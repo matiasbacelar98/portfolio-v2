@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useCursor } from '@/hooks';
 import { themeValues as theme } from '@/constants';
-import { Typography, OutterLink } from '@/styles';
+import { Typography, OutterLink, AccesibleText } from '@/styles';
 
 //---------------- JobRole ----------------//
 const JobRoleWrapper = styled.div`
@@ -13,6 +13,13 @@ const JobRoleWrapper = styled.div`
 const JobRoleTitle = styled.h3`
   & span:first-child {
     margin-right: 4px;
+  }
+`;
+
+const JobCompany = styled.span`
+  &::selection {
+    color: ${props => props.theme.text};
+    background: ${props => props.theme.accent};
   }
 `;
 
@@ -42,7 +49,8 @@ const JobRole = ({ role, company, time, link }: JobRoleProps) => {
           onMouseEnter={() => updateCursorType('hovered')}
           onMouseLeave={() => updateCursorType('default')}
         >
-          {company}
+          <JobCompany aria-hidden="true">{company}</JobCompany>
+          <AccesibleText>{`Go to website ${company}`}</AccesibleText>
         </OutterLink>
       </JobRoleTitle>
 

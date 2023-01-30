@@ -2,7 +2,11 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
+
 import Flag from './Flag';
+
+import { AccesibleText } from '@/styles';
+import { ENGLISH_OPTION } from './LangBtn.constants';
 
 //------------ DropdownHeader ------------//
 const StyledDropdownHeader = styled.button`
@@ -43,9 +47,13 @@ type DropdownHeaderType = {
 
 export const DropdownHeader = ({ toggleList, content, isOpen }: DropdownHeaderType) => {
   return (
-    <StyledDropdownHeader onClick={toggleList}>
+    <StyledDropdownHeader
+      onClick={toggleList}
+      aria-expanded={isOpen}
+      aria-label={isOpen ? 'Close languages options' : 'Open languages options'}
+    >
       <Flag lang={content} />
-      <ArrowIcon turn={isOpen ? 'open' : 'closed'} />
+      <ArrowIcon aria-hidden="true" focusable="false" turn={isOpen ? 'open' : 'closed'} />
     </StyledDropdownHeader>
   );
 };
@@ -94,6 +102,7 @@ export const DropdownList = ({ toggleLang, locale }: DropdownListType) => {
       <li>
         <DropdownBtn type="button" onClick={() => toggleLang(locale)}>
           <Flag lang={locale} />
+          <AccesibleText>{locale === ENGLISH_OPTION ? 'English' : 'Spanish'}</AccesibleText>
         </DropdownBtn>
       </li>
     </StyledDropdownList>

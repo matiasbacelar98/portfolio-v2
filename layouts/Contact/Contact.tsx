@@ -7,7 +7,7 @@ import Title from '@/components/Title';
 import { useCursor } from '@/hooks';
 import { mouseLeaveFromTheTop } from '@/utils';
 import { themeValues as theme, breakpoints, linkUrls } from '@/constants';
-import { sideSpacing, Typography } from '@/styles';
+import { sideSpacing, Typography, AccesibleText } from '@/styles';
 
 const Wrapper = styled.section`
   ${sideSpacing}
@@ -89,6 +89,7 @@ const Contact = () => {
             config={{ hover: true, highlighted: true, display: 'inline-block' }}
             accessibleId="contact-title"
           />
+          <AccesibleText>Send email to matiasbacelar</AccesibleText>
         </ContactLink>
       </TitleWrapper>
 

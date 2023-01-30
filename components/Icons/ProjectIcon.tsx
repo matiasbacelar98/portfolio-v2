@@ -5,7 +5,8 @@ import { HiOutlineExternalLink } from 'react-icons/hi';
 import { FiGithub } from 'react-icons/fi';
 
 import { getBoundingBox } from '@/utils';
-import { useCursor } from 'hooks';
+import { useCursor } from '@/hooks';
+import { AccesibleText } from '@/styles';
 
 const socialIconStyles = css`
   font-size: var(--size-3);
@@ -42,6 +43,7 @@ const StyledIconLink = styled.a`
   &:focus,
   &:active {
     outline: 0.5px solid transparent;
+
     & div svg {
       color: ${props => props.theme.text};
     }
@@ -82,14 +84,16 @@ export const ProjectIcon = ({ type, url }: ProjectIconProps) => {
     github: (
       <StyledIconLink target="_blank" href={url} rel="noreferrer">
         <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-          <StyledGithubIcon />
+          <StyledGithubIcon aria-hidden="true" focusable="false" />
+          <AccesibleText>Go to project github page</AccesibleText>
         </SocialIconWrapper>
       </StyledIconLink>
     ),
     open: (
       <StyledIconLink target="_blank" href={url} rel="noreferrer">
         <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-          <StyledOpenIcon />
+          <StyledOpenIcon aria-hidden="true" focusable="false" />
+          <AccesibleText>Go to project live website</AccesibleText>
         </SocialIconWrapper>
       </StyledIconLink>
     ),

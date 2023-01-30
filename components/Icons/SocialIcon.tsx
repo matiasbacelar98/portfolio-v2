@@ -5,9 +5,10 @@ import { FiGithub } from 'react-icons/fi';
 import { AiOutlineMail } from 'react-icons/ai';
 import { FaLinkedinIn } from 'react-icons/fa';
 
-import { useCursor } from 'hooks';
+import { useCursor } from '@/hooks';
 import { getBoundingBox } from '@/utils';
 import { linkUrls } from '@/constants';
+import { AccesibleText } from '@/styles';
 
 //----------------- Types -----------------//
 type Social = {
@@ -109,21 +110,24 @@ export const SocialIcon = ({ type }: Social) => {
     github: (
       <SocialIconLink target="_blank" href={linkUrls.github} rel="noreferrer">
         <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-          <StyledGithubIcon />
+          <StyledGithubIcon aria-hidden="true" focusable="false" />
+          <AccesibleText>Go to matias bacelar github page</AccesibleText>
         </SocialIconWrapper>
       </SocialIconLink>
     ),
     linkedin: (
       <SocialIconLink target="_blank" href={linkUrls.linkedin} rel="noreferrer">
         <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-          <StyledLinkedinIcon />
+          <StyledLinkedinIcon aria-hidden="true" focusable="false" />
+          <AccesibleText>Go to matias bacelar linkedin page</AccesibleText>
         </SocialIconWrapper>
       </SocialIconLink>
     ),
     mail: (
       <SocialIconLink target="_blank" href={linkUrls.mail} rel="noreferrer">
         <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-          <StyledMailIcon />
+          <StyledMailIcon aria-hidden="true" focusable="false" />
+          <AccesibleText>Send email to matias bacelar</AccesibleText>
         </SocialIconWrapper>
       </SocialIconLink>
     ),

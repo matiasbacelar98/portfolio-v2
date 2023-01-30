@@ -10,11 +10,7 @@ import { SocialIcon } from '@/components/Icons';
 
 import { useGetDistance } from 'hooks';
 import { breakpoints, sectionNames } from '@/constants';
-import { keyboardStyles } from '@/styles';
-
-type ClosedMenuType = {
-  closedMenu: () => void;
-};
+import { keyboardStyles, AccesibleText } from '@/styles';
 
 //------------- Heading -------------//
 const StyledHeading = styled.div`
@@ -39,13 +35,18 @@ const CloseBtn = styled.button`
   ${keyboardStyles}
 `;
 
-const Heading = ({ closedMenu }: ClosedMenuType) => {
+type HeadingPropsType = {
+  closedMenu: () => void;
+  isMenuOpen: boolean;
+};
+
+const Heading = ({ closedMenu, isMenuOpen }: HeadingPropsType) => {
   return (
     <StyledHeading>
       <Logo closedMenu={closedMenu} />
 
-      <CloseBtn onClick={closedMenu}>
-        <CloseIcon />
+      <CloseBtn aria-expanded={isMenuOpen} aria-label="Closed navigation menu" onClick={closedMenu}>
+        <CloseIcon aria-hidden="true" focusable="false" />
       </CloseBtn>
     </StyledHeading>
   );
@@ -90,7 +91,8 @@ const Item = ({ content, closedMenu }: ItemType) => {
   return (
     <li>
       <StyledItemLink href={`#${sectionName}`} onClick={handleClick}>
-        <ItemContent>{name}</ItemContent>
+        <ItemContent aria-hidden="true">{name}</ItemContent>
+        <AccesibleText>{`go to section ${sectionName}`}</AccesibleText>
       </StyledItemLink>
     </li>
   );
@@ -110,7 +112,11 @@ const StyledList = styled.ul`
   }
 `;
 
-const List = ({ closedMenu }: ClosedMenuType) => {
+type ListPropsType = {
+  closedMenu: () => void;
+};
+
+const List = ({ closedMenu }: ListPropsType) => {
   const { t } = useTranslation();
 
   type LinkType = {
@@ -183,7 +189,12 @@ const StyledWrapper = styled(motion.aside)`
   }
 `;
 
-const MobileLinks = ({ closedMenu }: ClosedMenuType) => {
+type MobileLinksProps = {
+  closedMenu: () => void;
+  isMenuOpen: boolean;
+};
+
+const MobileLinks = ({ closedMenu, isMenuOpen }: MobileLinksProps) => {
   const animate = {
     from: () => ({ x: '-100vw' }),
     to: () => ({ x: 0 }),
@@ -199,7 +210,7 @@ const MobileLinks = ({ closedMenu }: ClosedMenuType) => {
       transition={animate.transition()}
       key="mobile-menu"
     >
-      <Heading closedMenu={closedMenu} />
+      <Heading closedMenu={closedMenu} isMenuOpen={isMenuOpen} />
       <List closedMenu={closedMenu} />
       <SocialIcons />
     </StyledWrapper>

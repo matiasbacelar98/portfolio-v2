@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import { useCursor, useGetDistance } from '@/hooks';
 import { breakpoints, sectionNames, themeValues as theme } from '@/constants';
-import { Typography, keyboardStyles } from '@/styles';
+import { Typography, keyboardStyles, AccesibleText } from '@/styles';
 
 //------------- Item -------------//
 const StyledItem = styled(motion.li)`
@@ -64,9 +64,11 @@ const Item = ({ content, index, variants }: ItemType) => {
   return (
     <StyledItem custom={index} initial="hidden" animate="visible" variants={variants}>
       <StyledItemLink href={`#${sectionName}`} onClick={() => handleClick(sectionName)}>
-        <Typography size={theme.textBase} weight={theme.regularWeight}>
+        <Typography aria-hidden="true" size={theme.textBase} weight={theme.regularWeight}>
           {name}
         </Typography>
+
+        <AccesibleText>{`go to section ${sectionName}`}</AccesibleText>
       </StyledItemLink>
     </StyledItem>
   );

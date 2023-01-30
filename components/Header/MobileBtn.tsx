@@ -90,13 +90,15 @@ const MobileBtn = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, ease: 'circOut', duration: 0.2 }}
         onClick={openMenu}
+        aria-expanded={isOpen}
+        aria-label="Open navigation menu"
       >
-        <HamburguerIcon />
+        <HamburguerIcon aria-hidden="true" focusable="false" />
       </StyledBtn>
 
       {/*------ MobileLinks ------*/}
       <Show show={isOpen}>
-        <MobileLinks closedMenu={closedMenu} />
+        <MobileLinks isMenuOpen={isOpen} closedMenu={closedMenu} />
       </Show>
     </>
   );

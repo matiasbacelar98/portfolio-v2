@@ -10,7 +10,7 @@ import { HandIcon } from '@/components/Icons';
 import { useCursor } from '@/hooks';
 import { mouseLeaveFromTheTop, addScroll } from '@/utils';
 
-import { sideSpacing, Typography, OutterLink } from '@/styles';
+import { sideSpacing, Typography, OutterLink, AccesibleText } from '@/styles';
 import { themeValues as theme, linkUrls, breakpoints } from '@/constants';
 
 //----------- Styles -----------//
@@ -65,6 +65,13 @@ const ContactWrapper = styled.div`
 
   & div:first-child {
     margin-right: var(--size-2);
+  }
+`;
+
+const LinkContent = styled.span`
+  &::selection {
+    color: ${props => props.theme.text};
+    background: ${props => props.theme.accent};
   }
 `;
 
@@ -181,7 +188,8 @@ const Hero = () => {
               target="_blank"
               rel="noreferrer"
             >
-              @matiasbacelar
+              <LinkContent aria-hidden="true">@matiasbacelar</LinkContent>
+              <AccesibleText>Send email to matiasbacelar</AccesibleText>
             </OutterLink>
           </ContactWrapper>
         </motion.div>

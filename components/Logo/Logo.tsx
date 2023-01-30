@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { useTheme, useCursor, useGetDistance, useCurrentLocale } from '@/hooks';
 import { sectionNames } from '@/constants';
-import { keyboardStyles } from '@/styles';
+import { keyboardStyles, AccesibleText } from '@/styles';
 
 //---------- Styles ----------//
 const LogoWrapper = styled(motion.a)`
@@ -40,13 +40,8 @@ const DotArea = styled.button`
     cursor: pointer;
   }
 
-  &:active,
   &:focus {
-    outline: 1px solid transparent;
-
-    circle {
-      fill: ${props => props.theme.text};
-    }
+    outline: 1px solid ${props => props.theme.accent};
   }
 `;
 
@@ -81,19 +76,24 @@ const Logo = ({ closedMenu = null }: LogoType) => {
 
   return (
     <LogoWrapper
-      onClick={handleClick}
       tabIndex={0}
+      href={`/${currentLocale === 'en' ? '' : 'es'}#hero`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.2, ease: 'circOut', delay: 0.8 }}
-      href={`/${currentLocale === 'en' ? '' : 'es'}#hero`}
+      onClick={handleClick}
     >
-      <LogoText>Mat</LogoText>
+      <AccesibleText>Go to hero section</AccesibleText>
+
+      <LogoText aria-hidden="true">Mat</LogoText>
 
       <DotArea
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={toggleTheme}
+        onClick={e => {
+          toggleTheme();
+          e.preventDefault();
+        }}
       >
         <svg
           width="10"
@@ -102,12 +102,16 @@ const Logo = ({ closedMenu = null }: LogoType) => {
           overflow="visible"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          focusable="false"
         >
           <Circle cx="5" cy="5" r="5" />
         </svg>
+
+        <AccesibleText>Toggle theme</AccesibleText>
       </DotArea>
 
-      <LogoText>as</LogoText>
+      <LogoText aria-hidden="true">as</LogoText>
     </LogoWrapper>
   );
 };

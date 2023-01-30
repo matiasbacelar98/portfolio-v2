@@ -36,7 +36,12 @@ type FlagType = {
 };
 
 const Flag = ({ lang }: FlagType) => {
-  const flag = lang === SPANISH_OPTION ? <ESFlag /> : <USFlag />;
+  const flag =
+    lang === SPANISH_OPTION ? (
+      <ESFlag aria-hidden="true" focusable="false" />
+    ) : (
+      <USFlag aria-hidden="true" focusable="false" />
+    );
 
   return (
     <StyledLangFlag>
