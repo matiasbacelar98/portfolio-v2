@@ -20,6 +20,10 @@ const Wrapper = styled.section`
   justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
+
+  @media (max-height: ${breakpoints.sm}) {
+    padding-top: 5rem;
+  }
 `;
 
 const TextWrapper = styled.div`
