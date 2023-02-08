@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
+import { ScrollerMotion } from 'scroller-motion';
 
 import useTranslation from 'next-translate/useTranslation';
 import { useIsomorphicLayoutEffect } from 'usehooks-ts';
@@ -62,7 +63,7 @@ type LayoutProps = {
 };
 
 const Layout = ({ children, page }: LayoutProps) => {
-  // const smoothScrollValues = { damping: 120, mass: 1, stiffness: 800 };
+  const smoothScrollValues = { damping: 120, mass: 1, stiffness: 800 };
   const isHomePath = useIsHomePage();
 
   // Locale metadata
@@ -77,20 +78,22 @@ const Layout = ({ children, page }: LayoutProps) => {
 
       <Header />
 
-      <Spacing>
-        <div id="content">
-          <Main>{children}</Main>
-        </div>
+      <ScrollerMotion spring={{ ...smoothScrollValues }}>
+        <Spacing>
+          <div id="content">
+            <Main>{children}</Main>
+          </div>
 
-        <Show show={isHomePath}>
+          <Show show={isHomePath}>
+            <Footer />
+          </Show>
+        </Spacing>
+
+        {/*-------- Footer for 404 -------- */}
+        <Show show={!isHomePath}>
           <Footer />
         </Show>
-      </Spacing>
-
-      {/*-------- Footer for 404 -------- */}
-      <Show show={!isHomePath}>
-        <Footer />
-      </Show>
+      </ScrollerMotion>
     </>
   );
 };
