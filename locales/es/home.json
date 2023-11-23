@@ -49,6 +49,15 @@
         "link": "https://www.modoagrario.com/",
         "firstItem": "Desarrollo y mantenimiento de código para el software de la empresa (plataforma colaborativa de E-sourcing) con React y su ecosistema.",
         "secondItem": "Desarrollo del sitio web de la empresa con Next JS, utilizacion de la funcionalidad de Enrutamiento Internacionalizado para tener traducciones en inglés, español y portugués además de animaciones utilizando framer motion."
+      },
+      {
+        "id": "1f444371-c89a-4bff-94bd-5040c516b136",
+        "position": "Front-end Developer",
+        "company": "@ Darwoft",
+        "time": "Sep 2023 - Presente",
+        "firstItem": "Desarrollé un generador de informes de mapas dinámicos con Next JS, utilizando componentes de servidor y cliente, la API de next-js para la creación de endpoints y la libreria Puppeteer.",
+        "secondItem": "Desarrollé un generador de informes de mapas dinámicos donde utilice diferentes servicios de Mapbox (Mapbox Static Image API, Mapbox Tiling Service) para generar una serie de mapas con heatmaps dinámicos personalizados.",
+        "link": "https://www.darwoft.com/"
       }
     ],
     "resume": "Ver currículum"
