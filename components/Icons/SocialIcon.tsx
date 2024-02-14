@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import styled, { css } from 'styled-components';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -6,8 +5,6 @@ import { FiGithub } from 'react-icons/fi';
 import { AiOutlineMail } from 'react-icons/ai';
 import { FaLinkedinIn } from 'react-icons/fa';
 
-import { useCursor } from '@/hooks';
-import { getBoundingBox } from '@/utils';
 import { linkUrls } from '@/constants';
 import { AccesibleText } from '@/styles';
 
@@ -74,44 +71,14 @@ const SocialIconLink = styled.a`
   }
 `;
 
-//----------------- Hooks -----------------//
-const useAnimateCursor = () => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const { updateCursorPos, resetCursorPos, updateCursorType } = useCursor();
-
-  //----- Utils -----//
-  const handleMouseMove = () => {
-    // Change cursor style
-    updateCursorType('hovered');
-
-    // Use this because i'am sure the value is of the expected type.
-    const element: HTMLDivElement = ref.current as HTMLDivElement;
-    const coordinates = getBoundingBox(element);
-
-    // Take element coordinates
-    const { xCenter, yCenter } = coordinates;
-
-    // Center custom_cursor relative to the element
-    return updateCursorPos(xCenter, yCenter);
-  };
-
-  const handleMouseLeave = () => {
-    resetCursorPos();
-    updateCursorType('small');
-  };
-
-  return { ref, handleMouseMove, handleMouseLeave };
-};
-
 //----------------- Main component -----------------//
 export const SocialIcon = ({ type }: Social) => {
-  const { ref, handleMouseMove, handleMouseLeave } = useAnimateCursor();
   const { t } = useTranslation();
 
   const types = {
     github: (
       <SocialIconLink target="_blank" href={linkUrls.github} rel="noreferrer">
-        <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <SocialIconWrapper>
           <StyledGithubIcon aria-hidden="true" focusable="false" />
           <AccesibleText>{t('common:accesibility.links.github')}</AccesibleText>
         </SocialIconWrapper>
@@ -119,7 +86,7 @@ export const SocialIcon = ({ type }: Social) => {
     ),
     linkedin: (
       <SocialIconLink target="_blank" href={linkUrls.linkedin} rel="noreferrer">
-        <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <SocialIconWrapper>
           <StyledLinkedinIcon aria-hidden="true" focusable="false" />
           <AccesibleText>{t('common:accesibility.links.linkedin')}</AccesibleText>
         </SocialIconWrapper>
@@ -127,7 +94,7 @@ export const SocialIcon = ({ type }: Social) => {
     ),
     mail: (
       <SocialIconLink target="_blank" href={linkUrls.mail} rel="noreferrer">
-        <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <SocialIconWrapper>
           <StyledMailIcon aria-hidden="true" focusable="false" />
           <AccesibleText>{t('common:accesibility.links.email')}</AccesibleText>
         </SocialIconWrapper>

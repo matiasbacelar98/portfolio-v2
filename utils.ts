@@ -1,5 +1,3 @@
-import { MouseEvent } from 'react';
-
 // FluidValues - Typography/Spacing
 type FluidValuesType = (
   minWidthPx: number,
@@ -36,28 +34,6 @@ type PixelsToRemType = (value: string) => string;
 
 export const pixelsToRem: PixelsToRemType = value => {
   return `${Number(value) / 16}rem`;
-};
-
-// Get element x & y center coordinates
-type GetBoundingBoxType = <T extends HTMLElement>(
-  target: T
-) => { xCenter: number; yCenter: number };
-
-export const getBoundingBox: GetBoundingBoxType = target => {
-  const box = target.getBoundingClientRect();
-
-  return {
-    xCenter: (box.left + box.right) / 2,
-    yCenter: (box.top + box.bottom) / 2,
-  };
-};
-
-// Check if mouse left from the top
-type MouseLeaveFromTheTopType = <T extends HTMLElement>(e: MouseEvent, ref: T) => boolean;
-
-export const mouseLeaveFromTheTop: MouseLeaveFromTheTopType = (e, target) => {
-  const bottom = target.offsetTop + target.getBoundingClientRect().height;
-  return bottom > e.pageY;
 };
 
 // Add sroll to page

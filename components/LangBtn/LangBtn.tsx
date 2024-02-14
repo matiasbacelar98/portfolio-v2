@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 
 import { useOnClickOutside } from 'usehooks-ts';
-import { useCurrentLocale, useCursor } from '@/hooks';
+import { useCurrentLocale } from '@/hooks';
 
 import { DropdownHeader, DropdownList } from './Dropdown';
 import Show from '@/components/Show';
@@ -47,9 +47,6 @@ const LangBtn = ({ mobile }: LangBtnType) => {
 
   const elementRef = useRef<HTMLDivElement | null>(null);
 
-  // Cursor info
-  const { updateCursorType } = useCursor();
-
   // Closed dropdown
   useOnClickOutside(elementRef, () => setIsOpen(false));
 
@@ -63,14 +60,9 @@ const LangBtn = ({ mobile }: LangBtnType) => {
     setSelectedLang(lang);
   };
 
-  const handleMouseEnter = () => updateCursorType('small');
-  const handleMouseLeave = () => updateCursorType('hovered');
-
   return (
     <Wrapper
       ref={elementRef}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       mobile={mobile ? true : undefined}
       initial={{ opacity: mobile ? 1 : 0 }}
       animate={{ opacity: 1 }}

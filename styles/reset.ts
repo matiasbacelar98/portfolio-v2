@@ -120,7 +120,7 @@ const reset = css`
 
   /* Class for removing scroll */
   .remove-scroll {
-    overflow-y: hidden;
+    overflow-y: hidden !important;
   }
 `;
 

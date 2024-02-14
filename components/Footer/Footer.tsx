@@ -1,13 +1,9 @@
-import { MouseEvent, useRef } from 'react';
-
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import useTranslation from 'next-translate/useTranslation';
 
 import { SocialIcon, HandIcon } from '@/components/Icons';
 
-import { useCursor } from '@/hooks';
-import { mouseLeaveFromTheTop } from '@/utils';
 import { themeValues as theme, breakpoints } from '@/constants';
 import { Typography, sideSpacing } from '@/styles';
 
@@ -95,23 +91,6 @@ const StyledLine = styled.div`
 `;
 
 const Footer = () => {
-  const ref = useRef<HTMLElement | null>(null);
-  const { updateCursorType } = useCursor();
-
-  //----- Utils -----//
-  const handleMouseEnter = () => updateCursorType('small');
-
-  const handleMouseLeave = (e: MouseEvent) => {
-    // If reference is not ready don't execute
-    if (!ref.current) return;
-
-    // If mouse left from the top
-    if (mouseLeaveFromTheTop(e, ref.current)) return updateCursorType('hovered');
-
-    // If mouse left from the bottom
-    return updateCursorType('small');
-  };
-
   return (
     <StyledFooter
       initial={{ opacity: 0 }}
@@ -124,9 +103,6 @@ const Footer = () => {
           ease: 'easeIn',
         },
       }}
-      ref={ref}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       <StyledLine />
 

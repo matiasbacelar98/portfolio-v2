@@ -6,7 +6,7 @@ import { useDebounce } from 'usehooks-ts';
 
 import SkipLink from '@/components/SkipLink';
 
-import { useCursor, useTheme, useGetScrollbarWidth } from '@/hooks';
+import { useTheme, useGetScrollbarWidth } from '@/hooks';
 
 //  Outer components
 import Logo from '@/components/Logo';
@@ -122,22 +122,12 @@ const useAnimateOnScroll = () => {
 
 //----------- Main component -----------//
 const Header = () => {
-  const { updateCursorType } = useCursor();
   const { ref, controls } = useAnimateOnScroll();
 
   useGetScrollbarWidth();
 
-  //----- Utils -----//
-  const handleMouseEnter = () => updateCursorType('hovered');
-  const handleMouseLeave = () => updateCursorType('hovered');
-
   return (
-    <StyledHeader
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      animate={controls}
-      ref={ref}
-    >
+    <StyledHeader animate={controls} ref={ref}>
       <SkipLink />
       <Logo />
       <DesktopLinks />

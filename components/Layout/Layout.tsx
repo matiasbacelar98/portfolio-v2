@@ -1,3 +1,4 @@
+import React from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { ScrollerMotion } from 'scroller-motion';
@@ -73,7 +74,7 @@ const Layout = ({ children, page }: LayoutProps) => {
   useRemoveScroll();
 
   return (
-    <>
+    <React.Fragment>
       <Head title={title} description={description} />
 
       <Header />
@@ -94,7 +95,7 @@ const Layout = ({ children, page }: LayoutProps) => {
           <Footer />
         </Show>
       </ScrollerMotion>
-    </>
+    </React.Fragment>
   );
 };
 

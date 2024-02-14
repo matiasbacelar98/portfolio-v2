@@ -8,7 +8,7 @@ import Title from '@/components/Title';
 
 import { sideSpacing } from '@/styles';
 import { sectionNames } from '@/constants';
-import { useStoreDistance, useCursor, useSectionAnim } from '@/hooks';
+import { useStoreDistance, useSectionAnim } from '@/hooks';
 
 //----------- Main component -----------//
 const Wrapper = styled(motion.section)`
@@ -30,7 +30,6 @@ type JobType = {
 };
 
 const Experience = () => {
-  const { updateCursorType } = useCursor();
   const { ref } = useStoreDistance(sectionNames.experience);
   const { t } = useTranslation();
   const { initial, onScroll, viewport } = useSectionAnim();
@@ -49,8 +48,6 @@ const Experience = () => {
       whileInView={onScroll}
       viewport={viewport}
       ref={ref}
-      onMouseEnter={() => updateCursorType('default')}
-      onMouseLeave={() => updateCursorType('default')}
     >
       <Title content={t('home:experienceSection.title')} accessibleId="experience-title" line />
 

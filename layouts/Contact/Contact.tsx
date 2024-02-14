@@ -1,13 +1,11 @@
-import { MouseEvent, useRef } from 'react';
-
 import useTranslation from 'next-translate/useTranslation';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 import Title from '@/components/Title';
 
-import { useCursor, useSectionAnim } from '@/hooks';
-import { mouseLeaveFromTheTop } from '@/utils';
+import { useSectionAnim } from '@/hooks';
+
 import { themeValues as theme, breakpoints, linkUrls } from '@/constants';
 import { sideSpacing, Typography, AccesibleText } from '@/styles';
 
@@ -56,30 +54,11 @@ const ContactLink = styled.a`
 `;
 
 const Contact = () => {
-  const ref = useRef<HTMLElement | null>(null);
-  const { updateCursorType } = useCursor();
   const { t } = useTranslation();
   const { initial, onScroll } = useSectionAnim();
 
-  //----- Utils -----//
-  const handleMouseEnter = () => updateCursorType('hovered');
-
-  const handleMouseLeave = (e: MouseEvent) => {
-    // If reference is not ready don't execute
-    if (!ref.current) return;
-
-    // If mouse left from the top
-    if (mouseLeaveFromTheTop(e, ref.current)) return updateCursorType('default');
-
-    // If mouse left from the bottom
-    return updateCursorType('small');
-  };
-
   return (
     <Wrapper
-      ref={ref}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       aria-labelledby="contact-title"
       id="contact"
       initial={initial}

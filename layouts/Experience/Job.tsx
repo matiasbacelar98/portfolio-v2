@@ -1,7 +1,6 @@
 import useTranslation from 'next-translate/useTranslation';
 import styled from 'styled-components';
 
-import { useCursor } from '@/hooks';
 import { themeValues as theme } from '@/constants';
 import { Typography, OutterLink, AccesibleText } from '@/styles';
 
@@ -34,7 +33,6 @@ type JobRoleProps = {
 
 const JobRole = ({ role, company, time, link }: JobRoleProps) => {
   const { t } = useTranslation();
-  const { updateCursorType } = useCursor();
 
   const accesibleCompanyText = `${t('common:accesibility.experienceLinks.company')} ${company}`;
 
@@ -51,8 +49,6 @@ const JobRole = ({ role, company, time, link }: JobRoleProps) => {
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          onMouseEnter={() => updateCursorType('hovered')}
-          onMouseLeave={() => updateCursorType('default')}
         >
           <JobCompany aria-hidden="true">{company}</JobCompany>
           <AccesibleText>{accesibleCompanyText}</AccesibleText>

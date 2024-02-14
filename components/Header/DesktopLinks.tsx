@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-import { useCursor, useGetDistance } from '@/hooks';
+import { useGetDistance } from '@/hooks';
 import { breakpoints, sectionNames, themeValues as theme } from '@/constants';
 import { Typography, keyboardStyles, AccesibleText } from '@/styles';
 
@@ -15,10 +15,15 @@ const StyledItem = styled(motion.li)`
 
 const StyledItemLink = styled.a`
   padding: 4px var(--size-1);
+  transition: color 150ms ease-in-out;
   ${keyboardStyles}
 
   &:hover {
     cursor: pointer;
+
+    span:first-child {
+      color: ${props => props.theme.accent};
+    }
   }
 `;
 
@@ -101,12 +106,6 @@ const DesktopLinks = () => {
 
   const linksArr: LinkType[] = t('common:header.links', { count: [] }, { returnObjects: true });
 
-  //--------- Cursor animation ---------//
-  const { updateCursorType } = useCursor();
-
-  const handleMouseLeave = () => updateCursorType('hovered');
-  const handleMouseEnter = () => updateCursorType('small');
-
   const variants = {
     visible: (custom: number) => ({
       y: 0,
@@ -121,7 +120,7 @@ const DesktopLinks = () => {
 
   return (
     <nav>
-      <List onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter}>
+      <List>
         {linksArr.map((link, index) => (
           <Item key={link.id} content={link} index={index} variants={variants} />
         ))}

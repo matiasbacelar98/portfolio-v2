@@ -1,12 +1,9 @@
-import { useRef } from 'react';
 import styled, { css } from 'styled-components';
 import useTranslation from 'next-translate/useTranslation';
 
 import { HiOutlineExternalLink } from 'react-icons/hi';
 import { FiGithub } from 'react-icons/fi';
 
-import { getBoundingBox } from '@/utils';
-import { useCursor } from '@/hooks';
 import { AccesibleText } from '@/styles';
 
 const socialIconStyles = css`
@@ -57,35 +54,12 @@ type ProjectIconProps = {
 };
 
 export const ProjectIcon = ({ type, url }: ProjectIconProps) => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const { updateCursorType, updateCursorPos, resetCursorPos } = useCursor();
   const { t } = useTranslation();
-
-  //----- Utils -----//
-  const handleMouseMove = () => {
-    // Change cursor style
-    updateCursorType('small');
-
-    // Use this because i'am sure the value is of the expected type.
-    const element: HTMLDivElement = ref.current as HTMLDivElement;
-    const coordinates = getBoundingBox(element);
-
-    // Take element coordinates
-    const { xCenter, yCenter } = coordinates;
-
-    // Center custom_cursor relative to the element
-    return updateCursorPos(xCenter, yCenter);
-  };
-
-  const handleMouseLeave = () => {
-    resetCursorPos();
-    updateCursorType('default');
-  };
 
   const types = {
     github: (
       <StyledIconLink target="_blank" href={url} rel="noreferrer">
-        <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <SocialIconWrapper>
           <StyledGithubIcon aria-hidden="true" focusable="false" />
           <AccesibleText>{t('common:accesibility.linksProjects.github')}</AccesibleText>
         </SocialIconWrapper>
@@ -93,7 +67,7 @@ export const ProjectIcon = ({ type, url }: ProjectIconProps) => {
     ),
     open: (
       <StyledIconLink target="_blank" href={url} rel="noreferrer">
-        <SocialIconWrapper ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <SocialIconWrapper>
           <StyledOpenIcon aria-hidden="true" focusable="false" />
           <AccesibleText>{t('common:accesibility.linksProjects.live')}</AccesibleText>
         </SocialIconWrapper>

@@ -11,7 +11,7 @@ import Title from '@/components/Title';
 
 import { sideSpacing } from '@/styles';
 import { sectionNames, breakpoints } from '@/constants';
-import { useStoreDistance, useCursor, useSectionAnim } from '@/hooks';
+import { useStoreDistance, useSectionAnim } from '@/hooks';
 import { mouseLeaveFromTheTop } from '@/utils';
 
 const Wrapper = styled(motion.section)`
@@ -36,22 +36,7 @@ const SectionsWrapper = styled.div`
 const About = () => {
   const { t } = useTranslation();
   const { ref } = useStoreDistance(sectionNames.about);
-  const { updateCursorType } = useCursor();
   const { initial, onScroll, viewport } = useSectionAnim();
-
-  //----- Utils -----//
-  const handleMouseEnter = () => updateCursorType('default');
-
-  const handleMouseLeave = (e: MouseEvent) => {
-    // If reference is not ready don't execute
-    if (!ref.current) return;
-
-    // If mouse left from the top
-    if (mouseLeaveFromTheTop(e, ref.current)) return updateCursorType('hovered');
-
-    // If mouse left from the bottom
-    return updateCursorType('default');
-  };
 
   return (
     <Wrapper
@@ -61,8 +46,6 @@ const About = () => {
       initial={initial}
       whileInView={onScroll}
       ref={ref}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       <Title content={t('home:aboutSection.title')} accessibleId="about-title" line />
 

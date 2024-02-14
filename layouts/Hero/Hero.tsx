@@ -1,4 +1,4 @@
-import { MouseEvent, useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import useTranslation from 'next-translate/useTranslation';
 
@@ -7,8 +7,7 @@ import styled from 'styled-components';
 
 import { HandIcon } from '@/components/Icons';
 
-import { useCursor } from '@/hooks';
-import { mouseLeaveFromTheTop, addScroll } from '@/utils';
+import { addScroll } from '@/utils';
 
 import { sideSpacing, Typography, OutterLink, AccesibleText } from '@/styles';
 import { themeValues as theme, linkUrls, breakpoints } from '@/constants';
@@ -111,33 +110,11 @@ const useAnimateHero = () => {
 
 //----------- Main component -----------//
 const Hero = () => {
-  const ref = useRef<HTMLElement | null>(null);
-  const { updateCursorType } = useCursor();
   const { t } = useTranslation();
   const controls = useAnimateHero();
 
-  //----- Utils -----//
-  const handleMouseEnter = () => updateCursorType('hovered');
-
-  const handleMouseLeave = (e: MouseEvent) => {
-    // If reference is not ready don't execute
-    if (!ref.current) return;
-
-    // If mouse left from the top
-    if (mouseLeaveFromTheTop(e, ref.current)) return updateCursorType('hovered');
-
-    // If mouse left from the bottom
-    return updateCursorType('default');
-  };
-
   return (
-    <Wrapper
-      aria-labelledby="hero-title"
-      id="hero"
-      ref={ref}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <Wrapper aria-labelledby="hero-title" id="hero">
       <TextWrapper>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={controls.salute}>
           <HeroFlexWrapper>

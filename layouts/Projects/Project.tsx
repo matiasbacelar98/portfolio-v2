@@ -7,7 +7,6 @@ import Tilt from 'react-parallax-tilt';
 
 import { ProjectIcon } from '@/components/Icons';
 
-import { useCursor } from '@/hooks';
 import { breakpoints, themeValues as theme } from '@/constants';
 import { Typography, AccesibleText } from '@/styles';
 
@@ -29,7 +28,6 @@ const ImageWrapper = styled.a`
   display: inline-block;
   width: 100%;
   height: 100%;
-  cursor: none;
 
   &:focus {
     outline: 1px solid transparent;
@@ -45,16 +43,12 @@ type ProjectImgProps = {
 
 const ProjectImg = ({ liveUrl, img, name }: ProjectImgProps) => {
   const { t } = useTranslation();
-  const { updateCursorType } = useCursor();
 
   const projectAccesibleText = `${t('common:accesibility.projectsLinkText')} ${name}`;
 
   return (
     <Tilt scale={1.07} transitionSpeed={2000} tiltMaxAngleX={8.5} tiltMaxAngleY={8.5}>
-      <ProjectImgWrapper
-        onMouseEnter={() => updateCursorType('see')}
-        onMouseLeave={() => updateCursorType('default')}
-      >
+      <ProjectImgWrapper>
         <ImageWrapper href={liveUrl} target="_blank" rel="noreferrer">
           <Image src={img} alt={`${name} cover`} layout="fill" objectFit="cover" />
         </ImageWrapper>

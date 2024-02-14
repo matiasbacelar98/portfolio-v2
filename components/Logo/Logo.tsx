@@ -2,7 +2,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-import { useTheme, useCursor, useGetDistance, useCurrentLocale } from '@/hooks';
+import { useTheme, useGetDistance, useCurrentLocale } from '@/hooks';
 import { sectionNames } from '@/constants';
 import { keyboardStyles, AccesibleText } from '@/styles';
 
@@ -59,16 +59,12 @@ const Logo = ({ closedMenu = null }: LogoType) => {
   const { t } = useTranslation();
 
   const { toggleTheme } = useTheme();
-  const { updateCursorType } = useCursor();
   const { currentLocale } = useCurrentLocale();
 
   // Scroll
   const { goToSection } = useGetDistance();
 
   //------- Utils -------//
-  const handleMouseEnter = () => updateCursorType('logo');
-  const handleMouseLeave = () => updateCursorType('hovered');
-
   const handleClick = () => {
     // Scroll to section
     goToSection(sectionNames.home);
@@ -91,8 +87,6 @@ const Logo = ({ closedMenu = null }: LogoType) => {
       <LogoText aria-hidden="true">Mat</LogoText>
 
       <DotArea
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
         onClick={e => {
           toggleTheme();
           e.preventDefault();
