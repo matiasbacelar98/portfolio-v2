@@ -56,7 +56,7 @@
         "company": "@ Darwoft",
         "time": "Sep 2023 - Presente",
         "firstItem": "Desarrollé un generador de informes de mapas dinámicos con Next JS, utilizando componentes de servidor y cliente, la API de next-js para la creación de endpoints y la libreria Puppeteer.",
-        "secondItem": "Desarrollé un generador de informes de mapas dinámicos donde utilice diferentes servicios de Mapbox (Mapbox Static Image API, Mapbox Tiling Service) para generar una serie de mapas con heatmaps dinámicos personalizados.",
+        "secondItem": "Desarrollé un generador de informes de mapas dinámicos donde utilizo diferentes servicios de Mapbox (Mapbox static Image Api, Mapbox GL JS, etc...) para generar una serie de mapas con capas dinámicas personalizadas.",
         "link": "https://www.darwoft.com/"
       }
     ],

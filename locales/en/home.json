@@ -56,7 +56,7 @@
         "company": "@ Darwoft",
         "time": "Sep 2023 - Present",
         "firstItem": "Developed a dynamic map report builder using Next JS, using server and client components, next-js API for endpoint creation and the Puppeteer library.",
-        "secondItem": "Developed a dynamic map report builder where i utilice different Mapbox services (Mapbox Static Image API, Mapbox Tiling Service) for generating a series of maps with dynamic custom heatmaps.",
+        "secondItem": "Developed a dynamic map report builder where i utilice different Mapbox services (Mapbox static Image Api, Mapbox GL JS, etc...) for generating a series of maps with dynamic custom layers.",
         "link": "https://www.darwoft.com/"
       }
     ],
