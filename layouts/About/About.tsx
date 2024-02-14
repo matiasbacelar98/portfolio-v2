@@ -1,4 +1,3 @@
-import { MouseEvent } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
@@ -12,7 +11,6 @@ import Title from '@/components/Title';
 import { sideSpacing } from '@/styles';
 import { sectionNames, breakpoints } from '@/constants';
 import { useStoreDistance, useSectionAnim } from '@/hooks';
-import { mouseLeaveFromTheTop } from '@/utils';
 
 const Wrapper = styled(motion.section)`
   ${sideSpacing}
