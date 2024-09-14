@@ -16,11 +16,7 @@
     "title": "About",
     "content": [
       {
-        "id": "8MNYHWUz5X_etV7_NwgqG",
-        "text": "I am a FrontEnd developer from La Plata (Buenos Aires) with a focus on Javascript & React. I have an interest in micro interactions and effects in the UI as well as creating user experiences that are dynamic and interactive."
-      },
-      {
-        "text": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession. I enjoy building interfaces that are useful without losing the aesthetics of the application as I believe that usability and aesthetics are equally important.",
+        "text": "I started programming for fun and without realizing it, programming became a hobby and then a profession. I enjoy building interfaces that are useful without losing the aesthetics of the application as I believe that usability and aesthetics are equally important.",
         "id": "-I48kfEDEG3FqkFQ3Fazl"
       },
       {
