@@ -31,17 +31,17 @@ const StyledTechGrid = styled.div`
 `;
 
 const technologies = [
-  { id: nanoid(), text: '- Javascript' },
-  { id: nanoid(), text: '- React' },
-  { id: nanoid(), text: '- Node' },
-  { id: nanoid(), text: '- Git' },
+  { id: nanoid(), text: '- HTML' },
   { id: nanoid(), text: '- Typescript' },
+  { id: nanoid(), text: '- Node' },
+  { id: nanoid(), text: '- Vite/Webpack' },
+  { id: nanoid(), text: '- CSS' },
+  { id: nanoid(), text: '- React' },
+  { id: nanoid(), text: '- Docker' },
+  { id: nanoid(), text: '- Linux' },
+  { id: nanoid(), text: '- JavaScript' },
   { id: nanoid(), text: '- Next' },
-  { id: nanoid(), text: '- Mongoose' },
-  { id: nanoid(), text: '- Github Actions' },
-  { id: nanoid(), text: '- Vite' },
-  { id: nanoid(), text: '- RTL & Jest' },
-  { id: nanoid(), text: '- Mongo' },
+  { id: nanoid(), text: '- GIT' },
   { id: nanoid(), text: '- Figma' },
 ];
 
