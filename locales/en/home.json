@@ -17,7 +17,7 @@
     "content": [
       {
         "id": "8MNYHWUz5X_etV7_NwgqG",
-        "text": "I am a self-taught developer from La Plata (Buenos Aires) with a focus on Javascript & React. I have an interest in micro interactions and effects in the UI as well as creating user experiences that are dynamic and interactive."
+        "text": "I am a FrontEnd developer from La Plata (Buenos Aires) with a focus on Javascript & React. I have an interest in micro interactions and effects in the UI as well as creating user experiences that are dynamic and interactive."
       },
       {
         "text": "I started programming for fun a few years ago and without realizing it, programming became a hobby and now a profession. I enjoy building interfaces that are useful without losing the aesthetics of the application as I believe that usability and aesthetics are equally important.",
@@ -37,8 +37,8 @@
         "position": "Front-end Developer",
         "company": "@ Darwoft",
         "time": "Sep 2023 - Present",
-        "firstItem": "Developed a dynamic map report builder using Next JS, using server and client components, next-js API for endpoint creation and the Puppeteer library.",
-        "secondItem": "Developed a dynamic map report builder where i utilice different Mapbox services (Mapbox static Image Api, Mapbox GL JS, etc...) for generating a series of maps with dynamic custom layers.",
+        "firstItem": "Built an application to generate reports based on agronomic information on soil studies, where I used the mapbox library to generate dynamic data-driven maps to visualize soil properties.",
+        "secondItem": "Develop a tool to dynamically visualize soil study reports on a map; develop functionalities such as maps with data-driven layers, layer comparison, synchronization of multiple maps, multi-layers, ruler tool, among others.",
         "link": "https://www.darwoft.com/"
       },
       {
@@ -46,8 +46,8 @@
         "position": "Front-end Developer",
         "company": "@ ModoAgrario",
         "time": "May 2022 - Oct 2023",
-        "firstItem": "Developed and mantained code for the company software (Collaborative E-sourcing platform) with React and his ecosystem.",
-        "secondItem": "Develop the landing page of the company with Next JS, I used the Internationalized Routing functionality to have translations in English, Spanish and Portuguese as well as adding animations using framer motion.",
+        "firstItem": "Developed and maintained code for the company software (Collaborative E-sourcing platform) with React and his ecosystem.",
+        "secondItem": "Implement performance improvements to the Collaborative E-sourcing platform to improve loading times.",
         "link": "https://www.modoagrario.com/"
       },
       {
@@ -55,8 +55,8 @@
         "position": "Freelance Developer",
         "company": "@ Freelancer",
         "time": "Aug 2021 - May 2022",
-        "firstItem": "Website for the SPB Circle of Officers with the React ecosystem, the most important features were custom form validation, storing data in firebase, custom maps and animations.",
-        "secondItem": "Application called Tiendas platenses that give users the ability to search for different products and contact the specific seller of that product.",
+        "firstItem": "Build a website for the SPB Circle of Officers using with React and his ecosystem.",
+        "secondItem": "Build a website call Tiendas Platenses with Wordpress and PHP.",
         "link": "https://www.linkedin.com/in/matias-bacelar-371140199/"
       }
     ],

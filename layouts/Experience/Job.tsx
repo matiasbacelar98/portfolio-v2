@@ -1,8 +1,33 @@
 import useTranslation from 'next-translate/useTranslation';
 import styled from 'styled-components';
 
-import { themeValues as theme } from '@/constants';
 import { Typography, OutterLink, AccesibleText } from '@/styles';
+import { themeValues as theme } from '@/constants';
+
+type JobTypeProps = {
+  data: {
+    id: string;
+    position: string;
+    company: string;
+    time: string;
+    firstItem: string;
+    secondItem: string;
+    link: string;
+  };
+};
+
+const Job = ({ data }: JobTypeProps) => {
+  const { position, company, time, firstItem, secondItem, link } = data;
+
+  return (
+    <div>
+      <JobRole role={position} company={company} time={time} link={link} />
+      <JobInfo first={firstItem} second={secondItem} />
+    </div>
+  );
+};
+
+export default Job;
 
 //---------------- JobRole ----------------//
 const JobRoleWrapper = styled.div`
@@ -113,29 +138,3 @@ const JobInfo = ({ first, second }: JobInfoProps) => {
     </JobInfoWrapper>
   );
 };
-
-//---------------- Main component ----------------//
-type JobTypeProps = {
-  data: {
-    id: string;
-    position: string;
-    company: string;
-    time: string;
-    firstItem: string;
-    secondItem: string;
-    link: string;
-  };
-};
-
-const Job = ({ data }: JobTypeProps) => {
-  const { position, company, time, firstItem, secondItem, link } = data;
-
-  return (
-    <div>
-      <JobRole role={position} company={company} time={time} link={link} />
-      <JobInfo first={firstItem} second={secondItem} />
-    </div>
-  );
-};
-
-export default Job;

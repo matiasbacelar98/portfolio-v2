@@ -37,8 +37,8 @@
         "position": "Front-end Developer",
         "company": "@ Darwoft",
         "time": "Sep 2023 - Presente",
-        "firstItem": "Desarrollé un generador de informes de mapas dinámicos con Next JS, utilizando componentes de servidor y cliente, la API de next-js para la creación de endpoints y la libreria Puppeteer.",
-        "secondItem": "Desarrollé un generador de informes de mapas dinámicos donde utilizo diferentes servicios de Mapbox (Mapbox static Image Api, Mapbox GL JS, etc...) para generar una serie de mapas con capas dinámicas personalizadas.",
+        "firstItem": "Construí una aplicación para generar informes basados ​​en información agronómica sobre estudios de suelo, donde utilicé la biblioteca mapbox para generar mapas dinámicos basados ​​en datos para visualizar las propiedades del suelo.",
+        "secondItem": "Desarrollé una herramienta para visualizar dinámicamente reportes de estudios de suelos en un mapa; desarrolle funcionalidades como mapas con capas basadas en datos, comparación de capas, sincronización de múltiples mapas, multicapas, herramienta de regla, entre otras.",
         "link": "https://www.darwoft.com/"
       },
       {
@@ -47,17 +47,17 @@
         "company": "@ ModoAgrario",
         "time": "Mayo 2022 - Presente",
         "link": "https://www.modoagrario.com/",
-        "firstItem": "Desarrollo y mantenimiento de código para el software de la empresa (plataforma colaborativa de E-sourcing) con React y su ecosistema.",
-        "secondItem": "Desarrollo del sitio web de la empresa con Next JS, utilizacion de la funcionalidad de Enrutamiento Internacionalizado para tener traducciones en inglés, español y portugués además de animaciones utilizando framer motion."
+        "firstItem": "Desarrollé y mantuvo código para el software de la empresa (plataforma colaborativa de E-sourcing) con React y su ecosistema.",
+        "secondItem": "Implementé mejoras de rendimiento para el software de la empresa (plataforma colaborativa de E-sourcing) para mejorar los tiempos de carga."
       },
       {
         "id": "ELxCcpWgvoFxIDJZkP4xT",
         "position": "Freelance Developer",
         "company": "@ Freelancer",
         "time": "Agosto 2021 - Mayo 2022",
-        "firstItem": "Sitio web para el Círculo de Oficiales de SPB con el ecosistema de React, las características más importantes fueron la validación de formularios dinamicos, el almacenamiento de datos en firebase, mapas personalizados y animaciones.",
-        "link": "https://www.linkedin.com/in/matias-bacelar-371140199/",
-        "secondItem": "Aplicación llamada Tiendas platenses que brinda a los usuarios la posibilidad de buscar diferentes productos y contactar al vendedor específico de ese producto."
+        "firstItem": "Construí un sitio web para el Círculo de Oficiales de SPB utilizando React y su ecosistema.",
+        "secondItem": "Construí un sitio web llamado Tiendas Platenses con Wordpress y PHP.",
+        "link": "https://www.linkedin.com/in/matias-bacelar-371140199/"
       }
     ],
     "resume": "Ver currículum"
