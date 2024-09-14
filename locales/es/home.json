@@ -33,13 +33,13 @@
     "title": "Experiencia",
     "info": [
       {
-        "id": "ELxCcpWgvoFxIDJZkP4xT",
-        "position": "Freelance Developer",
-        "company": "@ Freelancer",
-        "time": "Agosto 2021 - Mayo 2022",
-        "firstItem": "Sitio web para el Círculo de Oficiales de SPB con el ecosistema de React, las características más importantes fueron la validación de formularios dinamicos, el almacenamiento de datos en firebase, mapas personalizados y animaciones.",
-        "link": "https://www.linkedin.com/in/matias-bacelar-371140199/",
-        "secondItem": "Aplicación llamada Tiendas platenses que brinda a los usuarios la posibilidad de buscar diferentes productos y contactar al vendedor específico de ese producto."
+        "id": "1f444371-c89a-4bff-94bd-5040c516b136",
+        "position": "Front-end Developer",
+        "company": "@ Darwoft",
+        "time": "Sep 2023 - Presente",
+        "firstItem": "Desarrollé un generador de informes de mapas dinámicos con Next JS, utilizando componentes de servidor y cliente, la API de next-js para la creación de endpoints y la libreria Puppeteer.",
+        "secondItem": "Desarrollé un generador de informes de mapas dinámicos donde utilizo diferentes servicios de Mapbox (Mapbox static Image Api, Mapbox GL JS, etc...) para generar una serie de mapas con capas dinámicas personalizadas.",
+        "link": "https://www.darwoft.com/"
       },
       {
         "id": "VJf9l-Tw9SgcI4yN9kd8O",
@@ -51,13 +51,13 @@
         "secondItem": "Desarrollo del sitio web de la empresa con Next JS, utilizacion de la funcionalidad de Enrutamiento Internacionalizado para tener traducciones en inglés, español y portugués además de animaciones utilizando framer motion."
       },
       {
-        "id": "1f444371-c89a-4bff-94bd-5040c516b136",
-        "position": "Front-end Developer",
-        "company": "@ Darwoft",
-        "time": "Sep 2023 - Presente",
-        "firstItem": "Desarrollé un generador de informes de mapas dinámicos con Next JS, utilizando componentes de servidor y cliente, la API de next-js para la creación de endpoints y la libreria Puppeteer.",
-        "secondItem": "Desarrollé un generador de informes de mapas dinámicos donde utilizo diferentes servicios de Mapbox (Mapbox static Image Api, Mapbox GL JS, etc...) para generar una serie de mapas con capas dinámicas personalizadas.",
-        "link": "https://www.darwoft.com/"
+        "id": "ELxCcpWgvoFxIDJZkP4xT",
+        "position": "Freelance Developer",
+        "company": "@ Freelancer",
+        "time": "Agosto 2021 - Mayo 2022",
+        "firstItem": "Sitio web para el Círculo de Oficiales de SPB con el ecosistema de React, las características más importantes fueron la validación de formularios dinamicos, el almacenamiento de datos en firebase, mapas personalizados y animaciones.",
+        "link": "https://www.linkedin.com/in/matias-bacelar-371140199/",
+        "secondItem": "Aplicación llamada Tiendas platenses que brinda a los usuarios la posibilidad de buscar diferentes productos y contactar al vendedor específico de ese producto."
       }
     ],
     "resume": "Ver currículum"

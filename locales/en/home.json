@@ -33,13 +33,13 @@
     "title": "Experience",
     "info": [
       {
-        "id": "xQEzJedV0twxY0Y_RFsnh",
-        "position": "Freelance Developer",
-        "company": "@ Freelancer",
-        "time": "Aug 2021 - May 2022",
-        "firstItem": "Website for the SPB Circle of Officers with the React ecosystem, the most important features were custom form validation, storing data in firebase, custom maps and animations.",
-        "secondItem": "Application called Tiendas platenses that give users the ability to search for different products and contact the specific seller of that product.",
-        "link": "https://www.linkedin.com/in/matias-bacelar-371140199/"
+        "id": "98782a5d-5645-4eef-a716-e9c83983e177",
+        "position": "Front-end Developer",
+        "company": "@ Darwoft",
+        "time": "Sep 2023 - Present",
+        "firstItem": "Developed a dynamic map report builder using Next JS, using server and client components, next-js API for endpoint creation and the Puppeteer library.",
+        "secondItem": "Developed a dynamic map report builder where i utilice different Mapbox services (Mapbox static Image Api, Mapbox GL JS, etc...) for generating a series of maps with dynamic custom layers.",
+        "link": "https://www.darwoft.com/"
       },
       {
         "id": "a0RZ5qb7NRJHHbNufacTQ",
@@ -51,13 +51,13 @@
         "link": "https://www.modoagrario.com/"
       },
       {
-        "id": "98782a5d-5645-4eef-a716-e9c83983e177",
-        "position": "Front-end Developer",
-        "company": "@ Darwoft",
-        "time": "Sep 2023 - Present",
-        "firstItem": "Developed a dynamic map report builder using Next JS, using server and client components, next-js API for endpoint creation and the Puppeteer library.",
-        "secondItem": "Developed a dynamic map report builder where i utilice different Mapbox services (Mapbox static Image Api, Mapbox GL JS, etc...) for generating a series of maps with dynamic custom layers.",
-        "link": "https://www.darwoft.com/"
+        "id": "xQEzJedV0twxY0Y_RFsnh",
+        "position": "Freelance Developer",
+        "company": "@ Freelancer",
+        "time": "Aug 2021 - May 2022",
+        "firstItem": "Website for the SPB Circle of Officers with the React ecosystem, the most important features were custom form validation, storing data in firebase, custom maps and animations.",
+        "secondItem": "Application called Tiendas platenses that give users the ability to search for different products and contact the specific seller of that product.",
+        "link": "https://www.linkedin.com/in/matias-bacelar-371140199/"
       }
     ],
     "resume": "View My Resume"
