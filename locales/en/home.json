@@ -72,15 +72,6 @@
         "img": "https://res.cloudinary.com/mb-dev-98/image/upload/v1674422100/snapcode_main_fea174a64e_f99779a793.png"
       },
       {
-        "id": "C2r83cpLTRvy5HBm0I0Vv",
-        "name": "Moderne",
-        "technologies": ["React", "Framer motion", "Mapbox", "Styled components"],
-        "info": "Moderne is an app for a fictional high tech property construction company, in this project the focus is on animations using both Framer Motion and CSS.",
-        "liveUrl": "https://moderne-app.vercel.app/",
-        "githubUrl": "https://github.com/matiasbacelar98/moderne-app",
-        "img": "https://res.cloudinary.com/mb-dev-98/image/upload/f_auto,c_limit,w_1920,q_auto/v1674467925/moderne_main_e91720befd_ad584b9b9d_afd132ac76_748c5a83d3.svg"
-      },
-      {
         "id": "dNVdVnFjiifqzNKvQaEQL",
         "name": "Portfolio v1",
         "technologies": ["Next", "Strapi", "Axios", "Styled components"],

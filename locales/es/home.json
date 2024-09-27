@@ -72,15 +72,6 @@
         "img": "https://res.cloudinary.com/mb-dev-98/image/upload/v1674422100/snapcode_main_fea174a64e_f99779a793.png"
       },
       {
-        "name": "Moderne",
-        "technologies": ["React", "Framer motion", "Mapbox", "Styled components"],
-        "info": "Moderne es una aplicación para una empresa ficticia de construcción de propiedades de alta tecnología, en este proyecto el foco está en animaciones utilizando tanto Framer Motion como CSS.",
-        "liveUrl": "https://moderne-app.vercel.app/",
-        "githubUrl": "https://github.com/matiasbacelar98/moderne-app",
-        "id": "qRxubD1LPErLDHpqZcOMF",
-        "img": "https://res.cloudinary.com/mb-dev-98/image/upload/f_auto,c_limit,w_1920,q_auto/v1674467925/moderne_main_e91720befd_ad584b9b9d_afd132ac76_748c5a83d3.svg"
-      },
-      {
         "name": "Portfolio v1",
         "technologies": ["Next", "Strapi", "Axios", "Styled components"],
         "info": "Primera versión de mi portfolio construida con Next JS (SSG) en el frontend y Strapi CMS como backend.",
